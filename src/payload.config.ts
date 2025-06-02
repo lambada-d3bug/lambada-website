@@ -7,6 +7,7 @@ import { buildConfig } from 'payload'
 import { Pages } from './collections/Pages'
 import { Users } from './collections/Users'
 import { MainMenu } from './globals/MainMenu'
+import {Media} from "@/collections/Media";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +26,7 @@ export default buildConfig({
       ],
     },
   },
-  collections: [Pages, Users],
+  collections: [Pages, Users, Media],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
