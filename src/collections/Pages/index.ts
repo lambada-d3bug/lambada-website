@@ -1,52 +1,59 @@
-import type { CollectionConfig } from 'payload'
+import type {CollectionConfig} from 'payload'
 
 import richText from '../../fields/richText'
-import { loggedIn } from './access/loggedIn'
-import { formatSlug } from './hooks/formatSlug'
+import {loggedIn} from './access/loggedIn'
+import {formatSlug} from './hooks/formatSlug'
+import {ResponsiveGallery} from "@/blocks/responsive-gallery/config";
+
 
 export const Pages: CollectionConfig = {
-  slug: 'pages',
-  access: {
-    create: loggedIn,
-    delete: loggedIn,
-    read: () => true,
-    update: loggedIn,
-  },
-  admin: {
-    defaultColumns: ['title', 'slug', 'updatedAt'],
-    livePreview: {
-      url: ({ data }) => {
-        const isHomePage = data.slug === 'home'
-        return `${process.env.NEXT_PUBLIC_SERVER_URL}${!isHomePage ? `/${data.slug}` : ''}`
-      },
+    slug: 'pages',
+    access: {
+        create: loggedIn,
+        delete: loggedIn,
+        read: () => true,
+        update: loggedIn,
     },
-    useAsTitle: 'title',
-  },
-  fields: [
-    {
-      name: 'title',
-      type: 'text',
-      required: true,
+    admin: {
+        defaultColumns: ['title', 'slug', 'updatedAt'],
+        livePreview: {
+            url: ({data}) => {
+                const isHomePage = data.slug === 'home'
+                return `${process.env.NEXT_PUBLIC_SERVER_URL}${!isHomePage ? `/${data.slug}` : ''}`
+            },
+        },
+        useAsTitle: 'title',
     },
-    {
-      name: 'slug',
-      type: 'text',
-      admin: {
-        position: 'sidebar',
-      },
-      hooks: {
-        beforeValidate: [formatSlug('title')],
-      },
-      index: true,
-      label: 'Slug',
+    fields: [
+        {
+            name: 'title',
+            type: 'text',
+            required: true,
+        },
+        {
+            name: 'slug',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+            },
+            hooks: {
+                beforeValidate: [formatSlug('title')],
+            },
+            index: true,
+            label: 'Slug',
+        }, {
+            name: 'layout',
+            label: 'Layout',
+            type: 'blocks',
+            blocks: [ResponsiveGallery],
+        },
+        richText(),
+    ],
+    versions: {
+        drafts: {
+            autosave: {
+                interval: 375,
+            },
+        },
     },
-    richText(),
-  ],
-  versions: {
-    drafts: {
-      autosave: {
-        interval: 375,
-      },
-    },
-  },
 }
