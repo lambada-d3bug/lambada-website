@@ -76,6 +76,7 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8",
     "vaul": "^1.1.2",
+    "webpack": "^5.99.9",
     "zod": "^3.25.48"
   },
   "devDependencies": {

@@ -1,19 +1,23 @@
-import { Card, CardContent } from "@/components/ui/card"
-import {Button } from "@/components/ui/button"
-import { Media } from "@/payload-types"
-import { useState } from "react"
+'use client'
+
+import {Card, CardContent} from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
+import {Media} from "@/payload-types"
+import {useState} from "react"
 import Image from "next/image"
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import {cn} from "@/utilities/ui";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
 
 
 interface ResponsiveGalleryProps {
-    imagesArray: Media[]
+    imagesArray: { image: Media, id: string }[]
 }
 
-export function ResponsiveGalleryBlock (props: ResponsiveGalleryProps){
-    const {imagesArray}= props
+export function ResponsiveGalleryBlock(props: ResponsiveGalleryProps) {
+    const {imagesArray} = props
     const [currentIndex, setCurrentIndex] = useState(0)
+    console.log(imagesArray)
 
     const totalImages = imagesArray.length
     const visibleImages = {
@@ -31,89 +35,26 @@ export function ResponsiveGalleryBlock (props: ResponsiveGalleryProps){
     }
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">La plage de Farinole</h1>
-
-            <div className="relative">
-                {/* Mobile View (1 image) */}
-                <div className="md:hidden relative">
-                    <Card className="overflow-hidden">
-                        <CardContent className="p-0 relative aspect-[4/3]">
-                            <Image
-                                src={imagesArray[currentIndex % totalImages].url || "/placeholder.svg"}
-                                alt={imagesArray[currentIndex % totalImages].alt}
-                                fill
-                                className="object-cover"
-                            />
-                        </CardContent>
-                    </Card>
-                    <Button
-                        variant="secondary"
-                        size="icon"
-                        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90"
-                        onClick={prevSlide}
-                    >
-                        <ChevronLeft className="h-4 w-4" />
-                        <span className="sr-only">Previous slide</span>
-                    </Button>
-                    <Button
-                        variant="secondary"
-                        size="icon"
-                        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90"
-                        onClick={nextSlide}
-                    >
-                        <ChevronRight className="h-4 w-4" />
-                        <span className="sr-only">Next slide</span>
-                    </Button>
-                </div>
-
-                {/* Tablet View (2 images) */}
-                <div className="hidden md:grid lg:hidden grid-cols-2 gap-4">
-                    {[0, 1].map((offset) => (
-                        <Card key={offset} className="overflow-hidden">
-                            <CardContent className="p-0 relative aspect-[4/3]">
+        <div className="w-full max-w-full mx-auto px-4 py-8 flex flex-col lg:bg-[#fbc96526]">
+            <h1 className="text-lg lg:text-5xl font-bold mb-6">La plage de Farinole</h1>
+            <Carousel className="w-full max-w-full overflow-visible">
+                <CarouselContent className="h-82 lg:h-48 -ml-2 md:-ml-4">
+                    {imagesArray.map((image, index) => (
+                        <CarouselItem key={index} className="basis-full md:basis-[60%] lg:basis-[40%] pl-2 md:pl-4">
+                            <div className="relative w-full h-full rounded-lg">
                                 <Image
-                                    src={imagesArray[(currentIndex + offset) % totalImages].url || "/placeholder.svg"}
-                                    alt={imagesArray[(currentIndex + offset) % totalImages].alt}
+                                    src={(image.image.url as string) || "/placeholder.svg"}
+                                    alt={image.image.alt}
                                     fill
-                                    className="object-cover"
+                                    className="rounded-lg object-cover"
                                 />
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </CarouselItem>
                     ))}
-                </div>
-
-                {/* Desktop View (3 images) */}
-                <div className="hidden lg:grid grid-cols-3 gap-4">
-                    {[0, 1, 2].map((offset) => (
-                        <Card key={offset} className="overflow-hidden">
-                            <CardContent className="p-0 relative aspect-[4/3]">
-                                <Image
-                                    src={imagesArray[(currentIndex + offset) % totalImages].url || "/placeholder.svg"}
-                                    alt={imagesArray[(currentIndex + offset) % totalImages].alt}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-
-                {/* Navigation dots (optional) */}
-                <div className="flex justify-center mt-4 gap-2">
-                    {Array.from({ length: totalImages }).map((_, index) => (
-                        <Button
-                            key={index}
-                            variant="ghost"
-                            size="icon"
-                            className={cn("w-2 h-2 rounded-full p-0", currentIndex === index ? "bg-primary" : "bg-muted")}
-                            onClick={() => setCurrentIndex(index)}
-                        >
-                            <span className="sr-only">Go to slide {index + 1}</span>
-                        </Button>
-                    ))}
-                </div>
-            </div>
+                </CarouselContent>
+                <CarouselPrevious className="ml-14 md:ml-24" />
+                <CarouselNext className="mr-14 md:mr-24" />
+            </Carousel>
         </div>
     )
 }

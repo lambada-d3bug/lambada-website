@@ -9,6 +9,7 @@ import { Gutter } from '../_components/Gutter'
 import RichText from '../_components/RichText'
 import classes from './index.module.scss'
 import { RefreshRouteOnSave } from './RefreshRouteOnSave'
+import {RenderBlocks} from "@/utilities/renderBlocks";
 
 interface PageParams {
   params: Promise<{
@@ -42,6 +43,7 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     <Fragment>
       <RefreshRouteOnSave />
       <main className={classes.page}>
+        <RenderBlocks blocks={data.layout} />
         <Gutter>
           <RichText content={data?.richText} />
         </Gutter>
