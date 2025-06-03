@@ -1,23 +1,36 @@
 'use client'
-import {Media} from "@/payload-types";
-import Image from 'next/image'
-import {Button} from "@/components/ui/button"
+import {Header} from "@/payload-types";
 import {HeaderDesktop} from "@/globals/header/headerDesktop";
+import {HeaderMobile} from "@/globals/header/headerMobile";
+import {useEffect, useState} from "react";
 
 export interface HeaderBlockProps {
-    logo: Media
-    navItems: {
-        label: string,
-        url: string,
-    }[]
-    navButton: {
-        label: string,
-        url: string,
-    }
+    HeaderProps: Header
 }
 
 export function HeaderBlock(props: HeaderBlockProps) {
+    function useWindowWidth() {
+        const [width, setWidth] = useState<number | null>(null)
+
+        useEffect(() => {
+            // Now we are in the browser
+            const handleResize = () => setWidth(window.innerWidth)
+
+            // Set initial width
+            handleResize()
+
+            window.addEventListener('resize', handleResize)
+            return () => window.removeEventListener('resize', handleResize)
+        }, [])
+
+        return width
+    }
 
 
-    return (<HeaderDesktop {...props}/>)
+    const width = useWindowWidth()
+    if (width === null) return null
+    return (<>{width > 620 ?
+        <HeaderDesktop {...props} /> :
+        <HeaderMobile {...props} />
+    }</>)
 }

@@ -88,9 +88,11 @@ export interface Config {
   };
   globals: {
     'main-menu': MainMenu;
+    header: Header;
   };
   globalsSelect: {
     'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
+    header: HeaderSelect<false> | HeaderSelect<true>;
   };
   locale: null;
   user: User & {
@@ -128,22 +130,32 @@ export interface Page {
   title: string;
   slug?: string | null;
   layout?:
-    | {
-        title?: string | null;
-        imagesArray?:
-          | {
-              image?: (string | null) | Media;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'responsiveGallery';
-      }[]
+    | (
+        | {
+            title?: string | null;
+            imagesArray?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'responsiveGallery';
+          }
+        | {
+            bgImage?: (string | null) | Media;
+            heading?: string | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+      )[]
     | null;
-  richText: {
-    [k: string]: unknown;
-  }[];
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -268,8 +280,21 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        hero?:
+          | T
+          | {
+              bgImage?: T;
+              heading?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
-  richText?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -365,6 +390,30 @@ export interface MainMenu {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  navLogo?: (string | null) | Media;
+  navItems?:
+    | {
+        itemsGroup?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  navButton?: {
+    label?: string | null;
+    labelMobile?: string | null;
+    url?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "main-menu_select".
  */
 export interface MainMenuSelect<T extends boolean = true> {
@@ -381,6 +430,34 @@ export interface MainMenuSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  navLogo?: T;
+  navItems?:
+    | T
+    | {
+        itemsGroup?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  navButton?:
+    | T
+    | {
+        label?: T;
+        labelMobile?: T;
+        url?: T;
       };
   updatedAt?: T;
   createdAt?: T;
