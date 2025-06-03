@@ -17,14 +17,14 @@ export function HeaderMobile(props: HeaderBlockProps) {
 
     return (<Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-            <div className={'flex flex-row justify-between px-4 py-4 items-center'}>
+            <div className={'flex flex-row justify-between px-4 py-4 items-center absolute top-0 left-0 w-full'}>
                 <div className={'w-12 h-12 relative '}>
                     {isMedia(navLogo) && navLogo.url && (
                         <Image src={navLogo.url as string} alt={navLogo.alt} fill className={'object-contain'}/>
                     )}
                 </div>
 
-                <Button variant="ghost" size="icon" className="md:hidden">
+                <Button variant="ghost" size="icon" className="md:hidden hover:bg-[#0E7269]">
                     <svg
                         width="24"
                         height="24"

@@ -9,7 +9,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
     const {HeaderProps} = props;
     const {navLogo, navItems, navButton} = HeaderProps
 
-    return (<div className={'flex flex-row w-full justify-between py-10 px-16 lg:px-24'}>
+    return (<div className={'flex flex-row w-full justify-between py-10 px-12 lg:px-24 absolute top-0 left-0'}>
         <div className={'flex flex-row'}>
             <div className="relative h-12 w-12">
                 {isMedia(navLogo) && navLogo.url && (

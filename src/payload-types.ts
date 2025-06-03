@@ -154,6 +154,27 @@ export interface Page {
             blockName?: string | null;
             blockType: 'hero';
           }
+        | {
+            title?:
+              | {
+                  titlePart?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            cardArray?:
+              | {
+                  card?: {
+                    icon?: (string | null) | Media;
+                    title?: string | null;
+                    description?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'gridOrCarousel';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -290,6 +311,30 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gridOrCarousel?:
+          | T
+          | {
+              title?:
+                | T
+                | {
+                    titlePart?: T;
+                    id?: T;
+                  };
+              cardArray?:
+                | T
+                | {
+                    card?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

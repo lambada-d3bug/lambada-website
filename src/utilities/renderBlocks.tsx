@@ -1,17 +1,21 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 
-import type { Page } from '@/payload-types'
+import type {Page} from '@/payload-types'
 import {ResponsiveGalleryBlock} from "@/blocks/responsive-gallery";
+import {HeroBlock} from "@/blocks/hero";
+import {GridOrCarouselBlock} from "@/blocks/grid-or-carousel";
 
 
 const blockComponents = {
-responsiveGallery: ResponsiveGalleryBlock,
+    responsiveGallery: ResponsiveGalleryBlock,
+    hero: HeroBlock,
+    gridOrCarousel: GridOrCarouselBlock,
 }
 
 export const RenderBlocks: React.FC<{
     blocks: Page['layout']
 }> = (props) => {
-    const { blocks } = props
+    const {blocks} = props
 
     const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
@@ -19,22 +23,22 @@ export const RenderBlocks: React.FC<{
         return (
             <Fragment>
                 {blocks.map((block, index) => {
-                        const { blockType } = block
+                    const {blockType} = block
 
-                        if (blockType && blockType in blockComponents) {
-                            const Block = blockComponents[blockType]
+                    if (blockType && blockType in blockComponents) {
+                        const Block = blockComponents[blockType]
 
-                            if (Block) {
-                                return (
-                                    <div key={index}>
-                                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any*/}
-                                        <Block {...(block as any)} />
+                        if (Block) {
+                            return (
+                                <div key={index}>
+                                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                    <Block {...(block as any)} />
                                 </div>
                             )
-                            }
                         }
-                        return null
-                    })}
+                    }
+                    return null
+                })}
             </Fragment>
         )
     }

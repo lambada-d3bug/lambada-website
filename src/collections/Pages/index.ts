@@ -1,10 +1,9 @@
 import type {CollectionConfig} from 'payload'
-
-import richText from '../../fields/richText'
 import {loggedIn} from './access/loggedIn'
 import {formatSlug} from './hooks/formatSlug'
 import {ResponsiveGallery} from "@/blocks/responsive-gallery/config";
 import {Hero} from "@/blocks/hero/config";
+import {GridOrCarousel} from "@/blocks/grid-or-carousel/config";
 
 
 export const Pages: CollectionConfig = {
@@ -46,7 +45,7 @@ export const Pages: CollectionConfig = {
             name: 'layout',
             label: 'Layout',
             type: 'blocks',
-            blocks: [ResponsiveGallery, Hero],
+            blocks: [ResponsiveGallery, Hero, GridOrCarousel],
         },
     ],
     versions: {
