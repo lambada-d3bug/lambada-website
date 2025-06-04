@@ -170,6 +170,10 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
             id?: string | null;
             blockName?: string | null;
             blockType: 'gridOrCarousel';
@@ -335,6 +339,12 @@ export interface PagesSelect<T extends boolean = true> {
                           description?: T;
                         };
                     id?: T;
+                  };
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
                   };
               id?: T;
               blockName?: T;

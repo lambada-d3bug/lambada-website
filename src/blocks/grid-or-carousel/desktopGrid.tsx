@@ -6,7 +6,7 @@ import {GridOrCarouselBlockProps} from "@/blocks/grid-or-carousel/index";
 
 export function DesktopGrid(props: GridOrCarouselBlockProps) {
     const {cardArray, title} = props;
-    return(<div className={'mx-48 mt-16 space-y-16'}>
+    return (<div className={'mx-48 mt-16 space-y-16'}>
         <div className="flex flex-row justify-center">
             <p className="text-center text-3xl font-semibold">
                 {title.titlePart} <span className="text-[#0E7269]">{title.titlePart1}</span> {title.titlePart2}
@@ -14,7 +14,8 @@ export function DesktopGrid(props: GridOrCarouselBlockProps) {
         </div>
         <div className={'grid grid-cols-3 gap-4 mb-32'}>
             {cardArray.map((item, index) => (
-                <Card key={index} className={'group rounded-none bg-[#FFF9EC] hover:bg-[#FBC965] text-black hover:text-white'}>
+                <Card key={index}
+                      className={'group rounded-none bg-[#FFF9EC] hover:bg-[#FBC965] text-black hover:text-white'}>
                     <CardContent className={'flex flex-col items-center px-6 py-10 space-y-4'}>
                         <div className={"relative h-8 w-8"}>
                             <SvgFromUrl url={item.card.icon.url as string} alt={item.card.icon.alt}
@@ -26,7 +27,5 @@ export function DesktopGrid(props: GridOrCarouselBlockProps) {
                     </CardContent>
                 </Card>))}
         </div>
-
-
     </div>)
 }
