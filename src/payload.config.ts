@@ -9,6 +9,7 @@ import { Users } from './collections/Users'
 import { MainMenu } from './globals/MainMenu'
 import {Media} from "@/collections/Media";
 import {header} from "@/globals/header/config";
+import {Footer} from "@/globals/footer/config";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -32,7 +33,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   editor: slateEditor({}),
-  globals: [MainMenu, header],
+  globals: [MainMenu, header, Footer],
   secret: process.env.PAYLOAD_SECRET || '',
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
   typescript: {

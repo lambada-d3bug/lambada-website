@@ -1,6 +1,6 @@
 'use client'
-import {Media} from "@/payload-types";
 
+import {Media} from "@/payload-types";
 import {DesktopGrid} from "@/blocks/grid-or-carousel/desktopGrid";
 import {useWindowWidth} from "@/utilities/useWindowWidth";
 import {MobileTabletCarousel} from "@/blocks/grid-or-carousel/mobileTabletCarousel";

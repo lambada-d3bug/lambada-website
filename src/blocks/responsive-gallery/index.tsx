@@ -1,12 +1,8 @@
 'use client'
 
-import {Card, CardContent} from "@/components/ui/card"
-import {Button} from "@/components/ui/button"
 import {Media} from "@/payload-types"
 import {useState} from "react"
 import Image from "next/image"
-import {ChevronLeft, ChevronRight} from "lucide-react";
-import {cn} from "@/utilities/ui";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
 
 

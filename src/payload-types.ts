@@ -89,10 +89,12 @@ export interface Config {
   globals: {
     'main-menu': MainMenu;
     header: Header;
+    footer: Footer;
   };
   globalsSelect: {
     'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -469,6 +471,54 @@ export interface Header {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  blockDisplayBoolean?: boolean | null;
+  logo?: (string | null) | Media;
+  description?: string | null;
+  button?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  navArray?:
+    | {
+        navItem?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  terms?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  confidentiality?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  socials?:
+    | {
+        social?: {
+          icon?: (string | null) | Media;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  copyright?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "main-menu_select".
  */
 export interface MainMenuSelect<T extends boolean = true> {
@@ -513,6 +563,64 @@ export interface HeaderSelect<T extends boolean = true> {
         label?: T;
         labelMobile?: T;
         url?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  blockDisplayBoolean?: T;
+  logo?: T;
+  description?: T;
+  button?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  navArray?:
+    | T
+    | {
+        navItem?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  terms?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  confidentiality?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  socials?:
+    | T
+    | {
+        social?:
+          | T
+          | {
+              icon?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  copyright?:
+    | T
+    | {
+        text?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
