@@ -155,12 +155,11 @@ export interface Page {
             blockType: 'hero';
           }
         | {
-            title?:
-              | {
-                  titlePart?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
+            title?: {
+              titlePart?: string | null;
+              titlePart1?: string | null;
+              titlePart2?: string | null;
+            };
             cardArray?:
               | {
                   card?: {
@@ -322,7 +321,8 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     titlePart?: T;
-                    id?: T;
+                    titlePart1?: T;
+                    titlePart2?: T;
                   };
               cardArray?:
                 | T

@@ -3,8 +3,10 @@ import {Block} from "payload";
 export const GridOrCarousel: Block = {
     slug: "gridOrCarousel",
     labels: {singular: "carousel ou grid", plural: 'carousel ou grid'},
-    fields: [{name: "title", label: "Titre décomposé", type: "array", fields:[
-            {name:"titlePart", label:"Partie du titre", type: "text"}
+    fields: [{name: "title", label: "Titre décomposé", type: "group", fields:[
+            {name:"titlePart", label:"Partie du titre", type: "text"},
+            {name:"titlePart1", label:"Partie du titre", type: "text"},
+            {name:"titlePart2", label:"Partie du titre", type: "text"}
         ]},
         {
             name: "cardArray", label: "tableau de cards", type: 'array', fields: [
