@@ -88,9 +88,13 @@ export interface Config {
   };
   globals: {
     'main-menu': MainMenu;
+    header: Header;
+    footer: Footer;
   };
   globalsSelect: {
     'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
+    header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -128,22 +132,56 @@ export interface Page {
   title: string;
   slug?: string | null;
   layout?:
-    | {
-        title?: string | null;
-        imagesArray?:
-          | {
-              image?: (string | null) | Media;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'responsiveGallery';
-      }[]
+    | (
+        | {
+            title?: string | null;
+            imagesArray?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'responsiveGallery';
+          }
+        | {
+            bgImage?: (string | null) | Media;
+            heading?: string | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            title?: {
+              titlePart?: string | null;
+              titlePart1?: string | null;
+              titlePart2?: string | null;
+            };
+            cardArray?:
+              | {
+                  card?: {
+                    icon?: (string | null) | Media;
+                    title?: string | null;
+                    description?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'gridOrCarousel';
+          }
+      )[]
     | null;
-  richText: {
-    [k: string]: unknown;
-  }[];
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -268,8 +306,52 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        hero?:
+          | T
+          | {
+              bgImage?: T;
+              heading?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gridOrCarousel?:
+          | T
+          | {
+              title?:
+                | T
+                | {
+                    titlePart?: T;
+                    titlePart1?: T;
+                    titlePart2?: T;
+                  };
+              cardArray?:
+                | T
+                | {
+                    card?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                        };
+                    id?: T;
+                  };
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
-  richText?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -365,6 +447,78 @@ export interface MainMenu {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  navLogo?: (string | null) | Media;
+  navItems?:
+    | {
+        itemsGroup?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  navButton?: {
+    label?: string | null;
+    labelMobile?: string | null;
+    url?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  blockDisplayBoolean?: boolean | null;
+  logo?: (string | null) | Media;
+  description?: string | null;
+  button?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  navArray?:
+    | {
+        navItem?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  terms?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  confidentiality?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  socials?:
+    | {
+        social?: {
+          icon?: (string | null) | Media;
+          url?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  copyright?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "main-menu_select".
  */
 export interface MainMenuSelect<T extends boolean = true> {
@@ -380,6 +534,92 @@ export interface MainMenuSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  navLogo?: T;
+  navItems?:
+    | T
+    | {
+        itemsGroup?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  navButton?:
+    | T
+    | {
+        label?: T;
+        labelMobile?: T;
+        url?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  blockDisplayBoolean?: T;
+  logo?: T;
+  description?: T;
+  button?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  navArray?:
+    | T
+    | {
+        navItem?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  terms?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  confidentiality?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  socials?:
+    | T
+    | {
+        social?:
+          | T
+          | {
+              icon?: T;
+              url?: T;
+            };
+        id?: T;
+      };
+  copyright?:
+    | T
+    | {
+        text?: T;
         id?: T;
       };
   updatedAt?: T;

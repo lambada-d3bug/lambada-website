@@ -1,49 +1,34 @@
-'use client'
+'use client';
 
-import {Card, CardContent} from "@/components/ui/card"
-import {Button} from "@/components/ui/button"
-import {Media} from "@/payload-types"
-import {useState} from "react"
-import Image from "next/image"
-import {ChevronLeft, ChevronRight} from "lucide-react";
-import {cn} from "@/utilities/ui";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
-
+import { Media } from '@/payload-types';
+import Image from 'next/image';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from '@/components/ui/carousel';
 
 interface ResponsiveGalleryProps {
-    imagesArray: { image: Media, id: string }[]
+    imagesArray: { image: Media; id: string }[];
 }
 
 export function ResponsiveGalleryBlock(props: ResponsiveGalleryProps) {
-    const {imagesArray} = props
-    const [currentIndex, setCurrentIndex] = useState(0)
-    console.log(imagesArray)
-
-    const totalImages = imagesArray.length
-    const visibleImages = {
-        mobile: 1,
-        tablet: 2,
-        desktop: 3,
-    }
-
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1 >= totalImages ? 0 : prevIndex + 1))
-    }
-
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? totalImages - 1 : prevIndex - 1))
-    }
+    const { imagesArray } = props;
 
     return (
-        <div className="w-full max-w-full mx-auto px-4 py-8 flex flex-col lg:bg-[#fbc96526]">
-            <h1 className="text-lg lg:text-5xl font-bold mb-6">La plage de Farinole</h1>
+        <div className="mx-auto flex w-full max-w-full flex-col px-4 py-8 lg:bg-[#fbc96526]">
+            <h1 className="mb-6 text-lg font-bold lg:text-5xl">La plage de Farinole</h1>
             <Carousel className="w-full max-w-full overflow-visible">
-                <CarouselContent className="h-82 lg:h-48 -ml-2 md:-ml-4">
+                <CarouselContent className="-ml-2 h-82 md:-ml-4 lg:h-48">
                     {imagesArray.map((image, index) => (
-                        <CarouselItem key={index} className="basis-full md:basis-[60%] lg:basis-[40%] pl-2 md:pl-4">
-                            <div className="relative w-full h-full rounded-lg">
+                        <CarouselItem
+                            key={index}
+                            className="basis-full pl-2 md:basis-[60%] md:pl-4 lg:basis-[40%]">
+                            <div className="relative h-full w-full rounded-lg">
                                 <Image
-                                    src={(image.image.url as string) || "/placeholder.svg"}
+                                    src={(image.image.url as string) || '/placeholder.svg'}
                                     alt={image.image.alt}
                                     fill
                                     className="rounded-lg object-cover"
@@ -56,5 +41,5 @@ export function ResponsiveGalleryBlock(props: ResponsiveGalleryProps) {
                 <CarouselNext className="mr-14 md:mr-24" />
             </Carousel>
         </div>
-    )
+    );
 }

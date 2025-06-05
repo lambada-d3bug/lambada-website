@@ -1,6 +1,6 @@
-import {Block} from "payload";
+import { GlobalConfig} from "payload";
 
-export const header: Block = {
+export const header: GlobalConfig = {
     slug: "header",
     fields: [
         {name: "navLogo", label: "logo de la barre de navigation", type: "upload", relationTo: 'media'},
@@ -16,6 +16,7 @@ export const header: Block = {
         {
             name: "navButton", label: "bouton de la barre de nav", type: "group", fields: [
                 {name: "label", label: "label", type: "text"},
+                {name:'labelMobile', label: "labelMobile", type: "text"},
                 {name: "url", label: "url", type: "text"}]
         }],
 
