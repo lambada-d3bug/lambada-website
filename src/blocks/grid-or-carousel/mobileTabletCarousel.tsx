@@ -16,7 +16,7 @@ export function MobileTabletCarousel(props: GridOrCarouselBlockProps) {
         if (!api) {
             return;
         }
-        console.log('before', current);
+
         setCount(api.scrollSnapList().length);
         setCurrent(api.selectedScrollSnap() + 1);
         api.scrollTo(2);
@@ -24,7 +24,6 @@ export function MobileTabletCarousel(props: GridOrCarouselBlockProps) {
         api.on('select', () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
-        console.log('after', current);
     }, [api]);
     return (
         <div className={'w-full space-y-16 py-16'}>

@@ -27,7 +27,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         slug: 'footer',
         depth: 1,
     });
-    console.log('footerProps', FooterProps);
 
     return (
         <html lang="en">
