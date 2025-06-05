@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HeaderBlockProps } from './index';
-import { redirect, usePathname, useRouter } from 'next/navigation';
+import { redirect, useParams, usePathname, useRouter } from 'next/navigation';
 import { isMedia } from '@/utilities/isMedia';
 import Link from 'next/link';
 import {
@@ -18,7 +18,10 @@ import { useState } from 'react';
 export function HeaderDesktop(props: HeaderBlockProps) {
     const { HeaderProps } = props;
     const { navLogo, navItems, navButton, language } = HeaderProps;
-    const [selectedLang, setSelectedLang] = useState('fr');
+    const params = useParams();
+    const rawLocale = params?.locale;
+    const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
+    const [selectedLang, setSelectedLang] = useState<string | undefined>(locale ? locale : 'fr');
 
     const router = useRouter();
     const pathname = usePathname();
@@ -27,6 +30,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
         const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
         const newPath = `/${newLocale}${pathWithoutLocale}`;
         router.push(newPath);
+        setSelectedLang(newLocale);
     };
     return (
         <div

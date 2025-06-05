@@ -3,10 +3,6 @@ import webpack from 'webpack'; // Correct ES module import
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    i18n: {
-        locales: ['en', 'fr', 'it'],
-        defaultLocale: 'fr',
-    },
     webpack: (config) => {
         config.plugins.push(
             new webpack.IgnorePlugin({

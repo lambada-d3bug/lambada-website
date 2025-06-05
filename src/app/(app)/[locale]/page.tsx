@@ -14,7 +14,7 @@ interface PageParams {
     }>;
 }
 
-export default async function RootHomePage({ params: paramsPromise }: PageParams) {
+export default async function Page({ params: paramsPromise }: PageParams) {
     const { locale = 'fr' } = await paramsPromise;
     const slug = 'home';
     const payload = await getPayload({ config });
