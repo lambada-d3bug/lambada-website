@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-exports */
 import React from 'react';
 
-import './app.scss';
+import './[locale]/app.scss';
 import '@/styles/globals.css';
 import { HeaderBlock } from '@/globals/header';
 import { getPayload } from 'payload';

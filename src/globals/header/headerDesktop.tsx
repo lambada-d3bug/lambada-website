@@ -1,14 +1,33 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HeaderBlockProps } from './index';
-import { redirect } from 'next/navigation';
+import { redirect, usePathname, useRouter } from 'next/navigation';
 import { isMedia } from '@/utilities/isMedia';
 import Link from 'next/link';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
+import { useState } from 'react';
 
 export function HeaderDesktop(props: HeaderBlockProps) {
     const { HeaderProps } = props;
-    const { navLogo, navItems, navButton } = HeaderProps;
+    const { navLogo, navItems, navButton, language } = HeaderProps;
+    const [selectedLang, setSelectedLang] = useState('fr');
 
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const handleLanguageChange = (newLocale: string) => {
+        const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
+        const newPath = `/${newLocale}${pathWithoutLocale}`;
+        router.push(newPath);
+    };
     return (
         <div
             className={
@@ -39,13 +58,28 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     ))}
                 </div>
             </div>
-            <Button
-                className={
-                    'rounded-2xl bg-[#FBC965] text-lg text-white uppercase hover:bg-[#f2ba49]'
-                }
-                onClick={() => redirect(navButton?.url as string)}>
-                {navButton?.labelMobile}
-            </Button>
+            <div className={'flex flex-row space-x-2'}>
+                <Button
+                    className={
+                        'rounded-2xl bg-[#FBC965] text-lg text-white uppercase hover:bg-[#f2ba49]'
+                    }
+                    onClick={() => redirect(navButton?.url as string)}>
+                    {navButton?.labelMobile}
+                </Button>
+                <Select value={selectedLang} onValueChange={handleLanguageChange}>
+                    <SelectTrigger className={'text-white'}>
+                        <SelectValue>{selectedLang}</SelectValue>
+                    </SelectTrigger>
+                    <SelectContent className={'text-primary'}>
+                        {language?.languageChoice &&
+                            language.languageChoice.map((item, i) => (
+                                <SelectItem key={i} value={item.lang as string}>
+                                    {item.lang}
+                                </SelectItem>
+                            ))}
+                    </SelectContent>
+                </Select>
+            </div>
         </div>
     );
 }
