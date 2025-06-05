@@ -70,6 +70,7 @@ export interface Config {
     pages: Page;
     users: User;
     media: Media;
+    googleReviews: GoogleReview;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    googleReviews: GoogleReviewsSelect<false> | GoogleReviewsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -180,6 +182,39 @@ export interface Page {
             blockName?: string | null;
             blockType: 'gridOrCarousel';
           }
+        | {
+            reviewArray?:
+              | {
+                  starLogo?: (string | null) | Media;
+                  reviewCard?: {
+                    personalOverall?: number | null;
+                    reviewContent?: string | null;
+                    secondaryNoteArray?:
+                      | {
+                          secondaryNoteDescription?: string | null;
+                          secondaryNote?: number | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    reviewUser?: {
+                      UserName?: string | null;
+                      UserAvatar?: string | null;
+                    };
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'reviewCarousel';
+          }
+        | {
+            title?: string | null;
+            starEmptyLogo?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'overallRating';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -224,6 +259,28 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviews".
+ */
+export interface GoogleReview {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -240,6 +297,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'googleReviews';
+        value: string | GoogleReview;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -351,6 +412,45 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        reviewCarousel?:
+          | T
+          | {
+              reviewArray?:
+                | T
+                | {
+                    starLogo?: T;
+                    reviewCard?:
+                      | T
+                      | {
+                          personalOverall?: T;
+                          reviewContent?: T;
+                          secondaryNoteArray?:
+                            | T
+                            | {
+                                secondaryNoteDescription?: T;
+                                secondaryNote?: T;
+                                id?: T;
+                              };
+                          reviewUser?:
+                            | T
+                            | {
+                                UserName?: T;
+                                UserAvatar?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        overallRating?:
+          | T
+          | {
+              title?: T;
+              starEmptyLogo?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -388,6 +488,27 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviews_select".
+ */
+export interface GoogleReviewsSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

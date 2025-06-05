@@ -10,6 +10,7 @@ import { MainMenu } from './globals/MainMenu';
 import { Media } from '@/collections/Media';
 import { header } from '@/globals/header/config';
 import { Footer } from '@/globals/footer/config';
+import { GoogleReviews } from '@/collections/google-reviews';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +37,7 @@ export default buildConfig({
         ],
         defaultLocale: 'fr', // required
     },
-    collections: [Pages, Users, Media],
+    collections: [Pages, Users, Media, GoogleReviews],
     db: mongooseAdapter({
         url: process.env.DATABASE_URI || '',
     }),

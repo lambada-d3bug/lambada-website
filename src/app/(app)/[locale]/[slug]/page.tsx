@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getPayload } from 'payload';
 import React, { Fragment } from 'react';
 
@@ -20,8 +20,12 @@ interface PageParams {
 export default async function Page({ params: paramsPromise }: PageParams) {
     const { slug = 'home', locale = 'fr' } = await paramsPromise;
 
+    if (slug === 'home') {
+        redirect('/fr/');
+    }
+
     const payload = await getPayload({ config });
-    console.log(locale);
+
     const pageRes = await payload.find({
         collection: 'pages',
         draft: false,

@@ -5,21 +5,6 @@ export const ReviewCarousel: Block = {
     labels: { singular: 'Carousselle de review google', plural: 'Carousselle de review google' },
     fields: [
         {
-            name: 'headingGroup',
-            label: "Groupe de l'en-tête",
-            type: 'group',
-            fields: [
-                { name: 'title', label: 'titre', type: 'text', localized: true },
-                { name: 'overallRating', label: 'note globale', type: 'text', localized: true },
-                {
-                    name: 'starEmptyLogo',
-                    label: 'logo étoile creuse',
-                    type: 'upload',
-                    relationTo: 'media',
-                },
-            ],
-        },
-        {
             name: 'reviewArray',
             label: 'Tableau de reviews',
             type: 'array',
