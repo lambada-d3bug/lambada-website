@@ -1,98 +1,143 @@
-'use client'
+'use client';
 
-import {HeaderBlockProps} from "@/globals/header/index";
-import {isMedia} from "@/utilities/isMedia";
-import {cn} from '@/utilities/ui'
-import {Button} from '@/components/ui/button'
-import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
-import Image from 'next/image'
-import {useState} from "react";
-import {redirect} from "next/navigation";
-import Link from "next/link";
+import { HeaderBlockProps } from '@/globals/header/index';
+import { isMedia } from '@/utilities/isMedia';
+import { cn } from '@/utilities/ui';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import Image from 'next/image';
+import { useState } from 'react';
+import { redirect, useParams, usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 
 export function HeaderMobile(props: HeaderBlockProps) {
-    const [open, setOpen] = useState(false)
-    const {HeaderProps} = props
-    const {navLogo, navItems, navButton} = HeaderProps
+    const [open, setOpen] = useState(false);
+    const { HeaderProps } = props;
+    const { navLogo, navItems, navButton } = HeaderProps;
+    const params = useParams();
+    const rawLocale = params?.locale;
+    const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
+    const [selectedLang, setSelectedLang] = useState<string | undefined>(locale ? locale : 'fr');
+    console.log(selectedLang);
+    const router = useRouter();
+    const pathname = usePathname();
 
-    return (<Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
-            <div className={'flex flex-row justify-between px-4 py-4 items-center absolute top-0 left-0 w-full'}>
-                <div className={'w-12 h-12 relative '}>
-                    {isMedia(navLogo) && navLogo.url && (
-                        <Image src={navLogo.url as string} alt={navLogo.alt} fill className={'object-contain'}/>
-                    )}
-                </div>
+    const handleLanguageChange = (newLocale: string) => {
+        const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
+        const newPath = `/${newLocale}${pathWithoutLocale}`;
+        router.push(newPath);
+        setSelectedLang(newLocale);
+    };
 
-                <Button variant="ghost" size="icon" className="md:hidden hover:bg-[#0E7269]">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M3 12H21"
-                            stroke="#1A1A1A"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M3 6H21"
-                            stroke="#1A1A1A"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M3 18H21"
-                            stroke="#1A1A1A"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                    <span className="sr-only">Toggle menu</span>
-                </Button>
-            </div>
-        </SheetTrigger>
-        <SheetContent side="left" className="p-0 w-1/2 max-w-full  border-none">
-            <div className="flex flex-col h-full bg-white rounded-lg">
-                <div className="flex justify-center items-center p-4">
-                    <div className="flex-1 flex justify-center mt-24">
+    return (
+        <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+                <div
+                    className={
+                        'absolute top-0 left-0 flex w-full flex-row items-center justify-between px-4 py-4'
+                    }>
+                    <div className={'relative h-12 w-12'}>
                         {isMedia(navLogo) && navLogo.url && (
                             <Image
                                 src={navLogo.url as string}
                                 alt={navLogo.alt}
-                                width={150}
-                                height={50}
-                                className="object-cover"
+                                fill
+                                className={'object-contain'}
                             />
                         )}
                     </div>
+
+                    <Button variant="ghost" size="icon" className="hover:bg-[#0E7269] md:hidden">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3 12H21"
+                                stroke="#1A1A1A"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M3 6H21"
+                                stroke="#1A1A1A"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M3 18H21"
+                                stroke="#1A1A1A"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                        <span className="sr-only">Toggle menu</span>
+                    </Button>
                 </div>
-
-                <nav className="flex flex-col px-0 py-6 space-y-4 justify-center">
-                    {navItems?.map((item, i) => (
-                        <div key={i} className="mx-4 hover:text-white">
-                            <Link
-                                href={item.itemsGroup?.url as string}
-                                className={cn(
-                                    'flex items-center gap-4 rounded-md py-3 text-sm font-medium pl-4 hover:bg-[#FBC965] ',
-                                )}
-                            >
-
-                                <span>{item.itemsGroup?.label}</span>
-                            </Link>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-1/2 max-w-full border-none p-0">
+                <div className="flex h-full flex-col rounded-lg bg-white">
+                    <div className="flex items-center justify-center p-4">
+                        <div className="mt-24 flex flex-1 justify-center">
+                            {isMedia(navLogo) && navLogo.url && (
+                                <Image
+                                    src={navLogo.url as string}
+                                    alt={navLogo.alt}
+                                    width={150}
+                                    height={50}
+                                    className="object-cover"
+                                />
+                            )}
                         </div>
-                    ))}
-                </nav>
-                <Button className={"mx-4 rounded-2xl bg-[#FBC965] hover:bg-[#f2ba49]"}
-                        onClick={() => redirect(navButton?.url as string)}>{navButton?.labelMobile}</Button>
+                    </div>
 
-            </div>
-        </SheetContent>
-    </Sheet>)
+                    <nav className="flex flex-col justify-center space-y-4 px-0 py-6">
+                        {navItems?.map((item, i) => (
+                            <div key={i} className="mx-4 hover:text-white">
+                                <Link
+                                    href={item.itemsGroup?.url as string}
+                                    className={cn(
+                                        'flex items-center gap-4 rounded-md py-3 pl-4 text-sm font-medium hover:bg-[#FBC965]',
+                                    )}>
+                                    <span>{item.itemsGroup?.label}</span>
+                                </Link>
+                            </div>
+                        ))}
+                    </nav>
+                    <Button
+                        className={'mx-4 rounded-2xl bg-[#FBC965] hover:bg-[#f2ba49]'}
+                        onClick={() => redirect(navButton?.url as string)}>
+                        {navButton?.labelMobile}
+                    </Button>
+                    <div className={'mt-12 flex justify-center'}>
+                        <Select value={selectedLang} onValueChange={handleLanguageChange}>
+                            <SelectTrigger className={'text-primary'}>
+                                <SelectValue>{selectedLang}</SelectValue>
+                            </SelectTrigger>
+                            <SelectContent className={'text-primary'}>
+                                {HeaderProps.language?.languageChoice &&
+                                    HeaderProps.language.languageChoice.map((item, i) => (
+                                        <SelectItem key={i} value={item.lang as string}>
+                                            {item.lang}
+                                        </SelectItem>
+                                    ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                </div>
+            </SheetContent>
+        </Sheet>
+    );
 }

@@ -96,7 +96,7 @@ export interface Config {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'fr' | 'it';
   user: User & {
     collection: 'users';
   };
@@ -466,6 +466,15 @@ export interface Header {
     labelMobile?: string | null;
     url?: string | null;
   };
+  language?: {
+    languagePlaceholder?: string | null;
+    languageChoice?:
+      | {
+          lang?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -563,6 +572,17 @@ export interface HeaderSelect<T extends boolean = true> {
         label?: T;
         labelMobile?: T;
         url?: T;
+      };
+  language?:
+    | T
+    | {
+        languagePlaceholder?: T;
+        languageChoice?:
+          | T
+          | {
+              lang?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

@@ -9,8 +9,8 @@ export const ReviewCarousel: Block = {
             label: "Groupe de l'en-tête",
             type: 'group',
             fields: [
-                { name: 'title', label: 'titre', type: 'text' },
-                { name: 'overallRating', label: 'note globale', type: 'text' },
+                { name: 'title', label: 'titre', type: 'text', localized: true },
+                { name: 'overallRating', label: 'note globale', type: 'text', localized: true },
                 {
                     name: 'starEmptyLogo',
                     label: 'logo étoile creuse',
@@ -40,7 +40,12 @@ export const ReviewCarousel: Block = {
                             label: 'note personelle principale',
                             type: 'number',
                         },
-                        { name: 'reviewContent', label: "corps d'avis", type: 'text' },
+                        {
+                            name: 'reviewContent',
+                            label: "corps d'avis",
+                            type: 'text',
+                            localized: true,
+                        },
                         {
                             name: 'secondaryNoteArray',
                             label: 'tableau des notes secondaires',
@@ -50,6 +55,7 @@ export const ReviewCarousel: Block = {
                                     name: 'secondaryNoteDescription',
                                     label: 'description de la note secondaire',
                                     type: 'text',
+                                    localized: true,
                                 },
                                 {
                                     name: 'secondaryNote',
@@ -68,6 +74,7 @@ export const ReviewCarousel: Block = {
                                     name: 'UserAvatar',
                                     label: "Image de l'utilisateur",
                                     type: 'text',
+                                    localized: true,
                                 },
                             ],
                         },

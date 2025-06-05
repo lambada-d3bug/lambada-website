@@ -1,4 +1,4 @@
-import { withPayload } from '@payloadcms/next/withPayload'
+import { withPayload } from '@payloadcms/next/withPayload';
 import webpack from 'webpack'; // Correct ES module import
 
 /** @type {import('next').NextConfig} */
@@ -7,7 +7,7 @@ const nextConfig = {
         config.plugins.push(
             new webpack.IgnorePlugin({
                 resourceRegExp: /^pg-native$|^cloudflare:sockets$/,
-            })
+            }),
         );
         return config;
     },
@@ -21,8 +21,8 @@ const nextConfig = {
             },
         ],
     },
-}
+};
 
 export default withPayload(nextConfig, {
     devBundleServerPackages: false,
-})
+});

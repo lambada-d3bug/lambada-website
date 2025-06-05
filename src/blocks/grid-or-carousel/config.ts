@@ -9,9 +9,9 @@ export const GridOrCarousel: Block = {
             label: 'Titre décomposé',
             type: 'group',
             fields: [
-                { name: 'titlePart', label: 'Partie du titre', type: 'text' },
-                { name: 'titlePart1', label: 'Partie du titre', type: 'text' },
-                { name: 'titlePart2', label: 'Partie du titre', type: 'text' },
+                { name: 'titlePart', label: 'Partie du titre', type: 'text', localized: true },
+                { name: 'titlePart1', label: 'Partie du titre', type: 'text', localized: true },
+                { name: 'titlePart2', label: 'Partie du titre', type: 'text', localized: true },
             ],
         },
         {
@@ -25,8 +25,13 @@ export const GridOrCarousel: Block = {
                     type: 'group',
                     fields: [
                         { name: 'icon', label: 'icon', type: 'upload', relationTo: 'media' },
-                        { name: 'title', label: 'titre', type: 'text' },
-                        { name: 'description', label: 'description', type: 'text' },
+                        { name: 'title', label: 'titre', type: 'text', localized: true },
+                        {
+                            name: 'description',
+                            label: 'description',
+                            type: 'text',
+                            localized: true,
+                        },
                     ],
                 },
             ],
@@ -36,8 +41,8 @@ export const GridOrCarousel: Block = {
             label: 'bouton',
             type: 'group',
             fields: [
-                { name: 'label', label: 'label', type: 'text' },
-                { name: 'url', label: 'url', type: 'text' },
+                { name: 'label', label: 'label', type: 'text', localized: true },
+                { name: 'url', label: 'url', type: 'text', localized: true },
             ],
         },
     ],
