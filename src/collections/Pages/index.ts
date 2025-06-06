@@ -6,6 +6,7 @@ import { Hero } from '@/blocks/hero/config';
 import { GridOrCarousel } from '@/blocks/grid-or-carousel/config';
 import { ReviewCarousel } from '@/blocks/review-carousel/config';
 import { OverallRating } from '@/blocks/overall-rating/config';
+import { ResidencesPresentation } from '@/blocks/residences-presentation/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -47,7 +48,14 @@ export const Pages: CollectionConfig = {
             name: 'layout',
             label: 'Layout',
             type: 'blocks',
-            blocks: [ResponsiveGallery, Hero, GridOrCarousel, ReviewCarousel, OverallRating],
+            blocks: [
+                ResponsiveGallery,
+                Hero,
+                GridOrCarousel,
+                ReviewCarousel,
+                OverallRating,
+                ResidencesPresentation,
+            ],
         },
     ],
     versions: {

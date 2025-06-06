@@ -200,6 +200,114 @@ export interface Page {
             blockName?: string | null;
             blockType: 'overallRating';
           }
+        | {
+            headingGroup?: {
+              heading?: string | null;
+              starLogo?: (string | null) | Media;
+              reviewsNumber?: number | null;
+              rating?: string | null;
+              location?: string | null;
+              description?: string | null;
+              saveGroup?: {
+                label?: string | null;
+                url?: string | null;
+                logo?: (string | null) | Media;
+              };
+              shareGroup?: {
+                label?: string | null;
+                url?: string | null;
+                logo?: (string | null) | Media;
+              };
+            };
+            imagesArray?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            tabs?: {
+              descriptionTab?: {
+                iconArray?:
+                  | {
+                      iconGroup?: {
+                        icon?: (string | null) | Media;
+                        label?: string | null;
+                      };
+                      id?: string | null;
+                    }[]
+                  | null;
+                descriptionGroup?: {
+                  heading?: string | null;
+                  description?: string | null;
+                };
+                cautionnGroup?: {
+                  heading?: string | null;
+                  description?: string | null;
+                };
+                button?: {
+                  label?: string | null;
+                  url?: string | null;
+                };
+              };
+              localisationTab?: {
+                longitude?: string | null;
+                latitude?: string | null;
+                adressGroup?: {
+                  streetName?: string | null;
+                  postCode?: string | null;
+                  townName?: string | null;
+                  country?: string | null;
+                  houseNumber?: string | null;
+                };
+              };
+              equipementsTab?:
+                | {
+                    equipement?: {
+                      label?: string | null;
+                      items?:
+                        | {
+                            label?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
+              reviewsTab?: {
+                overallGroup?: {
+                  overallText?: string | null;
+                  logo?: (string | null) | Media;
+                };
+                reviewsGroup?: {
+                  logo?: (string | null) | Media;
+                  reviewArray?:
+                    | {
+                        reviewGroup?: {
+                          overallRating?: string | null;
+                          author?: string | null;
+                          rating?: number | null;
+                          review?: string | null;
+                          subReview?:
+                            | {
+                                rating?: number | null;
+                                category?: string | null;
+                                id?: string | null;
+                              }[]
+                            | null;
+                          authorImage?: string | null;
+                          date?: string | null;
+                        };
+                        id?: string | null;
+                      }[]
+                    | null;
+                };
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residencesPresentation';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -416,6 +524,147 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               starEmptyLogo?: T;
+              id?: T;
+              blockName?: T;
+            };
+        residencesPresentation?:
+          | T
+          | {
+              headingGroup?:
+                | T
+                | {
+                    heading?: T;
+                    starLogo?: T;
+                    reviewsNumber?: T;
+                    rating?: T;
+                    location?: T;
+                    description?: T;
+                    saveGroup?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                          logo?: T;
+                        };
+                    shareGroup?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                          logo?: T;
+                        };
+                  };
+              imagesArray?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              tabs?:
+                | T
+                | {
+                    descriptionTab?:
+                      | T
+                      | {
+                          iconArray?:
+                            | T
+                            | {
+                                iconGroup?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      label?: T;
+                                    };
+                                id?: T;
+                              };
+                          descriptionGroup?:
+                            | T
+                            | {
+                                heading?: T;
+                                description?: T;
+                              };
+                          cautionnGroup?:
+                            | T
+                            | {
+                                heading?: T;
+                                description?: T;
+                              };
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                        };
+                    localisationTab?:
+                      | T
+                      | {
+                          longitude?: T;
+                          latitude?: T;
+                          adressGroup?:
+                            | T
+                            | {
+                                streetName?: T;
+                                postCode?: T;
+                                townName?: T;
+                                country?: T;
+                                houseNumber?: T;
+                              };
+                        };
+                    equipementsTab?:
+                      | T
+                      | {
+                          equipement?:
+                            | T
+                            | {
+                                label?: T;
+                                items?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      id?: T;
+                                    };
+                              };
+                          id?: T;
+                        };
+                    reviewsTab?:
+                      | T
+                      | {
+                          overallGroup?:
+                            | T
+                            | {
+                                overallText?: T;
+                                logo?: T;
+                              };
+                          reviewsGroup?:
+                            | T
+                            | {
+                                logo?: T;
+                                reviewArray?:
+                                  | T
+                                  | {
+                                      reviewGroup?:
+                                        | T
+                                        | {
+                                            overallRating?: T;
+                                            author?: T;
+                                            rating?: T;
+                                            review?: T;
+                                            subReview?:
+                                              | T
+                                              | {
+                                                  rating?: T;
+                                                  category?: T;
+                                                  id?: T;
+                                                };
+                                            authorImage?: T;
+                                            date?: T;
+                                          };
+                                      id?: T;
+                                    };
+                              };
+                        };
+                  };
               id?: T;
               blockName?: T;
             };
