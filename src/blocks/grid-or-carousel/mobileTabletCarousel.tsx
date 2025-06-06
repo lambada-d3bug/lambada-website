@@ -29,8 +29,7 @@ export function MobileTabletCarousel(props: GridOrCarouselBlockProps) {
         <div className={'w-full space-y-16 py-16'}>
             <div className="flex flex-row justify-center">
                 <p className="text-center text-3xl font-semibold">
-                    {title.titlePart}
-                    <span className="text-[#0E7269]">{title.titlePart1}</span>
+                    {title.titlePart} <span className="text-[#0E7269]"> {title.titlePart1}</span>{' '}
                     {title.titlePart2}
                 </p>
             </div>

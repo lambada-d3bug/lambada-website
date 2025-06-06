@@ -22,7 +22,6 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
                     return;
                 }
                 const data: Review = await res.json();
-                console.log(data);
                 setFetchedRating(data[0].overallRating);
             } catch (err) {
                 console.error('Error fetching testimonials:', err);

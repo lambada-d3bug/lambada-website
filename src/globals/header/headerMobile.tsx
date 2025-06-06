@@ -25,7 +25,6 @@ export function HeaderMobile(props: HeaderBlockProps) {
     const rawLocale = params?.locale;
     const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
     const [selectedLang, setSelectedLang] = useState<string | undefined>(locale ? locale : 'fr');
-    console.log(selectedLang);
     const router = useRouter();
     const pathname = usePathname();
 

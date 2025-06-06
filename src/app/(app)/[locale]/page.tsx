@@ -18,7 +18,6 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     const { locale = 'fr' } = await paramsPromise;
     const slug = 'home';
     const payload = await getPayload({ config });
-    console.log(locale);
     const pageRes = await payload.find({
         collection: 'pages',
         draft: false,

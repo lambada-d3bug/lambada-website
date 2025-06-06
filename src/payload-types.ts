@@ -183,27 +183,12 @@ export interface Page {
             blockType: 'gridOrCarousel';
           }
         | {
-            reviewArray?:
-              | {
-                  starLogo?: (string | null) | Media;
-                  reviewCard?: {
-                    personalOverall?: number | null;
-                    reviewContent?: string | null;
-                    secondaryNoteArray?:
-                      | {
-                          secondaryNoteDescription?: string | null;
-                          secondaryNote?: number | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    reviewUser?: {
-                      UserName?: string | null;
-                      UserAvatar?: string | null;
-                    };
-                  };
-                  id?: string | null;
-                }[]
-              | null;
+            overallText?: string | null;
+            starLogo?: (string | null) | Media;
+            expandToggleTexts?: {
+              expandLabel?: string | null;
+              collapseLabel?: string | null;
+            };
             id?: string | null;
             blockName?: string | null;
             blockType: 'reviewCarousel';
@@ -415,30 +400,13 @@ export interface PagesSelect<T extends boolean = true> {
         reviewCarousel?:
           | T
           | {
-              reviewArray?:
+              overallText?: T;
+              starLogo?: T;
+              expandToggleTexts?:
                 | T
                 | {
-                    starLogo?: T;
-                    reviewCard?:
-                      | T
-                      | {
-                          personalOverall?: T;
-                          reviewContent?: T;
-                          secondaryNoteArray?:
-                            | T
-                            | {
-                                secondaryNoteDescription?: T;
-                                secondaryNote?: T;
-                                id?: T;
-                              };
-                          reviewUser?:
-                            | T
-                            | {
-                                UserName?: T;
-                                UserAvatar?: T;
-                              };
-                        };
-                    id?: T;
+                    expandLabel?: T;
+                    collapseLabel?: T;
                   };
               id?: T;
               blockName?: T;
