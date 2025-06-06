@@ -8,7 +8,7 @@ export const OverallRating: Block = {
     },
     fields: [
         { name: 'title', label: 'titre', type: 'text', localized: true },
-
+        
         {
             name: 'starEmptyLogo',
             label: 'logo étoile creuse',

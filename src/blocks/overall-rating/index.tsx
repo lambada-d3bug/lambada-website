@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Review } from '@/blocks/review-carousel';
 import { Media } from '@/payload-types';
-import Image from 'next/image';
+import { SvgFromUrl } from '@/utilities/svgFromUrl';
 
 interface OverallRatingBlockProps {
     title: string;
@@ -12,7 +12,7 @@ interface OverallRatingBlockProps {
 
 export function OverallRatingBlock(props: OverallRatingBlockProps) {
     const { title, starEmptyLogo } = props;
-    const [fetchedRating, setFetchedRating] = useState<number | undefined>(0);
+    const [fetchedRating, setFetchedRating] = useState<string | undefined>();
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
@@ -22,8 +22,8 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
                     return;
                 }
                 const data: Review = await res.json();
-
-                setFetchedRating(data.overallRating);
+                console.log(data);
+                setFetchedRating(data[0].overallRating);
             } catch (err) {
                 console.error('Error fetching testimonials:', err);
             }
@@ -31,13 +31,21 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
 
         fetchTestimonials();
     }, []);
+
     return (
-        <div className={'flex flex-row'}>
-            <p className={'text-lg'}>{title}</p>
-            <div></div>
-            <p>{fetchedRating}/5</p>
-            <div className={'relative h-6 w-6'}>
-                <Image src={starEmptyLogo.url as string} alt={starEmptyLogo.alt} fill />
+        <div
+            className={
+                'flex flex-row items-center justify-between px-8 font-semibold md:px-20 lg:px-68'
+            }>
+            <p className={'text-lg md:text-3xl'}>{title}</p>
+            <div className={'border-t-primary h-1 w-10 border-t-4 md:w-28'}></div>
+            <p className={'text-primary text-lg md:text-3xl'}>{fetchedRating}/5</p>
+            <div className={''}>
+                <SvgFromUrl
+                    url={starEmptyLogo.url as string}
+                    alt={starEmptyLogo.alt}
+                    className={'text-primary h-6 w-6 md:h-12 md:w-12'}
+                />
             </div>
         </div>
     );
