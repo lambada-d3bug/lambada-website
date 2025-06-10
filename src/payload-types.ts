@@ -187,6 +187,7 @@ export interface Page {
             blockType: 'gridOrCarousel';
           }
         | {
+            hideBoolean?: boolean | null;
             overallText?: string | null;
             starLogo?: (string | null) | Media;
             expandToggleTexts?: {
@@ -564,6 +565,7 @@ export interface PagesSelect<T extends boolean = true> {
         reviewCarousel?:
           | T
           | {
+              hideBoolean?: T;
               overallText?: T;
               starLogo?: T;
               expandToggleTexts?:

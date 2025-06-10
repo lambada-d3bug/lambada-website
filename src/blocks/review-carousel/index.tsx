@@ -25,6 +25,7 @@ export type Review = {
 
 interface ReviewCarouselBlockProps {
     overallText: string;
+    hideBoolean?: boolean;
     starLogo: Media;
     expandToggleTexts: {
         expandLabel: string;
@@ -64,7 +65,7 @@ function ReviewText({ review, expandToggleTexts }) {
 }
 
 export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
-    const { starLogo, expandToggleTexts, overallText } = props;
+    const { starLogo, expandToggleTexts, overallText, hideBoolean } = props;
     const [fetchedReviews, setFetchedReviews] = useState<Review[]>([]);
     const params = useParams();
     const rawLocale = params?.locale;
@@ -88,11 +89,13 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
 
         fetchTestimonials();
     }, [locale]);
-
+    if (hideBoolean) {
+        return null;
+    }
     return (
         <>
             <Carousel>
-                <CarouselContent className={'ml-8'}>
+                <CarouselContent className={'ml-8 w-full max-w-full'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem
                             key={i}
@@ -180,8 +183,8 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="lg:ml-20" />
-                <CarouselNext className="lg:mr-20" />
+                <CarouselPrevious className="max-lg:hidden lg:ml-20" />
+                <CarouselNext className="max-lg:hidden lg:mr-20" />
             </Carousel>
         </>
     );

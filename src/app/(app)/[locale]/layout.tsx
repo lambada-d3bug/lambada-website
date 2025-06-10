@@ -27,7 +27,6 @@ interface RootLayoutProps {
 export default async function Layout({ children, params }: RootLayoutProps) {
     const { locale } = await params;
     const payload = await getPayload({ config });
-    console.log(locale);
     const [HeaderProps, FooterProps] = await Promise.all([
         payload.findGlobal({
             slug: 'header',
@@ -42,7 +41,7 @@ export default async function Layout({ children, params }: RootLayoutProps) {
     ]);
 
     return (
-        <html lang={locale as string}>
+        <html lang={locale}>
             <body>
                 <HeaderBlock HeaderProps={HeaderProps} />
                 {children}
