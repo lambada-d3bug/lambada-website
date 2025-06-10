@@ -14,9 +14,7 @@ export const metadata = {
 };
 
 interface Params {
-    locale: Promise<{
-        locale?: 'en' | 'fr' | 'it' | 'all';
-    }>;
+    locale?: 'en' | 'fr' | 'it' | 'all';
 }
 
 interface RootLayoutProps {
@@ -25,7 +23,7 @@ interface RootLayoutProps {
 }
 
 export default async function Layout({ children, params }: RootLayoutProps) {
-    const { locale } = await params;
+    const { locale } = params;
     const payload = await getPayload({ config });
     const [HeaderProps, FooterProps] = await Promise.all([
         payload.findGlobal({
@@ -41,7 +39,7 @@ export default async function Layout({ children, params }: RootLayoutProps) {
     ]);
 
     return (
-        <html lang={locale}>
+        <html lang={'en'}>
             <body>
                 <HeaderBlock HeaderProps={HeaderProps} />
                 {children}
