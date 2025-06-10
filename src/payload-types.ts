@@ -232,6 +232,7 @@ export interface Page {
               | null;
             tabs?: {
               descriptionTab?: {
+                tabTitle?: string | null;
                 iconArray?:
                   | {
                       iconGroup?: {
@@ -247,7 +248,12 @@ export interface Page {
                 };
                 cautionnGroup?: {
                   heading?: string | null;
-                  description?: string | null;
+                  descriptionCautionArray?:
+                    | {
+                        description?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
                 };
                 button?: {
                   label?: string | null;
@@ -255,6 +261,7 @@ export interface Page {
                 };
               };
               localisationTab?: {
+                tabTitle?: string | null;
                 longitude?: string | null;
                 latitude?: string | null;
                 adressGroup?: {
@@ -268,6 +275,7 @@ export interface Page {
               equipementsTab?:
                 | {
                     equipement?: {
+                      tabTitle?: string | null;
                       label?: string | null;
                       items?:
                         | {
@@ -285,7 +293,6 @@ export interface Page {
                   logo?: (string | null) | Media;
                 };
                 reviewsGroup?: {
-                  logo?: (string | null) | Media;
                   reviewArray?:
                     | {
                         reviewGroup?: {
@@ -624,6 +631,7 @@ export interface PagesSelect<T extends boolean = true> {
                     descriptionTab?:
                       | T
                       | {
+                          tabTitle?: T;
                           iconArray?:
                             | T
                             | {
@@ -645,7 +653,12 @@ export interface PagesSelect<T extends boolean = true> {
                             | T
                             | {
                                 heading?: T;
-                                description?: T;
+                                descriptionCautionArray?:
+                                  | T
+                                  | {
+                                      description?: T;
+                                      id?: T;
+                                    };
                               };
                           button?:
                             | T
@@ -657,6 +670,7 @@ export interface PagesSelect<T extends boolean = true> {
                     localisationTab?:
                       | T
                       | {
+                          tabTitle?: T;
                           longitude?: T;
                           latitude?: T;
                           adressGroup?:
@@ -675,6 +689,7 @@ export interface PagesSelect<T extends boolean = true> {
                           equipement?:
                             | T
                             | {
+                                tabTitle?: T;
                                 label?: T;
                                 items?:
                                   | T
@@ -697,7 +712,6 @@ export interface PagesSelect<T extends boolean = true> {
                           reviewsGroup?:
                             | T
                             | {
-                                logo?: T;
                                 reviewArray?:
                                   | T
                                   | {

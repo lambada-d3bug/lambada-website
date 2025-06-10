@@ -53,6 +53,7 @@ export const ResidencesPresentation: Block = {
                     label: 'Tab description',
                     type: 'group',
                     fields: [
+                        { name: 'tabTitle', label: 'Titre du tab', type: 'text', localized: true },
                         {
                             name: 'iconArray',
                             label: "tableau de la rangée d'icones descriptives",
@@ -110,10 +111,17 @@ export const ResidencesPresentation: Block = {
                                     localized: true,
                                 },
                                 {
-                                    name: 'description',
-                                    label: 'Description',
-                                    type: 'textarea',
-                                    localized: true,
+                                    name: 'descriptionCautionArray',
+                                    label: 'tableau de description de la caution',
+                                    type: 'array',
+                                    fields: [
+                                        {
+                                            name: 'description',
+                                            label: 'description',
+                                            type: 'text',
+                                            localized: true,
+                                        },
+                                    ],
                                 },
                             ],
                         },
@@ -133,6 +141,7 @@ export const ResidencesPresentation: Block = {
                     label: 'Tab localisation',
                     type: 'group',
                     fields: [
+                        { name: 'tabTitle', label: 'Titre du tab', type: 'text', localized: true },
                         { name: 'longitude', label: 'longitude', type: 'text' },
                         { name: 'latitude', label: 'latitude', type: 'text' },
                         {
@@ -179,6 +188,12 @@ export const ResidencesPresentation: Block = {
                             label: 'Equipement',
                             type: 'group',
                             fields: [
+                                {
+                                    name: 'tabTitle',
+                                    label: 'Titre du tab',
+                                    type: 'text',
+                                    localized: true,
+                                },
                                 { name: 'label', label: 'label', type: 'text', localized: true },
                                 {
                                     name: 'items',
@@ -227,14 +242,8 @@ export const ResidencesPresentation: Block = {
                             type: 'group',
                             fields: [
                                 {
-                                    name: 'logo',
-                                    label: 'Logo',
-                                    type: 'upload',
-                                    relationTo: 'media',
-                                },
-                                {
                                     name: 'reviewArray',
-                                    label: 'reviewArray',
+                                    label: 'tableau de review',
                                     type: 'array',
                                     fields: [
                                         {
