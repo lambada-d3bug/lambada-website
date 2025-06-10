@@ -6,9 +6,9 @@ export async function GET() {
     const payload = await getPayload({ config });
 
     const reviews = await payload.find({
-        collection: 'googleReviewsFr',
+        collection: 'googleReviewsIt',
         sort: '-createdAt',
-        limit: 1,
+        limit: 10,
     });
 
     return NextResponse.json(reviews.docs);

@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 export type Review = {
     overallRating?: number;
@@ -65,11 +66,14 @@ function ReviewText({ review, expandToggleTexts }) {
 export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     const { starLogo, expandToggleTexts, overallText } = props;
     const [fetchedReviews, setFetchedReviews] = useState<Review[]>([]);
+    const params = useParams();
+    const rawLocale = params?.locale;
+    const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
 
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const res = await fetch('/api/get-reviews');
+                const res = await fetch(`/api/get-reviews-${locale}`);
                 if (!res.ok) {
                     console.error('Failed to fetch', res.status);
                     return;
@@ -83,7 +87,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
         };
 
         fetchTestimonials();
-    }, []);
+    }, [locale]);
 
     return (
         <>
@@ -176,8 +180,8 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="lg:ml-20" />
+                <CarouselNext className="lg:mr-20" />
             </Carousel>
         </>
     );

@@ -1,8 +1,8 @@
 import { CollectionConfig } from 'payload';
 
-export const GoogleReviews: CollectionConfig = {
-    slug: 'googleReviews',
-    admin: { useAsTitle: 'author' },
+export const GoogleReviewsIt: CollectionConfig = {
+    slug: 'googleReviewsIt',
+    labels: { singular: 'avis google en italien', plural: 'avis google en italien' },
     fields: [
         { name: 'overallRating', label: 'Note génerale', type: 'text' },
         { name: 'author', type: 'text', required: true },

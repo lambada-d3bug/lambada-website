@@ -4,7 +4,7 @@ export const ReviewCarousel: Block = {
     slug: 'reviewCarousel',
     labels: { singular: 'Carousselle de review google', plural: 'Carousselle de review google' },
     fields: [
-        { name: 'overallText', label: 'Avis général', type: 'text' },
+        { name: 'overallText', label: 'Avis général', type: 'text', localized: true },
         {
             name: 'starLogo',
             label: 'logo étoile pleine',
@@ -20,11 +20,13 @@ export const ReviewCarousel: Block = {
                     name: 'expandLabel',
                     label: 'Texte pour "Voir plus"',
                     type: 'text',
+                    localized: true,
                 },
                 {
                     name: 'collapseLabel',
                     label: 'Texte pour "Voir moins"',
                     type: 'text',
+                    localized: true,
                 },
             ],
         },

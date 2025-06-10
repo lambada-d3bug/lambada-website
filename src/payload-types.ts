@@ -70,7 +70,9 @@ export interface Config {
     pages: Page;
     users: User;
     media: Media;
-    googleReviews: GoogleReview;
+    googleReviewsFr: GoogleReviewsFr;
+    googleReviewsIt: GoogleReviewsIt;
+    googleReviewsEn: GoogleReviewsEn;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -80,7 +82,9 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    googleReviews: GoogleReviewsSelect<false> | GoogleReviewsSelect<true>;
+    googleReviewsFr: GoogleReviewsFrSelect<false> | GoogleReviewsFrSelect<true>;
+    googleReviewsIt: GoogleReviewsItSelect<false> | GoogleReviewsItSelect<true>;
+    googleReviewsEn: GoogleReviewsEnSelect<false> | GoogleReviewsEnSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -352,9 +356,53 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "googleReviews".
+ * via the `definition` "googleReviewsFr".
  */
-export interface GoogleReview {
+export interface GoogleReviewsFr {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsIt".
+ */
+export interface GoogleReviewsIt {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsEn".
+ */
+export interface GoogleReviewsEn {
   id: string;
   overallRating?: string | null;
   author: string;
@@ -392,8 +440,16 @@ export interface PayloadLockedDocument {
         value: string | Media;
       } | null)
     | ({
-        relationTo: 'googleReviews';
-        value: string | GoogleReview;
+        relationTo: 'googleReviewsFr';
+        value: string | GoogleReviewsFr;
+      } | null)
+    | ({
+        relationTo: 'googleReviewsIt';
+        value: string | GoogleReviewsIt;
+      } | null)
+    | ({
+        relationTo: 'googleReviewsEn';
+        value: string | GoogleReviewsEn;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -708,9 +764,51 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "googleReviews_select".
+ * via the `definition` "googleReviewsFr_select".
  */
-export interface GoogleReviewsSelect<T extends boolean = true> {
+export interface GoogleReviewsFrSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsIt_select".
+ */
+export interface GoogleReviewsItSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsEn_select".
+ */
+export interface GoogleReviewsEnSelect<T extends boolean = true> {
   overallRating?: T;
   author?: T;
   rating?: T;
