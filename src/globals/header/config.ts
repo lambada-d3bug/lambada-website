@@ -18,7 +18,7 @@ export const header: GlobalConfig = {
                     label: 'lien',
                     type: 'group',
                     fields: [
-                        { name: 'label', label: 'label', type: 'text' },
+                        { name: 'label', label: 'label', type: 'text', localized: true },
                         { name: 'url', label: 'url', type: 'text' },
                     ],
                 },
@@ -29,8 +29,8 @@ export const header: GlobalConfig = {
             label: 'bouton de la barre de nav',
             type: 'group',
             fields: [
-                { name: 'label', label: 'label', type: 'text' },
-                { name: 'labelMobile', label: 'labelMobile', type: 'text' },
+                { name: 'label', label: 'label', type: 'text', localized: true },
+                { name: 'labelMobile', label: 'labelMobile', type: 'text', localized: true },
                 { name: 'url', label: 'url', type: 'text' },
             ],
         },
