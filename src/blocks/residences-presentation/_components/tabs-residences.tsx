@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Media } from '@/payload-types';
 import { DescriptionTab } from '@/blocks/residences-presentation/_components/description-tab';
 import { LocalisationTab } from '@/blocks/residences-presentation/_components/localisation-tab';
+import { EquipmentTab } from '@/blocks/residences-presentation/_components/equipment-tab';
 
 interface TabsResidencesProps {
     tabs: {
@@ -109,7 +110,7 @@ export function TabsResidences(props: TabsResidencesProps) {
                 <DescriptionTab descriptionTab={descriptionTab} />
 
                 <LocalisationTab localisationTab={localisationTab} />
-
+                <EquipmentTab equipementsTab={equipementsTab} />
                 <TabsContent value="avis" className="mt-6">
                     <div className="rounded-lg bg-gray-50 p-4">
                         <h3 className="mb-2 text-lg font-semibold">Avis</h3>

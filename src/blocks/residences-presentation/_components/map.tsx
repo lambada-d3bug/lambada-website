@@ -7,7 +7,7 @@ interface MapProps {
     position: [number, number];
 }
 
-export function Map(props: MapProps) {
+export default function Map(props: MapProps) {
     const { position } = props;
     return (
         <div className={'h-[400px] w-full rounded-lg'}>

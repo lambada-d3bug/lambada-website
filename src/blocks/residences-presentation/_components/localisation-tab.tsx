@@ -1,7 +1,16 @@
 'use client';
 
 import { TabsContent } from '@/components/ui/tabs';
-import { Map } from '@/blocks/residences-presentation/_components/map';
+import dynamic from 'next/dynamic';
+
+interface MapProps {
+    position: [number, number];
+}
+
+// Dynamically import the Map component with proper typing
+const Map = dynamic<MapProps>(() => import('@/blocks/residences-presentation/_components/map'), {
+    ssr: false,
+});
 
 interface LocalisationTabProps {
     localisationTab: {
