@@ -6,6 +6,7 @@ import { HeroBlock } from '@/blocks/hero';
 import { GridOrCarouselBlock } from '@/blocks/grid-or-carousel';
 import { ReviewCarouselBlock } from '@/blocks/review-carousel';
 import { OverallRatingBlock } from '@/blocks/overall-rating';
+import { ResidencesPresentationBlock } from '@/blocks/residences-presentation';
 
 const blockComponents = {
     responsiveGallery: ResponsiveGalleryBlock,
@@ -13,6 +14,7 @@ const blockComponents = {
     gridOrCarousel: GridOrCarouselBlock,
     reviewCarousel: ReviewCarouselBlock,
     overallRating: OverallRatingBlock,
+    residencesPresentation: ResidencesPresentationBlock,
 };
 
 export const RenderBlocks: React.FC<{

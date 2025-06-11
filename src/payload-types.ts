@@ -210,6 +210,7 @@ export interface Page {
               heading?: string | null;
               starLogo?: (string | null) | Media;
               reviewsNumber?: number | null;
+              reviewsText?: string | null;
               rating?: string | null;
               location?: string | null;
               description?: string | null;
@@ -224,6 +225,7 @@ export interface Page {
                 logo?: (string | null) | Media;
               };
             };
+            description?: string | null;
             imagesArray?:
               | {
                   image?: (string | null) | Media;
@@ -246,11 +248,12 @@ export interface Page {
                   heading?: string | null;
                   description?: string | null;
                 };
-                cautionnGroup?: {
+                cautionGroup?: {
                   heading?: string | null;
                   descriptionCautionArray?:
                     | {
                         description?: string | null;
+                        price?: string | null;
                         id?: string | null;
                       }[]
                     | null;
@@ -258,6 +261,10 @@ export interface Page {
                 button?: {
                   label?: string | null;
                   url?: string | null;
+                };
+                expandToggleTexts?: {
+                  expandLabel?: string | null;
+                  collapseLabel?: string | null;
                 };
               };
               localisationTab?: {
@@ -288,6 +295,7 @@ export interface Page {
                   }[]
                 | null;
               reviewsTab?: {
+                tabTitle?: string | null;
                 overallGroup?: {
                   overallText?: string | null;
                   logo?: (string | null) | Media;
@@ -601,6 +609,7 @@ export interface PagesSelect<T extends boolean = true> {
                     heading?: T;
                     starLogo?: T;
                     reviewsNumber?: T;
+                    reviewsText?: T;
                     rating?: T;
                     location?: T;
                     description?: T;
@@ -619,6 +628,7 @@ export interface PagesSelect<T extends boolean = true> {
                           logo?: T;
                         };
                   };
+              description?: T;
               imagesArray?:
                 | T
                 | {
@@ -649,7 +659,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 heading?: T;
                                 description?: T;
                               };
-                          cautionnGroup?:
+                          cautionGroup?:
                             | T
                             | {
                                 heading?: T;
@@ -657,6 +667,7 @@ export interface PagesSelect<T extends boolean = true> {
                                   | T
                                   | {
                                       description?: T;
+                                      price?: T;
                                       id?: T;
                                     };
                               };
@@ -665,6 +676,12 @@ export interface PagesSelect<T extends boolean = true> {
                             | {
                                 label?: T;
                                 url?: T;
+                              };
+                          expandToggleTexts?:
+                            | T
+                            | {
+                                expandLabel?: T;
+                                collapseLabel?: T;
                               };
                         };
                     localisationTab?:
@@ -703,6 +720,7 @@ export interface PagesSelect<T extends boolean = true> {
                     reviewsTab?:
                       | T
                       | {
+                          tabTitle?: T;
                           overallGroup?:
                             | T
                             | {

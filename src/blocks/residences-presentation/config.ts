@@ -12,6 +12,12 @@ export const ResidencesPresentation: Block = {
                 { name: 'heading', label: 'Titre', type: 'text', localized: true },
                 { name: 'starLogo', label: 'Star Logo', type: 'upload', relationTo: 'media' },
                 { name: 'reviewsNumber', label: "Nombre d'avis", type: 'number' },
+                {
+                    name: 'reviewsText',
+                    label: "label nombre d'avis",
+                    type: 'text',
+                    localized: true,
+                },
                 { name: 'rating', label: 'note', type: 'text', localized: true },
                 { name: 'location', label: 'location', type: 'text', localized: true },
                 { name: 'description', label: 'Description', type: 'textarea', localized: true },
@@ -37,6 +43,7 @@ export const ResidencesPresentation: Block = {
                 },
             ],
         },
+        { name: 'description', label: 'Description', type: 'textarea', localized: true },
         {
             name: 'imagesArray',
             label: "tableau d'images",
@@ -100,7 +107,7 @@ export const ResidencesPresentation: Block = {
                             ],
                         },
                         {
-                            name: 'cautionnGroup',
+                            name: 'cautionGroup',
                             label: 'groupe caution',
                             type: 'group',
                             fields: [
@@ -121,6 +128,7 @@ export const ResidencesPresentation: Block = {
                                             type: 'text',
                                             localized: true,
                                         },
+                                        { name: 'price', label: 'prix', type: 'text' },
                                     ],
                                 },
                             ],
@@ -132,6 +140,25 @@ export const ResidencesPresentation: Block = {
                             fields: [
                                 { name: 'label', label: 'label', type: 'text', localized: true },
                                 { name: 'url', label: 'URL', type: 'text' },
+                            ],
+                        },
+                        {
+                            name: 'expandToggleTexts',
+                            label: 'Textes Voir plus / Voir moins',
+                            type: 'group',
+                            fields: [
+                                {
+                                    name: 'expandLabel',
+                                    label: 'Texte pour "Voir plus"',
+                                    type: 'text',
+                                    localized: true,
+                                },
+                                {
+                                    name: 'collapseLabel',
+                                    label: 'Texte pour "Voir moins"',
+                                    type: 'text',
+                                    localized: true,
+                                },
                             ],
                         },
                     ],
@@ -172,7 +199,6 @@ export const ResidencesPresentation: Block = {
                                     name: 'houseNumber',
                                     label: 'Numéro de maison',
                                     type: 'text',
-                                    localized: true,
                                 },
                             ],
                         },
@@ -217,6 +243,7 @@ export const ResidencesPresentation: Block = {
                     label: 'Tab Avis',
                     type: 'group',
                     fields: [
+                        { name: 'tabTitle', label: 'Titre du tab', type: 'text', localized: true },
                         {
                             name: 'overallGroup',
                             label: 'groupe Note globale',
