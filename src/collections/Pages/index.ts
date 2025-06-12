@@ -7,6 +7,7 @@ import { GridOrCarousel } from '@/blocks/grid-or-carousel/config';
 import { ReviewCarousel } from '@/blocks/review-carousel/config';
 import { OverallRating } from '@/blocks/overall-rating/config';
 import { ResidencesPresentation } from '@/blocks/residences-presentation/config';
+import { ContactInformation } from '@/blocks/contact-information/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -55,6 +56,7 @@ export const Pages: CollectionConfig = {
                 ReviewCarousel,
                 OverallRating,
                 ResidencesPresentation,
+                ContactInformation,
             ],
         },
     ],

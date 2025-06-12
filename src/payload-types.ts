@@ -311,6 +311,19 @@ export interface Page {
             blockName?: string | null;
             blockType: 'residencesPresentation';
           }
+        | {
+            telGroup?: {
+              label?: string | null;
+              number?: string | null;
+            };
+            emailGroup?: {
+              label?: string | null;
+              email?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactInformation';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -718,6 +731,24 @@ export interface PagesSelect<T extends boolean = true> {
                               };
                           starLogo?: T;
                         };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contactInformation?:
+          | T
+          | {
+              telGroup?:
+                | T
+                | {
+                    label?: T;
+                    number?: T;
+                  };
+              emailGroup?:
+                | T
+                | {
+                    label?: T;
+                    email?: T;
                   };
               id?: T;
               blockName?: T;
