@@ -300,28 +300,11 @@ export interface Page {
                   overallText?: string | null;
                   logo?: (string | null) | Media;
                 };
-                reviewsGroup?: {
-                  reviewArray?:
-                    | {
-                        reviewGroup?: {
-                          overallRating?: string | null;
-                          author?: string | null;
-                          rating?: number | null;
-                          review?: string | null;
-                          subReview?:
-                            | {
-                                rating?: number | null;
-                                category?: string | null;
-                                id?: string | null;
-                              }[]
-                            | null;
-                          authorImage?: string | null;
-                          date?: string | null;
-                        };
-                        id?: string | null;
-                      }[]
-                    | null;
+                expandToggleTexts?: {
+                  expandLabel?: string | null;
+                  collapseLabel?: string | null;
                 };
+                starLogo?: (string | null) | Media;
               };
             };
             id?: string | null;
@@ -727,32 +710,13 @@ export interface PagesSelect<T extends boolean = true> {
                                 overallText?: T;
                                 logo?: T;
                               };
-                          reviewsGroup?:
+                          expandToggleTexts?:
                             | T
                             | {
-                                reviewArray?:
-                                  | T
-                                  | {
-                                      reviewGroup?:
-                                        | T
-                                        | {
-                                            overallRating?: T;
-                                            author?: T;
-                                            rating?: T;
-                                            review?: T;
-                                            subReview?:
-                                              | T
-                                              | {
-                                                  rating?: T;
-                                                  category?: T;
-                                                  id?: T;
-                                                };
-                                            authorImage?: T;
-                                            date?: T;
-                                          };
-                                      id?: T;
-                                    };
+                                expandLabel?: T;
+                                collapseLabel?: T;
                               };
+                          starLogo?: T;
                         };
                   };
               id?: T;

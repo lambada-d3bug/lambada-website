@@ -21,7 +21,7 @@ export function EquipmentTab(props: EquipmentTabProps) {
             {equipementsTab.map((tab, i) => (
                 <div key={i} className={'space-y-2'}>
                     <p>{tab.equipement.label}</p>
-                    <div className={'flex flex-row space-x-4'}>
+                    <div className={'flex flex-row space-x-4 overflow-x-scroll'}>
                         {tab.equipement.items.map((item, id) => (
                             <p key={id} className={'rounded-2xl border px-3 py-2'}>
                                 {item.label}

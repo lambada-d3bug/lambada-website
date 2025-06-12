@@ -7,7 +7,6 @@ interface MapProps {
     position: [number, number];
 }
 
-// Dynamically import the Map component with proper typing
 const Map = dynamic<MapProps>(() => import('@/blocks/residences-presentation/_components/map'), {
     ssr: false,
 });

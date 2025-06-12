@@ -95,7 +95,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     return (
         <>
             <Carousel>
-                <CarouselContent className={'ml-4 w-full max-w-full md:ml-8'}>
+                <CarouselContent className={'ml-1 w-full max-w-full md:ml-8'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem
                             key={i}
@@ -133,7 +133,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                                         />
                                         <div
                                             className={
-                                                'flex flex-col items-center text-center lg:space-y-2'
+                                                'flex flex-col items-center space-y-1 text-center lg:space-y-2'
                                             }>
                                             <div className={'relative h-10 w-10'}>
                                                 <Image

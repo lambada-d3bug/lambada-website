@@ -1,10 +1,11 @@
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Media } from '@/payload-types';
 import { DescriptionTab } from '@/blocks/residences-presentation/_components/description-tab';
 import { LocalisationTab } from '@/blocks/residences-presentation/_components/localisation-tab';
 import { EquipmentTab } from '@/blocks/residences-presentation/_components/equipment-tab';
+import { ReviewsTab } from '@/blocks/residences-presentation/_components/reviews-tab';
 
 interface TabsResidencesProps {
     tabs: {
@@ -54,22 +55,11 @@ interface TabsResidencesProps {
                 overallText: string;
                 logo: Media;
             };
-            reviewsGroup: {
-                reviewArray: {
-                    reviewGroup: {
-                        overallRating: string;
-                        author: string;
-                        rating: number;
-                        review: string;
-                        date: string;
-                        authorImage: string;
-                        subReview: {
-                            rating: number;
-                            category: string;
-                        };
-                    };
-                }[];
+            expandToggleTexts: {
+                expandLabel: string;
+                collapseLabel: string;
             };
+            starLogo: Media;
         };
     };
 }
@@ -111,12 +101,7 @@ export function TabsResidences(props: TabsResidencesProps) {
 
                 <LocalisationTab localisationTab={localisationTab} />
                 <EquipmentTab equipementsTab={equipementsTab} />
-                <TabsContent value="avis" className="mt-6">
-                    <div className="rounded-lg bg-gray-50 p-4">
-                        <h3 className="mb-2 text-lg font-semibold">Avis</h3>
-                        <p className="text-gray-600">Content for the avis tab goes here.</p>
-                    </div>
-                </TabsContent>
+                <ReviewsTab reviewsTab={reviewsTab} />
             </Tabs>
         </div>
     );

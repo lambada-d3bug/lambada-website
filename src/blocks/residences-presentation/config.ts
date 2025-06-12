@@ -264,52 +264,29 @@ export const ResidencesPresentation: Block = {
                             ],
                         },
                         {
-                            name: 'reviewsGroup',
-                            label: 'groupe avis',
+                            name: 'expandToggleTexts',
+                            label: 'Textes Voir plus / Voir moins',
                             type: 'group',
                             fields: [
                                 {
-                                    name: 'reviewArray',
-                                    label: 'tableau de review',
-                                    type: 'array',
-                                    fields: [
-                                        {
-                                            name: 'reviewGroup',
-                                            label: 'reviewGroup',
-                                            type: 'group',
-                                            fields: [
-                                                {
-                                                    name: 'overallRating',
-                                                    label: 'Note génerale',
-                                                    type: 'text',
-                                                    localized: true,
-                                                },
-                                                { name: 'author', type: 'text', localized: true },
-                                                { name: 'rating', type: 'number', localized: true },
-                                                {
-                                                    name: 'review',
-                                                    type: 'textarea',
-                                                    localized: true,
-                                                },
-                                                {
-                                                    name: 'subReview',
-                                                    type: 'array',
-                                                    fields: [
-                                                        { name: 'rating', type: 'number' },
-                                                        {
-                                                            name: 'category',
-                                                            type: 'text',
-                                                            localized: true,
-                                                        },
-                                                    ],
-                                                },
-                                                { name: 'authorImage', type: 'text' },
-                                                { name: 'date', type: 'date' },
-                                            ],
-                                        },
-                                    ],
+                                    name: 'expandLabel',
+                                    label: 'Texte pour "Voir plus"',
+                                    type: 'text',
+                                    localized: true,
+                                },
+                                {
+                                    name: 'collapseLabel',
+                                    label: 'Texte pour "Voir moins"',
+                                    type: 'text',
+                                    localized: true,
                                 },
                             ],
+                        },
+                        {
+                            name: 'starLogo',
+                            label: 'Star Logo',
+                            type: 'upload',
+                            relationTo: 'media',
                         },
                     ],
                 },

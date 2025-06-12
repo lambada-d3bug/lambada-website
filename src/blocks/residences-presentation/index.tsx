@@ -76,28 +76,17 @@ interface ResidencesPresentationBlockProps {
                 overallText: string;
                 logo: Media;
             };
-            reviewsGroup: {
-                reviewArray: {
-                    reviewGroup: {
-                        overallRating: string;
-                        author: string;
-                        rating: number;
-                        review: string;
-                        date: string;
-                        authorImage: string;
-                        subReview: {
-                            rating: number;
-                            category: string;
-                        };
-                    };
-                }[];
+            expandToggleTexts: {
+                expandLabel: string;
+                collapseLabel: string;
             };
+            starLogo: Media;
         };
     };
 }
 
 export function ResidencesPresentationBlock(props: ResidencesPresentationBlockProps) {
-    const { headingGroup, imagesArray, tabs, description } = props;
+    const { headingGroup, imagesArray, tabs } = props;
     const [url, setUrl] = useState<string>('');
 
     useEffect(() => {
