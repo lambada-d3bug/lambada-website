@@ -8,6 +8,7 @@ import { ReviewCarouselBlock } from '@/blocks/review-carousel';
 import { OverallRatingBlock } from '@/blocks/overall-rating';
 import { ResidencesPresentationBlock } from '@/blocks/residences-presentation';
 import { ContactInformationBlock } from '@/blocks/contact-information';
+import { BookingFormBlock } from '@/blocks/booking-form';
 
 const blockComponents = {
     responsiveGallery: ResponsiveGalleryBlock,
@@ -17,6 +18,7 @@ const blockComponents = {
     overallRating: OverallRatingBlock,
     residencesPresentation: ResidencesPresentationBlock,
     contactInformation: ContactInformationBlock,
+    bookingForm: BookingFormBlock,
 };
 
 export const RenderBlocks: React.FC<{

@@ -324,6 +324,52 @@ export interface Page {
             blockName?: string | null;
             blockType: 'contactInformation';
           }
+        | {
+            title?: string | null;
+            selectionArray?:
+              | {
+                  label?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            formGroup?: {
+              lastName?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              firstName?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              mail?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              tel?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              other?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              button?: {
+                label?: string | null;
+                url?: string | null;
+              };
+              calendarGroup?: {
+                dynamicTitle?: {
+                  singular?: string | null;
+                  plural?: string | null;
+                };
+                dateSuffix?: string | null;
+                deleteDateText?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'bookingForm';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -749,6 +795,71 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     email?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        bookingForm?:
+          | T
+          | {
+              title?: T;
+              selectionArray?:
+                | T
+                | {
+                    label?: T;
+                    id?: T;
+                  };
+              formGroup?:
+                | T
+                | {
+                    lastName?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    firstName?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    mail?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    tel?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    other?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    button?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                        };
+                    calendarGroup?:
+                      | T
+                      | {
+                          dynamicTitle?:
+                            | T
+                            | {
+                                singular?: T;
+                                plural?: T;
+                              };
+                          dateSuffix?: T;
+                          deleteDateText?: T;
+                        };
                   };
               id?: T;
               blockName?: T;

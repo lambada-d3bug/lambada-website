@@ -8,6 +8,7 @@ import { ReviewCarousel } from '@/blocks/review-carousel/config';
 import { OverallRating } from '@/blocks/overall-rating/config';
 import { ResidencesPresentation } from '@/blocks/residences-presentation/config';
 import { ContactInformation } from '@/blocks/contact-information/config';
+import { BookingForm } from '@/blocks/booking-form/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -57,6 +58,7 @@ export const Pages: CollectionConfig = {
                 OverallRating,
                 ResidencesPresentation,
                 ContactInformation,
+                BookingForm,
             ],
         },
     ],
