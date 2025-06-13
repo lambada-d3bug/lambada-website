@@ -19,7 +19,6 @@ interface CarouselPictureGridProps {
 export function CarouselPictureGrid({ imagesArray }: CarouselPictureGridProps) {
     const width = useWindowWidth();
     const chunkedImages = chunk(imagesArray, 3);
-    console.log(chunkedImages);
 
     if (!width) return null;
 
