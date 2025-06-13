@@ -370,6 +370,36 @@ export interface Page {
             blockName?: string | null;
             blockType: 'bookingForm';
           }
+        | {
+            residencesArray?:
+              | {
+                  residenceGroup?: {
+                    title?: string | null;
+                    subheading?: string | null;
+                    description?: string | null;
+                    imageArray?:
+                      | {
+                          image?: (string | null) | Media;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    iconArray?:
+                      | {
+                          card?: {
+                            icon?: (string | null) | Media;
+                            label?: string | null;
+                          };
+                          id?: string | null;
+                        }[]
+                      | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenceGeneral';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -860,6 +890,41 @@ export interface PagesSelect<T extends boolean = true> {
                           dateSuffix?: T;
                           deleteDateText?: T;
                         };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        residenceGeneral?:
+          | T
+          | {
+              residencesArray?:
+                | T
+                | {
+                    residenceGroup?:
+                      | T
+                      | {
+                          title?: T;
+                          subheading?: T;
+                          description?: T;
+                          imageArray?:
+                            | T
+                            | {
+                                image?: T;
+                                id?: T;
+                              };
+                          iconArray?:
+                            | T
+                            | {
+                                card?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      label?: T;
+                                    };
+                                id?: T;
+                              };
+                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;
