@@ -85,7 +85,7 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
             <Header HeaderProps={HeaderProps} form={form} />
             <div
                 className={
-                    'flex flex-col space-y-4 sm:order-4 sm:space-y-8 lg:order-2 lg:flex-row'
+                    'flex flex-col space-y-4 sm:order-4 sm:space-y-8 lg:order-2 lg:flex-row lg:justify-center'
                 }>
                 <CalendarComponent calendarGroup={calendarGroup} form={form} />
                 <Inputs InputsProps={InputsProps} form={form} />

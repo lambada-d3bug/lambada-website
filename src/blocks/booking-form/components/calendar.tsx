@@ -107,7 +107,6 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
                                 className="rounded-lg border shadow-sm"
                                 locale={dateFnsLocale}
                                 disabled={isDateDisabled}
-                                initialFocus
                             />
                             <p
                                 className="underline"

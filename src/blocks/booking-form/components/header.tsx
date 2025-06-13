@@ -29,7 +29,7 @@ export function Header(props: HeaderProps) {
                                 <ToggleGroupItem
                                     key={index}
                                     value={selection.label}
-                                    className="border-chart-5 text-chart-5 rounded-xl border px-2 py-1 first:rounded-l-xl last:rounded-r-xl sm:text-lg">
+                                    className="border-chart-5 text-chart-5 rounded-xl border px-2 py-1 first:rounded-l-xl last:rounded-r-xl data-[state=on]:text-white sm:text-lg">
                                     {selection.label}
                                 </ToggleGroupItem>
                             ))}
