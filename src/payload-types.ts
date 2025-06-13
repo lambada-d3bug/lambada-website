@@ -400,6 +400,28 @@ export interface Page {
             blockName?: string | null;
             blockType: 'residenceGeneral';
           }
+        | {
+            title?: string | null;
+            subheading?: string | null;
+            description?: string | null;
+            imageSubheading?: string | null;
+            imagesArray?:
+              | {
+                  images?: {
+                    image?: (string | null) | Media;
+                    label?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'restaurantCarousel';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -925,6 +947,33 @@ export interface PagesSelect<T extends boolean = true> {
                               };
                         };
                     id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        restaurantCarousel?:
+          | T
+          | {
+              title?: T;
+              subheading?: T;
+              description?: T;
+              imageSubheading?: T;
+              imagesArray?:
+                | T
+                | {
+                    images?:
+                      | T
+                      | {
+                          image?: T;
+                          label?: T;
+                        };
+                    id?: T;
+                  };
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
                   };
               id?: T;
               blockName?: T;
