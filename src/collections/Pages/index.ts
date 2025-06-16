@@ -11,6 +11,7 @@ import { ContactInformation } from '@/blocks/contact-information/config';
 import { BookingForm } from '@/blocks/booking-form/config';
 import { ResidenceGeneral } from '@/blocks/residence-general/config';
 import { RestaurantCarousel } from '@/blocks/restaurant-carousel/config';
+import { RestaurantMenu } from '@/blocks/restaurant-menu/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -63,6 +64,7 @@ export const Pages: CollectionConfig = {
                 BookingForm,
                 ResidenceGeneral,
                 RestaurantCarousel,
+                RestaurantMenu,
             ],
         },
     ],

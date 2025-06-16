@@ -422,6 +422,32 @@ export interface Page {
             blockName?: string | null;
             blockType: 'restaurantCarousel';
           }
+        | {
+            title?: string | null;
+            images?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            schedules?: {
+              title?: string | null;
+              schedulesArray?:
+                | {
+                    schedulesGroup?: {
+                      day?: string | null;
+                      timeAM?: string | null;
+                      timePM?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            image?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'restaurantMenu';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -975,6 +1001,37 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     url?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        restaurantMenu?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              schedules?:
+                | T
+                | {
+                    title?: T;
+                    schedulesArray?:
+                      | T
+                      | {
+                          schedulesGroup?:
+                            | T
+                            | {
+                                day?: T;
+                                timeAM?: T;
+                                timePM?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              image?: T;
               id?: T;
               blockName?: T;
             };

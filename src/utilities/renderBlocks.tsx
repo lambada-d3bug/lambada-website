@@ -11,6 +11,7 @@ import { ContactInformationBlock } from '@/blocks/contact-information';
 import { BookingFormBlock } from '@/blocks/booking-form';
 import { ResidenceGeneralBlock } from '@/blocks/residence-general';
 import { RestaurantCarouselBlock } from '@/blocks/restaurant-carousel';
+import { RestaurantMenuBlock } from '@/blocks/restaurant-menu';
 
 const blockComponents = {
     responsiveGallery: ResponsiveGalleryBlock,
@@ -23,6 +24,7 @@ const blockComponents = {
     bookingForm: BookingFormBlock,
     residenceGeneral: ResidenceGeneralBlock,
     restaurantCarousel: RestaurantCarouselBlock,
+    restaurantMenu: RestaurantMenuBlock,
 };
 
 export const RenderBlocks: React.FC<{
