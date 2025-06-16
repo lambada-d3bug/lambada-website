@@ -22,11 +22,11 @@ export function RestaurantMenuBlock(props: RestaurantMenuBlockProps) {
     const { title, images, schedules, image } = props;
 
     return (
-        <div className="flex flex-col items-center space-y-4 py-32">
+        <div className="flex flex-col items-center space-y-4 py-32 lg:space-y-8">
             <p className="px-6 text-lg font-semibold sm:text-3xl">{title}</p>
 
             {images.map((image, i) => (
-                <div key={i} className="relative h-[500px] w-full px-6 sm:h-[800px]">
+                <div key={i} className="relative h-[400px] w-full px-6 sm:h-[500px] md:h-[1000px]">
                     <Image
                         src={image.image.url as string}
                         alt={image.image.alt}

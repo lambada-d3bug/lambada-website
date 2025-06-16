@@ -12,7 +12,7 @@ export const Hero: Block = {
             type: 'group',
             fields: [
                 { name: 'label', label: 'label', type: 'text', localized: true },
-                { name: 'url', label: 'url', type: 'text', localized: true },
+                { name: 'url', label: 'url', type: 'text' },
             ],
         },
     ],

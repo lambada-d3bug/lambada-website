@@ -13,18 +13,19 @@ interface StaffNotificationEmailProps {
     props: {
         lastName: string;
         firstName: string;
-        email: string;
-        phone: string;
-        dateRange: [Date, Date];
+        mail: string;
+        tel: string;
+        dateRangeSchema: { from: Date; to: Date };
+        other: string;
     };
 }
 
 export default function BookingFormMail(props: StaffNotificationEmailProps) {
-    const { lastName, firstName, email, phone, dateRange } = props.props;
-    const nights = Math.ceil(
-        (dateRange[1].getTime() - dateRange[0].getTime()) / (1000 * 60 * 60 * 24),
-    );
+    const { lastName, firstName, mail, tel, dateRangeSchema, other } = props.props;
+    const from = new Date(dateRangeSchema.from);
+    const to = new Date(dateRangeSchema.to);
 
+    const nights = Math.ceil((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
     return (
         <Html>
             <Body
@@ -152,7 +153,7 @@ export default function BookingFormMail(props: StaffNotificationEmailProps) {
                                                     color: '#0d9488',
                                                     margin: '0 0 4px 0',
                                                 }}>
-                                                ✉️ {email}
+                                                ✉️ {mail}
                                             </Text>
                                             <Text
                                                 style={{
@@ -179,7 +180,7 @@ export default function BookingFormMail(props: StaffNotificationEmailProps) {
                                                     color: '#1f2937',
                                                     margin: '0 0 4px 0',
                                                 }}>
-                                                📞 {phone}
+                                                📞 {tel}
                                             </Text>
                                             <Text
                                                 style={{
@@ -306,13 +307,13 @@ export default function BookingFormMail(props: StaffNotificationEmailProps) {
                                                     margin: '0 0 4px 0',
                                                 }}>
                                                 📅{' '}
-                                                {dateRange[0].toLocaleDateString('fr-FR', {
+                                                {from.toLocaleDateString('fr-FR', {
                                                     day: 'numeric',
                                                     month: 'long',
                                                     year: 'numeric',
                                                 })}{' '}
                                                 →{' '}
-                                                {dateRange[1].toLocaleDateString('fr-FR', {
+                                                {to.toLocaleDateString('fr-FR', {
                                                     day: 'numeric',
                                                     month: 'long',
                                                     year: 'numeric',
@@ -330,52 +331,103 @@ export default function BookingFormMail(props: StaffNotificationEmailProps) {
                                     </Row>
 
                                     {/* Pricing */}
-                                    <Row>
-                                        <Column
-                                            style={{
-                                                backgroundColor: '#f0fdf4',
-                                                border: '1px solid #86efac',
-                                                padding: '12px',
-                                                borderRadius: '8px',
-                                            }}>
-                                            <Row>
-                                                <Column style={{ width: '70%' }}>
-                                                    <Text
-                                                        style={{
-                                                            fontWeight: 'bold',
-                                                            color: '#166534',
-                                                            margin: 0,
-                                                        }}>
-                                                        Tarif estimé
-                                                    </Text>
-                                                    <Text
-                                                        style={{
-                                                            fontSize: '12px',
-                                                            color: '#16a34a',
-                                                            margin: '4px 0 0 0',
-                                                        }}>
-                                                        Particulier • {nights} nuits × 43€
-                                                    </Text>
-                                                </Column>
-                                                <Column
-                                                    style={{ width: '30%', textAlign: 'right' }}>
-                                                    <Text
-                                                        style={{
-                                                            fontSize: '18px',
-                                                            fontWeight: 'bold',
-                                                            color: '#15803d',
-                                                            margin: 0,
-                                                        }}>
-                                                        {nights * 43}€
-                                                    </Text>
-                                                </Column>
-                                            </Row>
-                                        </Column>
-                                    </Row>
+                                    {/*<Row>*/}
+                                    {/*    <Column*/}
+                                    {/*        style={{*/}
+                                    {/*            backgroundColor: '#f0fdf4',*/}
+                                    {/*            border: '1px solid #86efac',*/}
+                                    {/*            padding: '12px',*/}
+                                    {/*            borderRadius: '8px',*/}
+                                    {/*        }}>*/}
+                                    {/*        <Row>*/}
+                                    {/*            /!*<Column style={{ width: '70%' }}>*!/*/}
+                                    {/*            /!*    <Text*!/*/}
+                                    {/*            /!*        style={{*!/*/}
+                                    {/*            /!*            fontWeight: 'bold',*!/*/}
+                                    {/*            /!*            color: '#166534',*!/*/}
+                                    {/*            /!*            margin: 0,*!/*/}
+                                    {/*            /!*        }}>*!/*/}
+                                    {/*            /!*        Tarif estimé*!/*/}
+                                    {/*            /!*    </Text>*!/*/}
+                                    {/*            /!*    <Text*!/*/}
+                                    {/*            /!*        style={{*!/*/}
+                                    {/*            /!*            fontSize: '12px',*!/*/}
+                                    {/*            /!*            color: '#16a34a',*!/*/}
+                                    {/*            /!*            margin: '4px 0 0 0',*!/*/}
+                                    {/*            /!*        }}>*!/*/}
+                                    {/*            /!*        Particulier • {nights} nuits × 43€*!/*/}
+                                    {/*            /!*    </Text>*!/*/}
+                                    {/*            /!*</Column>*!/*/}
+                                    {/*            /!*<Column*!/*/}
+                                    {/*            /!*    style={{ width: '30%', textAlign: 'right' }}>*!/*/}
+                                    {/*            /!*    <Text*!/*/}
+                                    {/*            /!*        style={{*!/*/}
+                                    {/*            /!*            fontSize: '18px',*!/*/}
+                                    {/*            /!*            fontWeight: 'bold',*!/*/}
+                                    {/*            /!*            color: '#15803d',*!/*/}
+                                    {/*            /!*            margin: 0,*!/*/}
+                                    {/*            /!*        }}>*!/*/}
+                                    {/*            /!*        {nights * 43}€*!/*/}
+                                    {/*            /!*    </Text>*!/*/}
+                                    {/*            /!*</Column>*!/*/}
+                                    {/*        </Row>*/}
+                                    {/*    </Column>*/}
+                                    {/*</Row>*/}
                                 </Section>
                             </Column>
                         </Row>
                     </Section>
+
+                    {/* Additional Information */}
+                    {other && (
+                        <Section style={{ padding: '0 24px 16px 24px' }}>
+                            <Row>
+                                <Column
+                                    style={{
+                                        border: '1px solid #5eead4',
+                                        borderRadius: '8px',
+                                        overflow: 'hidden',
+                                    }}>
+                                    <Section
+                                        style={{
+                                            backgroundColor: '#f0fdfa',
+                                            padding: '12px 16px',
+                                        }}>
+                                        <Heading
+                                            style={{
+                                                color: '#115e59',
+                                                fontSize: '16px',
+                                                margin: 0,
+                                            }}>
+                                            💬 Informations supplémentaires
+                                        </Heading>
+                                    </Section>
+
+                                    <Section style={{ padding: '16px' }}>
+                                        <Row>
+                                            <Column
+                                                style={{
+                                                    backgroundColor: '#f9fafb',
+                                                    padding: '12px',
+                                                    borderRadius: '8px',
+                                                }}>
+                                                <Text
+                                                    style={{
+                                                        color: '#1f2937',
+                                                        fontSize: '14px',
+                                                        margin: 0,
+                                                        lineHeight: '1.5',
+                                                        whiteSpace: 'pre-wrap',
+                                                    }}>
+                                                    {other}
+                                                </Text>
+                                            </Column>
+                                        </Row>
+                                    </Section>
+                                </Column>
+                            </Row>
+                        </Section>
+                    )}
 
                     {/* Actions */}
                     <Section style={{ padding: '0 24px 24px 24px' }}>

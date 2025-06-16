@@ -5,6 +5,7 @@ import { Media } from '@/payload-types';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
+import { cn } from '@/utilities/ui';
 
 interface RestaurantCarouselBlockProps {
     title: string;
@@ -17,7 +18,7 @@ interface RestaurantCarouselBlockProps {
 
 export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
     const { title, subheading, imagesArray, description, button, imageSubheading } = props;
-    console.log(imagesArray);
+
     return (
         <div className={'grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0'}>
             <div
@@ -34,13 +35,28 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
             <Carousel className={'order-3 col-span-2'}>
                 <CarouselContent className={'flex justify-center space-x-4 rounded-l-lg'}>
                     {imagesArray.map((images, i) => (
-                        <CarouselItem key={i} className={'relative h-[200px] basis-1/3'}>
+                        <CarouselItem
+                            key={i}
+                            className={'relative h-[200px] basis-1/3 lg:h-[400px]'}>
                             <Image
                                 fill
                                 src={images.images.image.url as string}
                                 alt={images.images.image.alt}
                                 className={'rounded-lg object-cover'}
                             />
+                            <div
+                                className={cn(
+                                    'absolute bottom-2 left-0 flex h-8 w-20 items-center justify-center rounded-r-lg bg-black sm:bottom-4 lg:bottom-6 lg:w-32',
+                                    i === 0 && 'md:w-32 lg:w-44',
+                                )}>
+                                <p
+                                    className={cn(
+                                        'text-primary text-xs',
+                                        i === 0 && 'md:ml-6 lg:ml-12',
+                                    )}>
+                                    {images.images.label}
+                                </p>
+                            </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>

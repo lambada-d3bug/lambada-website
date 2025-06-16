@@ -89,7 +89,7 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
                                                 : dynamicTitle.plural}
                                         </p>
                                     )}
-                                    {dateRange.from !== dateRange.to && (
+                                    {dateRange.from.getDate() !== dateRange.to.getDate() && (
                                         <p>
                                             {formatDateLocalized(dateRange.from, locale)}{' '}
                                             {dateSuffix} {formatDateLocalized(dateRange.to, locale)}
@@ -109,7 +109,7 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
                                 disabled={isDateDisabled}
                             />
                             <p
-                                className="underline"
+                                className="underline hover:cursor-pointer"
                                 onClick={() => onChange({ from: undefined, to: undefined })}>
                                 {deleteDateText}
                             </p>
