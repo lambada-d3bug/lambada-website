@@ -1,3 +1,5 @@
-import Page from '@/app/(app)/[locale]/page';
+import { redirect } from 'next/navigation';
 
-export default Page;
+export default function Page() {
+    redirect('/fr');
+}

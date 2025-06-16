@@ -70,6 +70,9 @@ export interface Config {
     pages: Page;
     users: User;
     media: Media;
+    googleReviewsFr: GoogleReviewsFr;
+    googleReviewsIt: GoogleReviewsIt;
+    googleReviewsEn: GoogleReviewsEn;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +82,9 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    googleReviewsFr: GoogleReviewsFrSelect<false> | GoogleReviewsFrSelect<true>;
+    googleReviewsIt: GoogleReviewsItSelect<false> | GoogleReviewsItSelect<true>;
+    googleReviewsEn: GoogleReviewsEnSelect<false> | GoogleReviewsEnSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -180,6 +186,268 @@ export interface Page {
             blockName?: string | null;
             blockType: 'gridOrCarousel';
           }
+        | {
+            hideBoolean?: boolean | null;
+            overallText?: string | null;
+            starLogo?: (string | null) | Media;
+            expandToggleTexts?: {
+              expandLabel?: string | null;
+              collapseLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'reviewCarousel';
+          }
+        | {
+            title?: string | null;
+            starEmptyLogo?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'overallRating';
+          }
+        | {
+            headingGroup?: {
+              heading?: string | null;
+              starLogo?: (string | null) | Media;
+              reviewsNumber?: number | null;
+              reviewsText?: string | null;
+              rating?: string | null;
+              location?: string | null;
+              description?: string | null;
+              saveGroup?: {
+                label?: string | null;
+                url?: string | null;
+                logo?: (string | null) | Media;
+              };
+              shareGroup?: {
+                label?: string | null;
+                url?: string | null;
+                logo?: (string | null) | Media;
+              };
+            };
+            description?: string | null;
+            imagesArray?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            tabs?: {
+              descriptionTab?: {
+                tabTitle?: string | null;
+                iconArray?:
+                  | {
+                      iconGroup?: {
+                        icon?: (string | null) | Media;
+                        label?: string | null;
+                      };
+                      id?: string | null;
+                    }[]
+                  | null;
+                descriptionGroup?: {
+                  heading?: string | null;
+                  description?: string | null;
+                };
+                cautionGroup?: {
+                  heading?: string | null;
+                  descriptionCautionArray?:
+                    | {
+                        description?: string | null;
+                        price?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                };
+                button?: {
+                  label?: string | null;
+                  url?: string | null;
+                };
+                expandToggleTexts?: {
+                  expandLabel?: string | null;
+                  collapseLabel?: string | null;
+                };
+              };
+              localisationTab?: {
+                tabTitle?: string | null;
+                longitude?: string | null;
+                latitude?: string | null;
+                adressGroup?: {
+                  streetName?: string | null;
+                  postCode?: string | null;
+                  townName?: string | null;
+                  country?: string | null;
+                  houseNumber?: string | null;
+                };
+              };
+              equipementsTab?:
+                | {
+                    equipement?: {
+                      tabTitle?: string | null;
+                      label?: string | null;
+                      items?:
+                        | {
+                            label?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
+              reviewsTab?: {
+                tabTitle?: string | null;
+                overallGroup?: {
+                  overallText?: string | null;
+                  logo?: (string | null) | Media;
+                };
+                expandToggleTexts?: {
+                  expandLabel?: string | null;
+                  collapseLabel?: string | null;
+                };
+                starLogo?: (string | null) | Media;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residencesPresentation';
+          }
+        | {
+            telGroup?: {
+              label?: string | null;
+              number?: string | null;
+            };
+            emailGroup?: {
+              label?: string | null;
+              email?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactInformation';
+          }
+        | {
+            title?: string | null;
+            selectionArray?:
+              | {
+                  label?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            formGroup?: {
+              lastName?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              firstName?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              mail?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              tel?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              other?: {
+                label?: string | null;
+                placeholder?: string | null;
+              };
+              button?: {
+                label?: string | null;
+                url?: string | null;
+              };
+              calendarGroup?: {
+                dynamicTitle?: {
+                  singular?: string | null;
+                  plural?: string | null;
+                };
+                dateSuffix?: string | null;
+                deleteDateText?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'bookingForm';
+          }
+        | {
+            residencesArray?:
+              | {
+                  residenceGroup?: {
+                    title?: string | null;
+                    subheading?: string | null;
+                    description?: string | null;
+                    imageArray?:
+                      | {
+                          image?: (string | null) | Media;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    iconArray?:
+                      | {
+                          card?: {
+                            icon?: (string | null) | Media;
+                            label?: string | null;
+                          };
+                          id?: string | null;
+                        }[]
+                      | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenceGeneral';
+          }
+        | {
+            title?: string | null;
+            subheading?: string | null;
+            description?: string | null;
+            imageSubheading?: string | null;
+            imagesArray?:
+              | {
+                  images?: {
+                    image?: (string | null) | Media;
+                    label?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'restaurantCarousel';
+          }
+        | {
+            title?: string | null;
+            images?:
+              | {
+                  image?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            schedules?: {
+              title?: string | null;
+              schedulesArray?:
+                | {
+                    schedulesGroup?: {
+                      day?: string | null;
+                      timeAM?: string | null;
+                      timePM?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            image?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'restaurantMenu';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -224,6 +492,72 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsFr".
+ */
+export interface GoogleReviewsFr {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsIt".
+ */
+export interface GoogleReviewsIt {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsEn".
+ */
+export interface GoogleReviewsEn {
+  id: string;
+  overallRating?: string | null;
+  author: string;
+  rating: number;
+  review?: string | null;
+  subReview?:
+    | {
+        rating?: number | null;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  authorImage?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -240,6 +574,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'googleReviewsFr';
+        value: string | GoogleReviewsFr;
+      } | null)
+    | ({
+        relationTo: 'googleReviewsIt';
+        value: string | GoogleReviewsIt;
+      } | null)
+    | ({
+        relationTo: 'googleReviewsEn';
+        value: string | GoogleReviewsEn;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -351,6 +697,344 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        reviewCarousel?:
+          | T
+          | {
+              hideBoolean?: T;
+              overallText?: T;
+              starLogo?: T;
+              expandToggleTexts?:
+                | T
+                | {
+                    expandLabel?: T;
+                    collapseLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        overallRating?:
+          | T
+          | {
+              title?: T;
+              starEmptyLogo?: T;
+              id?: T;
+              blockName?: T;
+            };
+        residencesPresentation?:
+          | T
+          | {
+              headingGroup?:
+                | T
+                | {
+                    heading?: T;
+                    starLogo?: T;
+                    reviewsNumber?: T;
+                    reviewsText?: T;
+                    rating?: T;
+                    location?: T;
+                    description?: T;
+                    saveGroup?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                          logo?: T;
+                        };
+                    shareGroup?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                          logo?: T;
+                        };
+                  };
+              description?: T;
+              imagesArray?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              tabs?:
+                | T
+                | {
+                    descriptionTab?:
+                      | T
+                      | {
+                          tabTitle?: T;
+                          iconArray?:
+                            | T
+                            | {
+                                iconGroup?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      label?: T;
+                                    };
+                                id?: T;
+                              };
+                          descriptionGroup?:
+                            | T
+                            | {
+                                heading?: T;
+                                description?: T;
+                              };
+                          cautionGroup?:
+                            | T
+                            | {
+                                heading?: T;
+                                descriptionCautionArray?:
+                                  | T
+                                  | {
+                                      description?: T;
+                                      price?: T;
+                                      id?: T;
+                                    };
+                              };
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          expandToggleTexts?:
+                            | T
+                            | {
+                                expandLabel?: T;
+                                collapseLabel?: T;
+                              };
+                        };
+                    localisationTab?:
+                      | T
+                      | {
+                          tabTitle?: T;
+                          longitude?: T;
+                          latitude?: T;
+                          adressGroup?:
+                            | T
+                            | {
+                                streetName?: T;
+                                postCode?: T;
+                                townName?: T;
+                                country?: T;
+                                houseNumber?: T;
+                              };
+                        };
+                    equipementsTab?:
+                      | T
+                      | {
+                          equipement?:
+                            | T
+                            | {
+                                tabTitle?: T;
+                                label?: T;
+                                items?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      id?: T;
+                                    };
+                              };
+                          id?: T;
+                        };
+                    reviewsTab?:
+                      | T
+                      | {
+                          tabTitle?: T;
+                          overallGroup?:
+                            | T
+                            | {
+                                overallText?: T;
+                                logo?: T;
+                              };
+                          expandToggleTexts?:
+                            | T
+                            | {
+                                expandLabel?: T;
+                                collapseLabel?: T;
+                              };
+                          starLogo?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contactInformation?:
+          | T
+          | {
+              telGroup?:
+                | T
+                | {
+                    label?: T;
+                    number?: T;
+                  };
+              emailGroup?:
+                | T
+                | {
+                    label?: T;
+                    email?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        bookingForm?:
+          | T
+          | {
+              title?: T;
+              selectionArray?:
+                | T
+                | {
+                    label?: T;
+                    id?: T;
+                  };
+              formGroup?:
+                | T
+                | {
+                    lastName?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    firstName?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    mail?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    tel?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    other?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                        };
+                    button?:
+                      | T
+                      | {
+                          label?: T;
+                          url?: T;
+                        };
+                    calendarGroup?:
+                      | T
+                      | {
+                          dynamicTitle?:
+                            | T
+                            | {
+                                singular?: T;
+                                plural?: T;
+                              };
+                          dateSuffix?: T;
+                          deleteDateText?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        residenceGeneral?:
+          | T
+          | {
+              residencesArray?:
+                | T
+                | {
+                    residenceGroup?:
+                      | T
+                      | {
+                          title?: T;
+                          subheading?: T;
+                          description?: T;
+                          imageArray?:
+                            | T
+                            | {
+                                image?: T;
+                                id?: T;
+                              };
+                          iconArray?:
+                            | T
+                            | {
+                                card?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      label?: T;
+                                    };
+                                id?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        restaurantCarousel?:
+          | T
+          | {
+              title?: T;
+              subheading?: T;
+              description?: T;
+              imageSubheading?: T;
+              imagesArray?:
+                | T
+                | {
+                    images?:
+                      | T
+                      | {
+                          image?: T;
+                          label?: T;
+                        };
+                    id?: T;
+                  };
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        restaurantMenu?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              schedules?:
+                | T
+                | {
+                    title?: T;
+                    schedulesArray?:
+                      | T
+                      | {
+                          schedulesGroup?:
+                            | T
+                            | {
+                                day?: T;
+                                timeAM?: T;
+                                timePM?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -388,6 +1072,69 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsFr_select".
+ */
+export interface GoogleReviewsFrSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsIt_select".
+ */
+export interface GoogleReviewsItSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "googleReviewsEn_select".
+ */
+export interface GoogleReviewsEnSelect<T extends boolean = true> {
+  overallRating?: T;
+  author?: T;
+  rating?: T;
+  review?: T;
+  subReview?:
+    | T
+    | {
+        rating?: T;
+        category?: T;
+        id?: T;
+      };
+  authorImage?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

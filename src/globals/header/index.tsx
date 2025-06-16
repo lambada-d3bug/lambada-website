@@ -11,5 +11,5 @@ export interface HeaderBlockProps {
 export function HeaderBlock(props: HeaderBlockProps) {
     const width = useWindowWidth();
     if (width === null) return null;
-    return <>{width > 790 ? <HeaderDesktop {...props} /> : <HeaderMobile {...props} />}</>;
+    return <>{width > 1024 ? <HeaderDesktop {...props} /> : <HeaderMobile {...props} />}</>;
 }

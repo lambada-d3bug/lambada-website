@@ -17,7 +17,7 @@ export function HeroBlock(props: HeroBlockProps) {
     const { bgImage, button, heading } = props;
     return (
         <main
-            className={'flex h-screen w-screen flex-col justify-center'}
+            className={'flex h-screen w-full flex-col justify-center'}
             style={{
                 backgroundColor: '#668E2E',
                 ...(bgImage?.url && {
@@ -28,7 +28,7 @@ export function HeroBlock(props: HeroBlockProps) {
                 }),
             }}>
             <div className={'ml-4 space-y-2 md:ml-8 lg:ml-20'}>
-                <p className={'text-6xl break-words text-white uppercase md:text-8xl lg:w-2/3'}>
+                <p className={'text-4xl break-words text-white uppercase md:text-8xl lg:w-2/3'}>
                     {heading}
                 </p>
                 <Button

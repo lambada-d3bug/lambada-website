@@ -10,6 +10,9 @@ import { MainMenu } from './globals/MainMenu';
 import { Media } from '@/collections/Media';
 import { header } from '@/globals/header/config';
 import { Footer } from '@/globals/footer/config';
+import { GoogleReviewsFr } from 'src/collections/google-reviews-fr';
+import { GoogleReviewsEn } from '@/collections/google-reviews-en';
+import { GoogleReviewsIt } from '@/collections/google-reviews-it';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +39,7 @@ export default buildConfig({
         ],
         defaultLocale: 'fr', // required
     },
-    collections: [Pages, Users, Media],
+    collections: [Pages, Users, Media, GoogleReviewsFr, GoogleReviewsIt, GoogleReviewsEn],
     db: mongooseAdapter({
         url: process.env.DATABASE_URI || '',
     }),

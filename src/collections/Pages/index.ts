@@ -1,10 +1,17 @@
-import type {CollectionConfig} from 'payload'
-import {loggedIn} from './access/loggedIn'
-import {formatSlug} from './hooks/formatSlug'
-import {ResponsiveGallery} from "@/blocks/responsive-gallery/config";
-import {Hero} from "@/blocks/hero/config";
-import {GridOrCarousel} from "@/blocks/grid-or-carousel/config";
-
+import type { CollectionConfig } from 'payload';
+import { loggedIn } from './access/loggedIn';
+import { formatSlug } from './hooks/formatSlug';
+import { ResponsiveGallery } from '@/blocks/responsive-gallery/config';
+import { Hero } from '@/blocks/hero/config';
+import { GridOrCarousel } from '@/blocks/grid-or-carousel/config';
+import { ReviewCarousel } from '@/blocks/review-carousel/config';
+import { OverallRating } from '@/blocks/overall-rating/config';
+import { ResidencesPresentation } from '@/blocks/residences-presentation/config';
+import { ContactInformation } from '@/blocks/contact-information/config';
+import { BookingForm } from '@/blocks/booking-form/config';
+import { ResidenceGeneral } from '@/blocks/residence-general/config';
+import { RestaurantCarousel } from '@/blocks/restaurant-carousel/config';
+import { RestaurantMenu } from '@/blocks/restaurant-menu/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -17,9 +24,9 @@ export const Pages: CollectionConfig = {
     admin: {
         defaultColumns: ['title', 'slug', 'updatedAt'],
         livePreview: {
-            url: ({data}) => {
-                const isHomePage = data.slug === 'home'
-                return `${process.env.NEXT_PUBLIC_SERVER_URL}${!isHomePage ? `/${data.slug}` : ''}`
+            url: ({ data }) => {
+                const isHomePage = data.slug === 'home';
+                return `${process.env.NEXT_PUBLIC_SERVER_URL}${!isHomePage ? `/${data.slug}` : ''}`;
             },
         },
         useAsTitle: 'title',
@@ -41,11 +48,24 @@ export const Pages: CollectionConfig = {
             },
             index: true,
             label: 'Slug',
-        }, {
+        },
+        {
             name: 'layout',
             label: 'Layout',
             type: 'blocks',
-            blocks: [ResponsiveGallery, Hero, GridOrCarousel],
+            blocks: [
+                ResponsiveGallery,
+                Hero,
+                GridOrCarousel,
+                ReviewCarousel,
+                OverallRating,
+                ResidencesPresentation,
+                ContactInformation,
+                BookingForm,
+                ResidenceGeneral,
+                RestaurantCarousel,
+                RestaurantMenu,
+            ],
         },
     ],
     versions: {
@@ -55,4 +75,4 @@ export const Pages: CollectionConfig = {
             },
         },
     },
-}
+};

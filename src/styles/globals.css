@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body {
+    width: 100%;
+
+}
 :root {
     --font-sans: 'Inter', sans-serif;
     --font-poppins: 'Poppins', sans-serif;
