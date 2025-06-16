@@ -1,6 +1,13 @@
-import { Bell, CalendarDays, Clock, Home, Mail, MapPin, Phone, Users } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../../src/components/ui/card';
-import { Badge } from '../../src/components/ui/badge';
+import {
+    Body,
+    Column,
+    Container,
+    Heading,
+    Html,
+    Row,
+    Section,
+    Text,
+} from '@react-email/components';
 
 interface StaffNotificationEmailProps {
     lastName: string;
@@ -22,499 +29,430 @@ export default function StaffNotificationEmail({
     );
 
     return (
-        <div
-            style={{
-                maxWidth: '672px',
-                margin: '0 auto',
-                backgroundColor: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-            }}>
-            {/* Header with coastal theme */}
-            <div
+        <Html>
+            <Body
                 style={{
-                    borderTopLeftRadius: '8px',
-                    borderTopRightRadius: '8px',
-                    background: 'linear-gradient(to right, #0d9488, #0f766e)',
-                    padding: '24px',
-                    color: '#ffffff',
+                    fontFamily: 'Arial, sans-serif',
+                    margin: 0,
+                    padding: 0,
+                    backgroundColor: '#f5f5f5',
                 }}>
-                <div
-                    style={{
-                        marginBottom: '8px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                    }}>
-                    <Bell style={{ height: '24px', width: '24px' }} />
-                    <h1
+                <Container
+                    style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: '#ffffff' }}>
+                    {/* Header */}
+                    <Section
                         style={{
-                            fontSize: '20px',
-                            fontWeight: 'bold',
-                            margin: 0,
+                            background: 'linear-gradient(to right, #0d9488, #0f766e)',
+                            padding: '24px',
+                            borderRadius: '8px 8px 0 0',
                         }}>
-                        Nouvelle demande de réservation
-                    </h1>
-                </div>
-                <div
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        color: '#99f6e4',
-                    }}>
-                    <MapPin style={{ height: '16px', width: '16px' }} />
-                    <span>La plage de Farinole</span>
-                    <span style={{ margin: '0 8px' }}>•</span>
-                    <Clock style={{ height: '16px', width: '16px' }} />
-                    <span>Reçue le {new Date().toLocaleDateString('fr-FR')}</span>
-                </div>
-            </div>
-
-            <div
-                style={{
-                    display: 'flex',
-                    width: '100%',
-                    flexDirection: 'column',
-                    gap: '16px',
-                    padding: '24px',
-                    fontSize: '14px',
-                }}>
-                {/* Priority alert */}
-                <div
-                    style={{
-                        borderTopRightRadius: '8px',
-                        borderBottomRightRadius: '8px',
-                        borderLeft: '4px solid #f59e0b',
-                        backgroundColor: '#fffbeb',
-                        padding: '16px',
-                    }}>
-                    <p
-                        style={{
-                            fontWeight: '500',
-                            color: '#92400e',
-                            margin: 0,
-                        }}>
-                        ⚡ Action requise : Répondre dans les 24h
-                    </p>
-                </div>
-
-                {/* Client Information */}
-                <Card
-                    style={{
-                        borderColor: '#5eead4',
-                        boxShadow:
-                            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-                    }}>
-                    <CardHeader style={{ backgroundColor: '#f0fdfa' }}>
-                        <CardTitle
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                fontSize: '16px',
-                                color: '#115e59',
-                            }}>
-                            <Users style={{ height: '16px', width: '16px' }} />
-                            Informations du client
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px',
-                            padding: '16px',
-                        }}>
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '12px',
-                                borderRadius: '8px',
-                                backgroundColor: '#f9fafb',
-                                padding: '12px',
-                            }}>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    height: '32px',
-                                    width: '32px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#ccfbf1',
-                                }}>
-                                <Users
-                                    style={{ height: '16px', width: '16px', color: '#0d9488' }}
-                                />
-                            </div>
-                            <div>
-                                <p
+                        <Row>
+                            <Column>
+                                <Heading
                                     style={{
-                                        fontWeight: '600',
-                                        color: '#1f2937',
-                                        margin: 0,
-                                    }}>
-                                    {firstName} {lastName}
-                                </p>
-                                <p
-                                    style={{
-                                        fontSize: '12px',
-                                        color: '#4b5563',
-                                        margin: 0,
-                                    }}>
-                                    Nom complet
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '12px',
-                                borderRadius: '8px',
-                                backgroundColor: '#f9fafb',
-                                padding: '12px',
-                            }}>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    height: '32px',
-                                    width: '32px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#ccfbf1',
-                                }}>
-                                <Mail style={{ height: '16px', width: '16px', color: '#0d9488' }} />
-                            </div>
-                            <div>
-                                <p
-                                    style={{
-                                        fontWeight: '500',
-                                        color: '#0f766e',
-                                        margin: 0,
-                                    }}>
-                                    {email}
-                                </p>
-                                <p
-                                    style={{
-                                        fontSize: '12px',
-                                        color: '#4b5563',
-                                        margin: 0,
-                                    }}>
-                                    Adresse e-mail
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '12px',
-                                borderRadius: '8px',
-                                backgroundColor: '#f9fafb',
-                                padding: '12px',
-                            }}>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    height: '32px',
-                                    width: '32px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#ccfbf1',
-                                }}>
-                                <Phone
-                                    style={{ height: '16px', width: '16px', color: '#0d9488' }}
-                                />
-                            </div>
-                            <div>
-                                <p
-                                    style={{
-                                        fontWeight: '500',
-                                        margin: 0,
-                                    }}>
-                                    {phone}
-                                </p>
-                                <p
-                                    style={{
-                                        fontSize: '12px',
-                                        color: '#4b5563',
-                                        margin: 0,
-                                    }}>
-                                    Numéro de téléphone
-                                </p>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                {/* Residence Information */}
-                <Card
-                    style={{
-                        borderColor: '#5eead4',
-                        boxShadow:
-                            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-                    }}>
-                    <CardHeader style={{ backgroundColor: '#f0fdfa' }}>
-                        <CardTitle
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                fontSize: '16px',
-                                color: '#115e59',
-                            }}>
-                            <Home style={{ height: '16px', width: '16px' }} />
-                            Résidence demandée
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent style={{ padding: '16px' }}>
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                borderRadius: '8px',
-                                border: '1px solid #5eead4',
-                                backgroundColor: '#f0fdfa',
-                                padding: '16px',
-                            }}>
-                            <div>
-                                <p
-                                    style={{
+                                        color: '#ffffff',
                                         fontSize: '20px',
                                         fontWeight: 'bold',
-                                        color: '#0f766e',
-                                        margin: 0,
+                                        margin: '0 0 8px 0',
                                     }}>
-                                    Numéro 1
-                                </p>
-                                <p
+                                    🔔 Nouvelle demande de réservation
+                                </Heading>
+                                <Text
                                     style={{
+                                        color: '#a7f3d0',
                                         fontSize: '14px',
-                                        color: '#0d9488',
                                         margin: 0,
                                     }}>
-                                    41m² • 2 chambres • 4 personnes
-                                </p>
-                            </div>
-                            <Badge
-                                style={{
-                                    backgroundColor: '#0d9488',
-                                    color: '#ffffff',
-                                }}>
-                                Disponible
-                            </Badge>
-                        </div>
-                    </CardContent>
-                </Card>
+                                    📍 La plage de Farinole • 🕐 Reçue le{' '}
+                                    {new Date().toLocaleDateString('fr-FR')}
+                                </Text>
+                            </Column>
+                        </Row>
+                    </Section>
 
-                {/* Date Range */}
-                <Card
-                    style={{
-                        borderColor: '#5eead4',
-                        boxShadow:
-                            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-                    }}>
-                    <CardHeader style={{ backgroundColor: '#f0fdfa' }}>
-                        <CardTitle
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                fontSize: '16px',
-                                color: '#115e59',
-                            }}>
-                            <CalendarDays style={{ height: '16px', width: '16px' }} />
-                            Période souhaitée
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent style={{ padding: '16px' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            <div
+                    {/* Priority Alert */}
+                    <Section style={{ padding: '24px 24px 0 24px' }}>
+                        <Row>
+                            <Column
                                 style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '12px',
-                                    borderRadius: '8px',
-                                    backgroundColor: '#f9fafb',
-                                    padding: '12px',
+                                    borderLeft: '4px solid #f59e0b',
+                                    backgroundColor: '#fef3c7',
+                                    padding: '16px',
+                                    borderRadius: '0 8px 8px 0',
                                 }}>
-                                <CalendarDays
-                                    style={{ height: '20px', width: '20px', color: '#0d9488' }}
-                                />
-                                <div>
-                                    <p
+                                <Text
+                                    style={{
+                                        color: '#92400e',
+                                        fontWeight: 'bold',
+                                        margin: 0,
+                                    }}>
+                                    ⚡ Action requise : Répondre dans les 24h
+                                </Text>
+                            </Column>
+                        </Row>
+                    </Section>
+
+                    {/* Client Information */}
+                    <Section style={{ padding: '16px 24px' }}>
+                        <Row>
+                            <Column
+                                style={{
+                                    border: '1px solid #5eead4',
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                }}>
+                                <Section
+                                    style={{ backgroundColor: '#f0fdfa', padding: '12px 16px' }}>
+                                    <Heading
                                         style={{
-                                            fontWeight: '600',
-                                            color: '#1f2937',
+                                            color: '#115e59',
+                                            fontSize: '16px',
                                             margin: 0,
                                         }}>
-                                        {dateRange[0].toLocaleDateString('fr-FR', {
-                                            day: 'numeric',
-                                            month: 'long',
-                                            year: 'numeric',
-                                        })}{' '}
-                                        →{' '}
-                                        {dateRange[1].toLocaleDateString('fr-FR', {
-                                            day: 'numeric',
-                                            month: 'long',
-                                            year: 'numeric',
-                                        })}
-                                    </p>
-                                    <p
+                                        👥 Informations du client
+                                    </Heading>
+                                </Section>
+
+                                <Section style={{ padding: '16px' }}>
+                                    {/* Name */}
+                                    <Row style={{ marginBottom: '12px' }}>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f9fafb',
+                                                padding: '12px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Text
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    color: '#1f2937',
+                                                    margin: '0 0 4px 0',
+                                                }}>
+                                                👤 {firstName} {lastName}
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: '12px',
+                                                    color: '#6b7280',
+                                                    margin: 0,
+                                                }}>
+                                                Nom complet
+                                            </Text>
+                                        </Column>
+                                    </Row>
+
+                                    {/* Email */}
+                                    <Row style={{ marginBottom: '12px' }}>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f9fafb',
+                                                padding: '12px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Text
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    color: '#0d9488',
+                                                    margin: '0 0 4px 0',
+                                                }}>
+                                                ✉️ {email}
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: '12px',
+                                                    color: '#6b7280',
+                                                    margin: 0,
+                                                }}>
+                                                Adresse e-mail
+                                            </Text>
+                                        </Column>
+                                    </Row>
+
+                                    {/* Phone */}
+                                    <Row>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f9fafb',
+                                                padding: '12px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Text
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    color: '#1f2937',
+                                                    margin: '0 0 4px 0',
+                                                }}>
+                                                📞 {phone}
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: '12px',
+                                                    color: '#6b7280',
+                                                    margin: 0,
+                                                }}>
+                                                Numéro de téléphone
+                                            </Text>
+                                        </Column>
+                                    </Row>
+                                </Section>
+                            </Column>
+                        </Row>
+                    </Section>
+
+                    {/* Residence Information */}
+                    <Section style={{ padding: '0 24px 16px 24px' }}>
+                        <Row>
+                            <Column
+                                style={{
+                                    border: '1px solid #5eead4',
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                }}>
+                                <Section
+                                    style={{ backgroundColor: '#f0fdfa', padding: '12px 16px' }}>
+                                    <Heading
                                         style={{
+                                            color: '#115e59',
+                                            fontSize: '16px',
+                                            margin: 0,
+                                        }}>
+                                        🏠 Résidence demandée
+                                    </Heading>
+                                </Section>
+
+                                <Section style={{ padding: '16px' }}>
+                                    <Row>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f0fdfa',
+                                                border: '1px solid #5eead4',
+                                                padding: '16px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Row>
+                                                <Column style={{ width: '70%' }}>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: '20px',
+                                                            fontWeight: 'bold',
+                                                            color: '#0f766e',
+                                                            margin: '0 0 4px 0',
+                                                        }}>
+                                                        Numéro 1
+                                                    </Text>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: '14px',
+                                                            color: '#0d9488',
+                                                            margin: 0,
+                                                        }}>
+                                                        41m² • 2 chambres • 4 personnes
+                                                    </Text>
+                                                </Column>
+                                                <Column
+                                                    style={{ width: '30%', textAlign: 'right' }}>
+                                                    <Text
+                                                        style={{
+                                                            backgroundColor: '#0d9488',
+                                                            color: '#ffffff',
+                                                            padding: '4px 8px',
+                                                            borderRadius: '4px',
+                                                            fontSize: '12px',
+                                                            margin: 0,
+                                                            display: 'inline-block',
+                                                        }}>
+                                                        Disponible
+                                                    </Text>
+                                                </Column>
+                                            </Row>
+                                        </Column>
+                                    </Row>
+                                </Section>
+                            </Column>
+                        </Row>
+                    </Section>
+
+                    {/* Date Range */}
+                    <Section style={{ padding: '0 24px 16px 24px' }}>
+                        <Row>
+                            <Column
+                                style={{
+                                    border: '1px solid #5eead4',
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                }}>
+                                <Section
+                                    style={{ backgroundColor: '#f0fdfa', padding: '12px 16px' }}>
+                                    <Heading
+                                        style={{
+                                            color: '#115e59',
+                                            fontSize: '16px',
+                                            margin: 0,
+                                        }}>
+                                        📅 Période souhaitée
+                                    </Heading>
+                                </Section>
+
+                                <Section style={{ padding: '16px' }}>
+                                    {/* Date Range */}
+                                    <Row style={{ marginBottom: '12px' }}>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f9fafb',
+                                                padding: '12px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Text
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    color: '#1f2937',
+                                                    margin: '0 0 4px 0',
+                                                }}>
+                                                📅{' '}
+                                                {dateRange[0].toLocaleDateString('fr-FR', {
+                                                    day: 'numeric',
+                                                    month: 'long',
+                                                    year: 'numeric',
+                                                })}{' '}
+                                                →{' '}
+                                                {dateRange[1].toLocaleDateString('fr-FR', {
+                                                    day: 'numeric',
+                                                    month: 'long',
+                                                    year: 'numeric',
+                                                })}
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: '14px',
+                                                    color: '#6b7280',
+                                                    margin: 0,
+                                                }}>
+                                                {nights} nuits
+                                            </Text>
+                                        </Column>
+                                    </Row>
+
+                                    {/* Pricing */}
+                                    <Row>
+                                        <Column
+                                            style={{
+                                                backgroundColor: '#f0fdf4',
+                                                border: '1px solid #86efac',
+                                                padding: '12px',
+                                                borderRadius: '8px',
+                                            }}>
+                                            <Row>
+                                                <Column style={{ width: '70%' }}>
+                                                    <Text
+                                                        style={{
+                                                            fontWeight: 'bold',
+                                                            color: '#166534',
+                                                            margin: 0,
+                                                        }}>
+                                                        Tarif estimé
+                                                    </Text>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: '12px',
+                                                            color: '#16a34a',
+                                                            margin: '4px 0 0 0',
+                                                        }}>
+                                                        Particulier • {nights} nuits × 43€
+                                                    </Text>
+                                                </Column>
+                                                <Column
+                                                    style={{ width: '30%', textAlign: 'right' }}>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: '18px',
+                                                            fontWeight: 'bold',
+                                                            color: '#15803d',
+                                                            margin: 0,
+                                                        }}>
+                                                        {nights * 43}€
+                                                    </Text>
+                                                </Column>
+                                            </Row>
+                                        </Column>
+                                    </Row>
+                                </Section>
+                            </Column>
+                        </Row>
+                    </Section>
+
+                    {/* Actions */}
+                    <Section style={{ padding: '0 24px 24px 24px' }}>
+                        <Row>
+                            <Column
+                                style={{
+                                    border: '1px solid #fed7aa',
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                }}>
+                                <Section
+                                    style={{ backgroundColor: '#fff7ed', padding: '12px 16px' }}>
+                                    <Heading
+                                        style={{
+                                            color: '#9a3412',
+                                            fontSize: '16px',
+                                            margin: 0,
+                                        }}>
+                                        Actions à effectuer
+                                    </Heading>
+                                </Section>
+
+                                <Section style={{ padding: '16px' }}>
+                                    <Text
+                                        style={{
+                                            color: '#374151',
                                             fontSize: '14px',
-                                            color: '#4b5563',
-                                            margin: 0,
+                                            margin: '0 0 8px 0',
                                         }}>
-                                        {nights} nuits
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Pricing info */}
-                            <div
-                                style={{
-                                    borderRadius: '8px',
-                                    border: '1px solid #bbf7d0',
-                                    backgroundColor: '#f0fdf4',
-                                    padding: '12px',
-                                }}>
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}>
-                                    <span
+                                        🔸 Vérifier la disponibilité dans le planning
+                                    </Text>
+                                    <Text
                                         style={{
-                                            fontWeight: '500',
-                                            color: '#166534',
+                                            color: '#374151',
+                                            fontSize: '14px',
+                                            margin: '0 0 8px 0',
                                         }}>
-                                        Tarif estimé
-                                    </span>
-                                    <span
-                                        style={{
-                                            fontSize: '18px',
-                                            fontWeight: 'bold',
-                                            color: '#15803d',
-                                        }}>
-                                        {nights * 43}€
-                                    </span>
-                                </div>
-                                <p
-                                    style={{
-                                        marginTop: '4px',
-                                        fontSize: '12px',
-                                        color: '#16a34a',
-                                        margin: '4px 0 0 0',
-                                    }}>
-                                    Particulier • {nights} nuits × 43€
-                                </p>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+                                        🔸 Envoyer la confirmation ou le refus au client
+                                    </Text>
+                                    <Text style={{ color: '#374151', fontSize: '14px', margin: 0 }}>
+                                        🔸 Mettre à jour le système de réservation
+                                    </Text>
+                                </Section>
+                            </Column>
+                        </Row>
+                    </Section>
 
-                {/* Action needed */}
-                <Card
-                    style={{
-                        borderColor: '#fed7aa',
-                        boxShadow:
-                            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-                    }}>
-                    <CardHeader style={{ backgroundColor: '#fff7ed' }}>
-                        <CardTitle
+                    {/* Footer */}
+                    <Section
+                        style={{
+                            backgroundColor: '#0f766e',
+                            padding: '16px',
+                            textAlign: 'center',
+                            borderRadius: '0 0 8px 8px',
+                        }}>
+                        <Text
                             style={{
-                                fontSize: '16px',
-                                color: '#9a3412',
+                                color: '#ffffff',
+                                fontSize: '14px',
+                                margin: '0 0 4px 0',
                             }}>
-                            Actions à effectuer
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent style={{ padding: '16px' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '8px',
-                                    fontSize: '14px',
-                                }}>
-                                <div
-                                    style={{
-                                        height: '8px',
-                                        width: '8px',
-                                        borderRadius: '50%',
-                                        backgroundColor: '#f97316',
-                                    }}></div>
-                                <span>Vérifier la disponibilité dans le planning</span>
-                            </div>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '8px',
-                                    fontSize: '14px',
-                                }}>
-                                <div
-                                    style={{
-                                        height: '8px',
-                                        width: '8px',
-                                        borderRadius: '50%',
-                                        backgroundColor: '#f97316',
-                                    }}></div>
-                                <span>Envoyer la confirmation ou le refus au client</span>
-                            </div>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '8px',
-                                    fontSize: '14px',
-                                }}>
-                                <div
-                                    style={{
-                                        height: '8px',
-                                        width: '8px',
-                                        borderRadius: '50%',
-                                        backgroundColor: '#f97316',
-                                    }}></div>
-                                <span>Mettre à jour le système de réservation</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-
-            {/* Footer */}
-            <div
-                style={{
-                    borderBottomLeftRadius: '8px',
-                    borderBottomRightRadius: '8px',
-                    backgroundColor: '#0f766e',
-                    padding: '16px',
-                    textAlign: 'center',
-                    fontSize: '14px',
-                    color: '#ffffff',
-                }}>
-                <p style={{ margin: 0 }}>Système de réservation La plage de Farinole</p>
-                <p
-                    style={{
-                        marginTop: '4px',
-                        fontSize: '12px',
-                        color: '#5eead4',
-                        margin: '4px 0 0 0',
-                    }}>
-                    ID: RES-{Date.now().toString().slice(-6)}
-                </p>
-            </div>
-        </div>
+                            Système de réservation La plage de Farinole
+                        </Text>
+                        <Text
+                            style={{
+                                color: '#5eead4',
+                                fontSize: '12px',
+                                margin: 0,
+                            }}>
+                            ID: RES-{Date.now().toString().slice(-6)}
+                        </Text>
+                    </Section>
+                </Container>
+            </Body>
+        </Html>
     );
 }
