@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { redirect } from 'next/navigation';
+import { redirect, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 import { isMedia } from '@/utilities/isMedia';
@@ -14,6 +14,9 @@ interface FooterBlockProps {
 
 export function FooterBlock(props: FooterBlockProps) {
     const { FooterProps } = props;
+    const params = useParams();
+    const rawLocale = params?.locale;
+    const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
     const {
         blockDisplayBoolean,
         button,
@@ -41,7 +44,7 @@ export function FooterBlock(props: FooterBlockProps) {
             </div>
             <p className={'text-chart-5 text-center text-xs sm:text-base'}>{description}</p>
             <Button
-                onClick={() => redirect(button?.url || '')}
+                onClick={() => redirect(`${locale}/${button?.url}` || '')}
                 className={
                     'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white sm:text-base'
                 }>

@@ -77,22 +77,22 @@ export function TabsResidences(props: TabsResidencesProps) {
 
                     <TabsTrigger
                         value="description"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {descriptionTab.tabTitle}
                     </TabsTrigger>
                     <TabsTrigger
                         value="localisation"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {localisationTab.tabTitle}
                     </TabsTrigger>
                     <TabsTrigger
                         value="equipements"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {equipementsTab[0].equipement.tabTitle}
                     </TabsTrigger>
                     <TabsTrigger
                         value="avis"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {reviewsTab.tabTitle}
                     </TabsTrigger>
                 </TabsList>

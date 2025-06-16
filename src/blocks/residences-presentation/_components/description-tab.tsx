@@ -70,14 +70,14 @@ export function DescriptionTab(props: DescriptionTabProps) {
                         {iconArray.map((iconGroup, i) => (
                             <CarouselItem
                                 key={i}
-                                className="basis-1/4 pl-2 md:basis-1/3 md:pl-4 lg:basis-1/6">
+                                className="basis-1/3 pl-2 md:basis-1/3 md:pl-4 lg:basis-1/6">
                                 <div className="bg-ring/25 mx-0 flex h-full min-h-[120px] flex-col items-center justify-center space-y-2 rounded-lg p-2 text-center md:mx-2">
                                     <SvgFromUrl
                                         url={iconGroup.iconGroup.icon.url as string}
                                         alt={iconGroup.iconGroup.icon.alt}
                                         className="text-secondary h-6 w-6 flex-shrink-0 lg:h-8 lg:w-8"
                                     />
-                                    <p className="text-sm leading-tight font-medium lg:text-base">
+                                    <p className="text-xs leading-tight font-medium lg:text-base">
                                         {iconGroup.iconGroup.label}
                                     </p>
                                 </div>

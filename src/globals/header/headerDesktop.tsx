@@ -55,7 +55,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     {navItems?.map((item, i) => (
                         <Link
                             key={i}
-                            href={item?.itemsGroup?.url as string}
+                            href={`/${locale}/${item?.itemsGroup?.url || ''}`}
                             className={'flex items-center'}>
                             <p className={'hover:underline'}> {item?.itemsGroup?.label}</p>
                         </Link>

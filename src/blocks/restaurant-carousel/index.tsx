@@ -20,7 +20,10 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
     console.log(imagesArray);
     return (
         <div className={'grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0'}>
-            <div className={'col-span-1 flex flex-col space-y-2 px-6 sm:order-1 sm:pl-4 lg:pl-44'}>
+            <div
+                className={
+                    'col-span-2 flex w-full flex-col space-y-2 px-6 sm:order-1 sm:col-span-1 sm:pl-4 lg:pl-44'
+                }>
                 <p className={'text-lg font-semibold lg:text-3xl'}>{title}</p>
                 <div className={'flex items-center justify-end space-x-4 text-xs lg:text-xl'}>
                     <div className={'border-t-primary h-0 w-8 border-t-2 lg:w-16'}></div>

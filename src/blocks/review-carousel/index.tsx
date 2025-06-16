@@ -95,11 +95,13 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     return (
         <>
             <Carousel>
-                <CarouselContent className={'ml-1 w-full max-w-full md:ml-8'}>
+                <CarouselContent className={'ml-1 w-full max-w-full overflow-visible md:ml-8'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem
                             key={i}
-                            className={'basis-full p-8 sm:basis-2/3 lg:basis-1/3 lg:p-4'}>
+                            className={
+                                'basis-full p-8 last:mr-12 sm:basis-2/3 lg:basis-1/3 lg:p-4'
+                            }>
                             <Card>
                                 <CardContent
                                     className={

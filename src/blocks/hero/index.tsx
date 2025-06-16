@@ -28,7 +28,7 @@ export function HeroBlock(props: HeroBlockProps) {
                 }),
             }}>
             <div className={'ml-4 space-y-2 md:ml-8 lg:ml-20'}>
-                <p className={'text-5xl break-words text-white uppercase md:text-8xl lg:w-2/3'}>
+                <p className={'text-4xl break-words text-white uppercase md:text-8xl lg:w-2/3'}>
                     {heading}
                 </p>
                 <Button
