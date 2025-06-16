@@ -10,20 +10,17 @@ import {
 } from '@react-email/components';
 
 interface StaffNotificationEmailProps {
-    lastName: string;
-    firstName: string;
-    email: string;
-    phone: string;
-    dateRange: [Date, Date];
+    props: {
+        lastName: string;
+        firstName: string;
+        email: string;
+        phone: string;
+        dateRange: [Date, Date];
+    };
 }
 
-export default function StaffNotificationEmail({
-    lastName = 'Dupont',
-    firstName = 'Jean',
-    email = 'jean.dupont@email.com',
-    phone = '+33 6 12 34 56 78',
-    dateRange = [new Date('2025-07-01'), new Date('2025-07-07')],
-}: Partial<StaffNotificationEmailProps> = {}) {
+export default function BookingFormMail(props: StaffNotificationEmailProps) {
+    const { lastName, firstName, email, phone, dateRange } = props.props;
     const nights = Math.ceil(
         (dateRange[1].getTime() - dateRange[0].getTime()) / (1000 * 60 * 60 * 24),
     );

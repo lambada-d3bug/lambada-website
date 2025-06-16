@@ -64,8 +64,19 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
         },
     });
 
-    const onValid: SubmitHandler<z.infer<typeof formSchema>> = (values) => {
+    const onValid: SubmitHandler<z.infer<typeof formSchema>> = async (values) => {
         console.log('✅ Valid values:', values);
+        const res = await fetch('/api/booking-mail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(values),
+        });
+
+        if (!res.ok) {
+            toast.error(`Erreur durant l'envoi du mail`);
+        } else {
+            toast.success('Email envoyé');
+        }
     };
 
     const onInvalid = (errors: typeof form.formState.errors) => {
