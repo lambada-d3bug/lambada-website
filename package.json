@@ -20,6 +20,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@payloadcms/db-mongodb": "latest",
+    "@payloadcms/email-resend": "3.42.0",
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/richtext-slate": "latest",

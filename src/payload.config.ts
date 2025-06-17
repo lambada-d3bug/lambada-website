@@ -3,6 +3,7 @@ import { slateEditor } from '@payloadcms/richtext-slate';
 import { fileURLToPath } from 'node:url';
 import path from 'path';
 import { buildConfig } from 'payload';
+import { resendAdapter } from '@payloadcms/email-resend';
 
 import { Pages } from './collections/Pages';
 import { Users } from './collections/Users';
@@ -19,6 +20,11 @@ const dirname = path.dirname(filename);
 
 // eslint-disable-next-line no-restricted-exports
 export default buildConfig({
+    email: resendAdapter({
+        defaultFromAddress: 'onboarding@resend.dev',
+        defaultFromName: 'Payload CMS',
+        apiKey: process.env.RESEND_API_KEY || '',
+    }),
     admin: {
         livePreview: {
             breakpoints: [
