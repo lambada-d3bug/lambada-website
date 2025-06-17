@@ -5,6 +5,7 @@ import { Button } from '@payloadcms/ui';
 import { redirect } from 'next/navigation';
 
 interface HeroBlockProps {
+    blockDisplayBoolean?: boolean;
     bgImage: Media;
     heading: string;
     button: {
@@ -14,10 +15,10 @@ interface HeroBlockProps {
 }
 
 export function HeroBlock(props: HeroBlockProps) {
-    const { bgImage, button, heading } = props;
+    const { bgImage, button, heading, blockDisplayBoolean } = props;
     return (
         <main
-            className={'flex h-screen w-full flex-col justify-center'}
+            className={`${blockDisplayBoolean ? 'hidden' : ''} flex h-screen w-full flex-col justify-center`}
             style={{
                 backgroundColor: '#668E2E',
                 ...(bgImage?.url && {
@@ -32,7 +33,9 @@ export function HeroBlock(props: HeroBlockProps) {
                     {heading}
                 </p>
                 <Button
-                    className={'rounded-xl bg-[#0E7269] px-3 py-1 text-white'}
+                    className={
+                        'bg-secondary hover:bg-secondary-foreground rounded-xl px-3 py-1 text-white md:text-xl'
+                    }
                     onClick={() => redirect(button.url)}>
                     {button.label}
                 </Button>

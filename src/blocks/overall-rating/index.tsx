@@ -6,12 +6,13 @@ import { Media } from '@/payload-types';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 
 interface OverallRatingBlockProps {
+    blockDisplayBoolean?: boolean;
     title: string;
     starEmptyLogo: Media;
 }
 
 export function OverallRatingBlock(props: OverallRatingBlockProps) {
-    const { title, starEmptyLogo } = props;
+    const { title, starEmptyLogo, blockDisplayBoolean } = props;
     const [fetchedRating, setFetchedRating] = useState<string | undefined>();
     useEffect(() => {
         const fetchTestimonials = async () => {
@@ -33,9 +34,7 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
 
     return (
         <div
-            className={
-                'flex flex-row items-center justify-between px-8 py-8 font-semibold max-lg:space-x-4 md:px-20 lg:px-48'
-            }>
+            className={`flex flex-row items-center justify-between px-8 py-8 font-semibold max-lg:space-x-4 md:px-20 lg:px-48 ${blockDisplayBoolean ? 'hidden' : ''}`}>
             <p className={'text-lg md:text-3xl'}>{title}</p>
             <div className={'border-t-primary h-1 w-10 border-t-4 md:w-28'}></div>
             <p className={'text-primary text-lg md:text-3xl'}>{fetchedRating}/5</p>

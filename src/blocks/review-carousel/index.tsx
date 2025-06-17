@@ -25,6 +25,7 @@ export type Review = {
 
 interface ReviewCarouselBlockProps {
     overallText: string;
+    blockDisplayBoolean?: boolean;
     hideBoolean?: boolean;
     starLogo: Media;
     expandToggleTexts: {
@@ -65,7 +66,7 @@ function ReviewText({ review, expandToggleTexts }) {
 }
 
 export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
-    const { starLogo, expandToggleTexts, overallText, hideBoolean } = props;
+    const { starLogo, expandToggleTexts, overallText, hideBoolean, blockDisplayBoolean } = props;
     const [fetchedReviews, setFetchedReviews] = useState<Review[]>([]);
     const params = useParams();
     const rawLocale = params?.locale;
@@ -94,7 +95,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     }
     return (
         <>
-            <Carousel>
+            <Carousel className={`${blockDisplayBoolean ? 'hidden' : 'block'}`}>
                 <CarouselContent className={'ml-1 w-full max-w-full overflow-visible py-8 md:ml-8'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem

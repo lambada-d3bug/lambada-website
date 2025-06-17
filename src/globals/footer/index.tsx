@@ -46,7 +46,7 @@ export function FooterBlock(props: FooterBlockProps) {
             <Button
                 onClick={() => redirect(`${locale}/${button?.url}` || '')}
                 className={
-                    'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base'
+                    'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base md:rounded-full md:py-4 md:text-xl'
                 }>
                 {button?.label}
             </Button>
@@ -68,12 +68,16 @@ export function FooterBlock(props: FooterBlockProps) {
                     <p className={'hover:underline'}> {confidentiality?.label}</p>
                 </Link>
                 {socials?.map((item, i) => (
-                    <Link href={item.social?.url || ''} key={i}>
+                    <Link
+                        href={item.social?.url || ''}
+                        key={i}
+                        target={'_blank'}
+                        rel="noopener noreferrer">
                         {isMedia(item.social?.icon) && (
                             <SvgFromUrl
                                 url={item?.social?.icon?.url as string}
                                 alt={item.social.icon.alt}
-                                className={'h-4 w-4 sm:h-8 sm:w-8'}
+                                className={'h-4 w-4 hover:text-black sm:h-8 sm:w-8'}
                             />
                         )}
                     </Link>

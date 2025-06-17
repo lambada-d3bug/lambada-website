@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { TabsResidences } from '@/blocks/residences-presentation/_components/tabs-residences';
 
 interface ResidencesPresentationBlockProps {
+    blockDisplayBoolean?: boolean;
     headingGroup: {
         heading: string;
         starLogo: Media;
@@ -83,7 +84,7 @@ interface ResidencesPresentationBlockProps {
 }
 
 export function ResidencesPresentationBlock(props: ResidencesPresentationBlockProps) {
-    const { headingGroup, imagesArray, tabs } = props;
+    const { headingGroup, imagesArray, tabs, blockDisplayBoolean } = props;
     const [url, setUrl] = useState<string>('');
 
     useEffect(() => {
@@ -103,7 +104,8 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
     }
 
     return (
-        <div className={'flex flex-col space-y-4 px-5 py-12 md:px-7 lg:px-24'}>
+        <div
+            className={`flex flex-col space-y-4 px-5 py-12 md:px-7 lg:px-24 ${blockDisplayBoolean ? 'hidden' : ''}`}>
             <div className={'flex flex-row justify-between'}>
                 <div className={'flex flex-col space-y-2 text-xs md:text-base lg:text-xl'}>
                     <p className={'text-lg font-semibold md:text-3xl lg:text-5xl'}>

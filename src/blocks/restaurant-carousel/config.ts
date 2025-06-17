@@ -4,6 +4,7 @@ export const RestaurantCarousel: Block = {
     slug: 'restaurantCarousel',
     labels: { singular: 'restaurant carousel', plural: 'restaurant carousels' },
     fields: [
+        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
         { name: 'title', label: 'titre', type: 'text', localized: true },
         { name: 'subheading', label: 'sous-titre', type: 'text', localized: true },
         { name: 'description', label: 'description', type: 'textarea', localized: true },

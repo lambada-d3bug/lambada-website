@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import { cn } from '@/utilities/ui';
 
 interface RestaurantCarouselBlockProps {
+    blockDisplayBoolean?: boolean;
     title: string;
     subheading: string;
     description: string;
@@ -17,10 +18,19 @@ interface RestaurantCarouselBlockProps {
 }
 
 export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
-    const { title, subheading, imagesArray, description, button, imageSubheading } = props;
+    const {
+        title,
+        subheading,
+        imagesArray,
+        description,
+        button,
+        imageSubheading,
+        blockDisplayBoolean,
+    } = props;
 
     return (
-        <div className={'grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0'}>
+        <div
+            className={`${blockDisplayBoolean ? 'hidden' : ''} grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0`}>
             <div
                 className={
                     'col-span-2 flex w-full flex-col space-y-2 px-6 sm:order-1 sm:col-span-1 sm:pl-4 lg:pl-44'
@@ -72,7 +82,7 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
             <Button
                 onClick={() => redirect('restaurant')}
                 className={
-                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-full px-4 py-4 text-lg text-white lg:py-6 lg:text-3xl'
+                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-full px-4 py-4 text-lg text-white lg:py-6 lg:text-xl'
                 }>
                 {button.label}
             </Button>

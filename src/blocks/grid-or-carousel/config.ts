@@ -4,6 +4,7 @@ export const GridOrCarousel: Block = {
     slug: 'gridOrCarousel',
     labels: { singular: 'carousel ou grid', plural: 'carousel ou grid' },
     fields: [
+        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
         {
             name: 'title',
             label: 'Titre décomposé',

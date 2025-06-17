@@ -7,6 +7,7 @@ export const ContactInformation: Block = {
         plural: 'Bloc contenant les informations de contact',
     },
     fields: [
+        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
         {
             name: 'telGroup',
             label: 'Telephone',

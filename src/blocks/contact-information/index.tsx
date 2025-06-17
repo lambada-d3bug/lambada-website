@@ -3,6 +3,7 @@
 import { Mail, Phone } from 'lucide-react';
 
 interface ContactInformationBlockProps {
+    blockDisplayBoolean?: boolean;
     telGroup: {
         label: string;
         number: string;
@@ -14,10 +15,10 @@ interface ContactInformationBlockProps {
 }
 
 export function ContactInformationBlock(props: ContactInformationBlockProps) {
-    const { telGroup, emailGroup } = props;
+    const { telGroup, emailGroup, blockDisplayBoolean } = props;
 
     return (
-        <div className="bg-primary text-white">
+        <div className={`${blockDisplayBoolean ? 'hidden' : ''} bg-primary text-white`}>
             <div className="container mx-auto px-6 py-8 md:py-12 lg:py-16">
                 <div className="flex flex-col space-y-6 md:space-y-8 lg:flex-row lg:justify-center lg:space-y-0 lg:space-x-16">
                     {/* Phone Section */}

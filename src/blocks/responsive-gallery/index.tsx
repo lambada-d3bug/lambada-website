@@ -11,15 +11,17 @@ import {
 } from '@/components/ui/carousel';
 
 interface ResponsiveGalleryProps {
+    blockDisplayBoolean?: boolean;
     imagesArray: { image: Media; id: string }[];
     title: string;
 }
 
 export function ResponsiveGalleryBlock(props: ResponsiveGalleryProps) {
-    const { imagesArray, title } = props;
+    const { imagesArray, title, blockDisplayBoolean } = props;
 
     return (
-        <div className="mx-auto flex w-full max-w-full flex-col px-4 py-8 lg:bg-[#fbc96526]">
+        <div
+            className={`${blockDisplayBoolean ? 'hidden' : ''} mx-auto flex w-full max-w-full flex-col px-4 py-8 lg:bg-[#fbc96526]`}>
             <h1 className="mb-6 text-lg font-bold lg:text-5xl">{title}</h1>
             <Carousel className="w-full max-w-full overflow-visible">
                 <CarouselContent className="-ml-2 h-82 md:-ml-4 lg:h-48">

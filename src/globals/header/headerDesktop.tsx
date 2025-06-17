@@ -66,7 +66,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
             <div className={'flex flex-row space-x-2'}>
                 <Button
                     className={
-                        'rounded-2xl bg-[#FBC965] text-lg text-white uppercase hover:bg-[#f2ba49]'
+                        'bg-primary hover:bg-primary-foreground rounded-2xl text-lg text-white uppercase'
                     }
                     onClick={() => redirect(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}

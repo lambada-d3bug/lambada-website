@@ -16,6 +16,7 @@ import { cn } from '@/utilities/ui';
 import { useWindowWidth } from '@/utilities/useWindowWidth';
 
 interface ResidenceGeneralBlockProps {
+    blockDisplayBoolean?: boolean;
     residencesArray: {
         residenceGroup: {
             title: string;
@@ -34,7 +35,7 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 }
 
 export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
-    const { residencesArray } = props;
+    const { residencesArray, blockDisplayBoolean } = props;
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
 
@@ -57,7 +58,8 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
     const width = useWindowWidth();
     if (!width) return null;
     return (
-        <div className="flex w-full flex-col items-center space-y-6 py-16 lg:px-40">
+        <div
+            className={`flex w-full flex-col items-center space-y-6 py-16 lg:px-40 ${blockDisplayBoolean ? 'hidden' : ''}`}>
             <Carousel setApi={setApi} className="w-full max-w-full">
                 <CarouselContent className="ml-0 w-full">
                     {residencesArray.map((residence, index) => {

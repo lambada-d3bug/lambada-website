@@ -6,6 +6,7 @@ import { useWindowWidth } from '@/utilities/useWindowWidth';
 import { MobileTabletCarousel } from '@/blocks/grid-or-carousel/components/mobileTabletCarousel';
 
 export interface GridOrCarouselBlockProps {
+    blockDisplayBoolean?: boolean;
     title: { titlePart: string; titlePart1: string; titlePart2: string };
     cardArray: {
         card: {

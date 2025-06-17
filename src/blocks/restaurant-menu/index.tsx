@@ -3,6 +3,7 @@ import { Media } from '@/payload-types';
 import Image from 'next/image';
 
 interface RestaurantMenuBlockProps {
+    blockDisplayBoolean?: boolean;
     title: string;
     images: { image: Media }[];
     schedules: {
@@ -19,10 +20,11 @@ interface RestaurantMenuBlockProps {
 }
 
 export function RestaurantMenuBlock(props: RestaurantMenuBlockProps) {
-    const { title, images, schedules, image } = props;
+    const { title, images, schedules, image, blockDisplayBoolean } = props;
 
     return (
-        <div className="flex flex-col items-center space-y-4 py-32 lg:space-y-8">
+        <div
+            className={`${blockDisplayBoolean ? 'hidden' : ''} flex flex-col items-center space-y-4 py-32 lg:space-y-8`}>
             <p className="px-6 text-lg font-semibold sm:text-3xl">{title}</p>
 
             {images.map((image, i) => (

@@ -4,6 +4,7 @@ export const ResidencesPresentation: Block = {
     slug: 'residencesPresentation',
     labels: { singular: 'Présentation des résidences', plural: 'Présentation des résidences' },
     fields: [
+        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
         {
             name: 'headingGroup',
             label: 'Groupe titre',
