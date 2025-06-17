@@ -91,7 +91,7 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
 
     return (
         <form
-            className={'flex flex-col space-y-4 px-10 py-12 sm:space-y-8'}
+            className={'flex flex-col space-y-4 px-10 py-26 sm:space-y-8'}
             onSubmit={form.handleSubmit(onValid, onInvalid)}>
             <Header HeaderProps={HeaderProps} form={form} />
             <div

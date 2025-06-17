@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
 
 export default function Page() {
-    redirect('/fr');
+    const locale = localStorage.getItem('locale');
+    console.log(locale);
+    redirect(`/${locale || 'fr'}`);
 }

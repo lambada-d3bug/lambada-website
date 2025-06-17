@@ -30,17 +30,11 @@ export const RestaurantMenu: Block = {
                             type: 'group',
                             fields: [
                                 { name: 'day', label: 'jour', type: 'text', localized: true },
-                                {
-                                    name: 'timeAM',
-                                    label: 'heure matin',
-                                    type: 'text',
-                                    localized: true,
-                                },
+
                                 {
                                     name: 'timePM',
-                                    label: 'heure soir',
+                                    label: 'heure',
                                     type: 'text',
-                                    localized: true,
                                 },
                             ],
                         },

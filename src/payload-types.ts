@@ -209,23 +209,14 @@ export interface Page {
             headingGroup?: {
               heading?: string | null;
               starLogo?: (string | null) | Media;
-              reviewsNumber?: number | null;
-              reviewsText?: string | null;
               rating?: string | null;
               location?: string | null;
               description?: string | null;
-              saveGroup?: {
-                label?: string | null;
-                url?: string | null;
-                logo?: (string | null) | Media;
-              };
               shareGroup?: {
                 label?: string | null;
-                url?: string | null;
                 logo?: (string | null) | Media;
               };
             };
-            description?: string | null;
             imagesArray?:
               | {
                   image?: (string | null) | Media;
@@ -248,16 +239,6 @@ export interface Page {
                   heading?: string | null;
                   description?: string | null;
                 };
-                cautionGroup?: {
-                  heading?: string | null;
-                  descriptionCautionArray?:
-                    | {
-                        description?: string | null;
-                        price?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                };
                 button?: {
                   label?: string | null;
                   url?: string | null;
@@ -271,13 +252,6 @@ export interface Page {
                 tabTitle?: string | null;
                 longitude?: string | null;
                 latitude?: string | null;
-                adressGroup?: {
-                  streetName?: string | null;
-                  postCode?: string | null;
-                  townName?: string | null;
-                  country?: string | null;
-                  houseNumber?: string | null;
-                };
               };
               equipementsTab?:
                 | {
@@ -294,18 +268,6 @@ export interface Page {
                     id?: string | null;
                   }[]
                 | null;
-              reviewsTab?: {
-                tabTitle?: string | null;
-                overallGroup?: {
-                  overallText?: string | null;
-                  logo?: (string | null) | Media;
-                };
-                expandToggleTexts?: {
-                  expandLabel?: string | null;
-                  collapseLabel?: string | null;
-                };
-                starLogo?: (string | null) | Media;
-              };
             };
             id?: string | null;
             blockName?: string | null;
@@ -436,7 +398,6 @@ export interface Page {
                 | {
                     schedulesGroup?: {
                       day?: string | null;
-                      timeAM?: string | null;
                       timePM?: string | null;
                     };
                     id?: string | null;
@@ -728,27 +689,16 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     heading?: T;
                     starLogo?: T;
-                    reviewsNumber?: T;
-                    reviewsText?: T;
                     rating?: T;
                     location?: T;
                     description?: T;
-                    saveGroup?:
-                      | T
-                      | {
-                          label?: T;
-                          url?: T;
-                          logo?: T;
-                        };
                     shareGroup?:
                       | T
                       | {
                           label?: T;
-                          url?: T;
                           logo?: T;
                         };
                   };
-              description?: T;
               imagesArray?:
                 | T
                 | {
@@ -779,18 +729,6 @@ export interface PagesSelect<T extends boolean = true> {
                                 heading?: T;
                                 description?: T;
                               };
-                          cautionGroup?:
-                            | T
-                            | {
-                                heading?: T;
-                                descriptionCautionArray?:
-                                  | T
-                                  | {
-                                      description?: T;
-                                      price?: T;
-                                      id?: T;
-                                    };
-                              };
                           button?:
                             | T
                             | {
@@ -810,15 +748,6 @@ export interface PagesSelect<T extends boolean = true> {
                           tabTitle?: T;
                           longitude?: T;
                           latitude?: T;
-                          adressGroup?:
-                            | T
-                            | {
-                                streetName?: T;
-                                postCode?: T;
-                                townName?: T;
-                                country?: T;
-                                houseNumber?: T;
-                              };
                         };
                     equipementsTab?:
                       | T
@@ -836,24 +765,6 @@ export interface PagesSelect<T extends boolean = true> {
                                     };
                               };
                           id?: T;
-                        };
-                    reviewsTab?:
-                      | T
-                      | {
-                          tabTitle?: T;
-                          overallGroup?:
-                            | T
-                            | {
-                                overallText?: T;
-                                logo?: T;
-                              };
-                          expandToggleTexts?:
-                            | T
-                            | {
-                                expandLabel?: T;
-                                collapseLabel?: T;
-                              };
-                          starLogo?: T;
                         };
                   };
               id?: T;
@@ -1025,7 +936,6 @@ export interface PagesSelect<T extends boolean = true> {
                             | T
                             | {
                                 day?: T;
-                                timeAM?: T;
                                 timePM?: T;
                               };
                           id?: T;

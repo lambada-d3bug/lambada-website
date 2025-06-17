@@ -28,10 +28,6 @@ interface DescriptionTabProps {
             heading: string;
             description: string;
         };
-        cautionGroup: {
-            heading: string;
-            descriptionCautionArray: { description: string; price: string }[];
-        };
         button: {
             label: string;
             url: string;
@@ -45,7 +41,7 @@ interface DescriptionTabProps {
 
 export function DescriptionTab(props: DescriptionTabProps) {
     const { descriptionTab } = props;
-    const { descriptionGroup, cautionGroup, button, iconArray, expandToggleTexts } = descriptionTab;
+    const { descriptionGroup, button, iconArray, expandToggleTexts } = descriptionTab;
     const [api, setApi] = useState<CarouselApi>();
     const [expanded, setExpanded] = useState(false);
     useEffect(() => {
@@ -59,14 +55,14 @@ export function DescriptionTab(props: DescriptionTabProps) {
             <div className="mx-auto w-full max-w-6xl flex-col p-4">
                 <Carousel
                     opts={{
-                        align: 'start',
+                        align: 'center',
                         loop: false,
                         skipSnaps: false,
                         dragFree: false,
                     }}
                     setApi={setApi}
                     className="w-full">
-                    <CarouselContent className="-ml-2 md:-ml-4">
+                    <CarouselContent className="-ml-2 justify-center md:-ml-4">
                         {iconArray.map((iconGroup, i) => (
                             <CarouselItem
                                 key={i}
@@ -93,12 +89,12 @@ export function DescriptionTab(props: DescriptionTabProps) {
                 <div className={'flex w-full flex-col space-y-4'}>
                     <div className={'flex flex-row items-center justify-start space-x-4'}>
                         <div className={'border-t-primary h-0 w-8 border-t-4 lg:w-16'}></div>
-                        <p className={'text-primary text-sm md:text-xl lg:text-3xl'}>
+                        <p className={'text-primary text-sm capitalize md:text-xl lg:text-3xl'}>
                             {descriptionGroup.heading}
                         </p>
                     </div>
                     <div className={'flex w-full flex-col text-xs md:text-lg'}>
-                        <p className={`${expanded ? '' : 'line-clamp-3 md:line-clamp-5'}`}>
+                        <p className={`${expanded ? '' : 'line-clamp-2'}`}>
                             {descriptionGroup.description}
                         </p>
                         <p
@@ -110,36 +106,12 @@ export function DescriptionTab(props: DescriptionTabProps) {
                         </p>
                     </div>
                 </div>
-                <div className={'flex w-full flex-col space-y-4'}>
-                    <div className={'flex flex-row items-center justify-end space-x-4'}>
-                        <p className={'text-primary text-sm md:text-xl lg:text-3xl'}>
-                            {cautionGroup.heading}
-                        </p>
-                        <div className={'border-t-primary h-0 w-8 border-t-4 lg:w-16'}></div>
-                    </div>
-                    <div className={'flex w-full flex-col text-xs'}>
-                        <ul className={'space-y-2 md:self-end'}>
-                            {cautionGroup.descriptionCautionArray.map((item, i) => (
-                                <div
-                                    className={
-                                        'flex flex-col space-y-2 text-sm md:text-end md:text-lg'
-                                    }
-                                    key={i}>
-                                    <li className={'ml-4 list-disc md:ml-16'}>
-                                        {item.description}
-                                    </li>
-                                    <p>{item.price}</p>
-                                </div>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
             </div>
             <Button
                 className={
                     'bg-secondary hover:bg-secondary-foreground mt-4 rounded-2xl text-white md:w-1/2 lg:self-center'
                 }
-                onClick={() => redirect('/discover')}>
+                onClick={() => redirect(button.url)}>
                 {button.label}
             </Button>
         </TabsContent>

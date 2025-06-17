@@ -46,7 +46,7 @@ export function FooterBlock(props: FooterBlockProps) {
             <Button
                 onClick={() => redirect(`${locale}/${button?.url}` || '')}
                 className={
-                    'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white sm:text-base'
+                    'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base'
                 }>
                 {button?.label}
             </Button>

@@ -95,7 +95,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     return (
         <>
             <Carousel>
-                <CarouselContent className={'ml-1 w-full max-w-full overflow-visible md:ml-8'}>
+                <CarouselContent className={'ml-1 w-full max-w-full overflow-visible py-8 md:ml-8'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem
                             key={i}

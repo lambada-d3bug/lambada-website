@@ -30,7 +30,7 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
                     <div className={'border-t-primary h-0 w-8 border-t-2 lg:w-16'}></div>
                     <p className={'text-primary'}>{subheading}</p>
                 </div>
-                <p className={'text-xs'}>{description}</p>
+                <p className={'text-xs md:text-lg'}>{description}</p>
             </div>
             <Carousel className={'order-3 col-span-2'}>
                 <CarouselContent className={'flex justify-center space-x-4 rounded-l-lg'}>
@@ -72,7 +72,7 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
             <Button
                 onClick={() => redirect('restaurant')}
                 className={
-                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-2xl text-white'
+                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-full px-4 py-4 text-lg text-white lg:py-6 lg:text-3xl'
                 }>
                 {button.label}
             </Button>

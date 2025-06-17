@@ -42,10 +42,7 @@ interface ResidencesPresentationBlockProps {
                 heading: string;
                 description: string;
             };
-            cautionGroup: {
-                heading: string;
-                descriptionCautionArray: { description: string; price: string }[];
-            };
+
             button: {
                 label: string;
                 url: string;
@@ -119,12 +116,7 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
                             className={'text-primary h-3 w-3'}
                         />
                         <p>{headingGroup.rating}</p>
-                        <p> - </p>
-                        <p>
-                            {headingGroup.reviewsNumber}
 
-                            {headingGroup.reviewsText}
-                        </p>
                         <p> - </p>
                         <p className={'text-chart-5'}>{headingGroup.location}</p>
                     </div>

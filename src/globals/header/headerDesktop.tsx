@@ -20,6 +20,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
     const { navLogo, navItems, navButton, language } = HeaderProps;
     const params = useParams();
     const rawLocale = params?.locale;
+    const slug = params?.slug;
     const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
     const [selectedLang, setSelectedLang] = useState<string | undefined>(locale ? locale : 'fr');
 
@@ -29,9 +30,11 @@ export function HeaderDesktop(props: HeaderBlockProps) {
     const handleLanguageChange = (newLocale: string) => {
         const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
         const newPath = `/${newLocale}${pathWithoutLocale}`;
+        localStorage.setItem('locale', newLocale);
         router.push(newPath);
         setSelectedLang(newLocale);
     };
+
     return (
         <div
             className={
@@ -49,9 +52,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     )}
                 </div>
                 <div
-                    className={
-                        'ml-8 flex flex-row space-x-8 text-sm text-white uppercase max-lg:leading-tight lg:text-lg'
-                    }>
+                    className={`ml-8 flex flex-row space-x-8 text-sm ${slug === 'booking' ? 'text-secondary' : 'text-white'} uppercase max-lg:leading-tight lg:text-lg`}>
                     {navItems?.map((item, i) => (
                         <Link
                             key={i}
@@ -67,11 +68,12 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     className={
                         'rounded-2xl bg-[#FBC965] text-lg text-white uppercase hover:bg-[#f2ba49]'
                     }
-                    onClick={() => redirect(navButton?.url as string)}>
+                    onClick={() => redirect(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className={'text-white'}>
+                    <SelectTrigger
+                        className={`${slug === 'booking' ? 'text-primary' : 'text-white'}`}>
                         <SelectValue>{selectedLang}</SelectValue>
                     </SelectTrigger>
                     <SelectContent className={'text-primary'}>

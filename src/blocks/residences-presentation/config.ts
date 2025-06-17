@@ -11,39 +11,23 @@ export const ResidencesPresentation: Block = {
             fields: [
                 { name: 'heading', label: 'Titre', type: 'text', localized: true },
                 { name: 'starLogo', label: 'Star Logo', type: 'upload', relationTo: 'media' },
-                { name: 'reviewsNumber', label: "Nombre d'avis", type: 'number' },
-                {
-                    name: 'reviewsText',
-                    label: "label nombre d'avis",
-                    type: 'text',
-                    localized: true,
-                },
-                { name: 'rating', label: 'note', type: 'text', localized: true },
+                { name: 'rating', label: 'note', type: 'text' },
                 { name: 'location', label: 'location', type: 'text', localized: true },
                 { name: 'description', label: 'Description', type: 'textarea', localized: true },
-                {
-                    name: 'saveGroup',
-                    label: 'Groupe bouton sauver',
-                    type: 'group',
-                    fields: [
-                        { name: 'label', label: 'Label', type: 'text', localized: true },
-                        { name: 'url', label: 'URL', type: 'text' },
-                        { name: 'logo', label: 'Logo', type: 'upload', relationTo: 'media' },
-                    ],
-                },
+
                 {
                     name: 'shareGroup',
                     label: 'Groupe bouton partager',
                     type: 'group',
                     fields: [
                         { name: 'label', label: 'Label', type: 'text', localized: true },
-                        { name: 'url', label: 'URL', type: 'text' },
+
                         { name: 'logo', label: 'Logo', type: 'upload', relationTo: 'media' },
                     ],
                 },
             ],
         },
-        { name: 'description', label: 'Description', type: 'textarea', localized: true },
+
         {
             name: 'imagesArray',
             label: "tableau d'images",
@@ -106,33 +90,7 @@ export const ResidencesPresentation: Block = {
                                 },
                             ],
                         },
-                        {
-                            name: 'cautionGroup',
-                            label: 'groupe caution',
-                            type: 'group',
-                            fields: [
-                                {
-                                    name: 'heading',
-                                    label: 'Heading',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                {
-                                    name: 'descriptionCautionArray',
-                                    label: 'tableau de description de la caution',
-                                    type: 'array',
-                                    fields: [
-                                        {
-                                            name: 'description',
-                                            label: 'description',
-                                            type: 'text',
-                                            localized: true,
-                                        },
-                                        { name: 'price', label: 'prix', type: 'text' },
-                                    ],
-                                },
-                            ],
-                        },
+
                         {
                             name: 'button',
                             label: 'bouton',
@@ -171,37 +129,6 @@ export const ResidencesPresentation: Block = {
                         { name: 'tabTitle', label: 'Titre du tab', type: 'text', localized: true },
                         { name: 'longitude', label: 'longitude', type: 'text' },
                         { name: 'latitude', label: 'latitude', type: 'text' },
-                        {
-                            name: 'adressGroup',
-                            label: 'adress',
-                            type: 'group',
-                            fields: [
-                                {
-                                    name: 'streetName',
-                                    label: 'Nom de rue',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                {
-                                    name: 'postCode',
-                                    label: 'Code postal',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                { name: 'townName', label: 'Town', type: 'text', localized: true },
-                                {
-                                    name: 'country',
-                                    label: 'Country',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                {
-                                    name: 'houseNumber',
-                                    label: 'Numéro de maison',
-                                    type: 'text',
-                                },
-                            ],
-                        },
                     ],
                 },
                 {
@@ -235,58 +162,6 @@ export const ResidencesPresentation: Block = {
                                     ],
                                 },
                             ],
-                        },
-                    ],
-                },
-                {
-                    name: 'reviewsTab',
-                    label: 'Tab Avis',
-                    type: 'group',
-                    fields: [
-                        { name: 'tabTitle', label: 'Titre du tab', type: 'text', localized: true },
-                        {
-                            name: 'overallGroup',
-                            label: 'groupe Note globale',
-                            type: 'group',
-                            fields: [
-                                {
-                                    name: 'overallText',
-                                    label: 'overallText',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                {
-                                    name: 'logo',
-                                    label: 'Logo',
-                                    type: 'upload',
-                                    relationTo: 'media',
-                                },
-                            ],
-                        },
-                        {
-                            name: 'expandToggleTexts',
-                            label: 'Textes Voir plus / Voir moins',
-                            type: 'group',
-                            fields: [
-                                {
-                                    name: 'expandLabel',
-                                    label: 'Texte pour "Voir plus"',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                                {
-                                    name: 'collapseLabel',
-                                    label: 'Texte pour "Voir moins"',
-                                    type: 'text',
-                                    localized: true,
-                                },
-                            ],
-                        },
-                        {
-                            name: 'starLogo',
-                            label: 'Star Logo',
-                            type: 'upload',
-                            relationTo: 'media',
                         },
                     ],
                 },

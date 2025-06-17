@@ -5,7 +5,6 @@ import type { Media } from '@/payload-types';
 import { DescriptionTab } from '@/blocks/residences-presentation/_components/description-tab';
 import { LocalisationTab } from '@/blocks/residences-presentation/_components/localisation-tab';
 import { EquipmentTab } from '@/blocks/residences-presentation/_components/equipment-tab';
-import { ReviewsTab } from '@/blocks/residences-presentation/_components/reviews-tab';
 
 interface TabsResidencesProps {
     tabs: {
@@ -21,10 +20,7 @@ interface TabsResidencesProps {
                 heading: string;
                 description: string;
             };
-            cautionGroup: {
-                heading: string;
-                descriptionCautionArray: { description: string; price: string }[];
-            };
+
             button: {
                 label: string;
                 url: string;
@@ -71,29 +67,24 @@ export function TabsResidences(props: TabsResidencesProps) {
     return (
         <div className={'flex w-full flex-col items-center'}>
             <Tabs defaultValue="description" className="w-full sm:px-16">
-                <TabsList className="relative grid h-auto w-full grid-cols-4 bg-transparent p-0">
+                <TabsList className="relative grid h-auto w-full grid-cols-3 bg-transparent p-0">
                     {/* Gray underline for the entire tab list */}
                     <div className="absolute right-0 bottom-0 left-0 h-0.5 bg-gray-200"></div>
 
                     <TabsTrigger
                         value="description"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-semibold text-gray-600 uppercase after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {descriptionTab.tabTitle}
                     </TabsTrigger>
                     <TabsTrigger
                         value="localisation"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-semibold text-gray-600 uppercase after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {localisationTab.tabTitle}
                     </TabsTrigger>
                     <TabsTrigger
                         value="equipements"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
+                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-semibold text-gray-600 uppercase after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
                         {equipementsTab[0].equipement.tabTitle}
-                    </TabsTrigger>
-                    <TabsTrigger
-                        value="avis"
-                        className="relative rounded-none border-0 bg-transparent px-4 py-3 text-xs font-medium text-gray-600 after:absolute after:right-0 after:bottom-0 after:left-0 after:z-10 after:h-0.5 after:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-gray-900 data-[state=active]:shadow-none data-[state=active]:after:bg-yellow-400 sm:text-base">
-                        {reviewsTab.tabTitle}
                     </TabsTrigger>
                 </TabsList>
 
@@ -101,7 +92,6 @@ export function TabsResidences(props: TabsResidencesProps) {
 
                 <LocalisationTab localisationTab={localisationTab} />
                 <EquipmentTab equipementsTab={equipementsTab} />
-                <ReviewsTab reviewsTab={reviewsTab} />
             </Tabs>
         </div>
     );

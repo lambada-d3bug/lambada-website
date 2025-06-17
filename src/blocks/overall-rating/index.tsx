@@ -34,7 +34,7 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
     return (
         <div
             className={
-                'flex flex-row items-center justify-between px-8 font-semibold max-lg:space-x-4 md:px-20 lg:px-48'
+                'flex flex-row items-center justify-between px-8 py-8 font-semibold max-lg:space-x-4 md:px-20 lg:px-48'
             }>
             <p className={'text-lg md:text-3xl'}>{title}</p>
             <div className={'border-t-primary h-1 w-10 border-t-4 md:w-28'}></div>

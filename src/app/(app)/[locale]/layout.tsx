@@ -24,7 +24,7 @@ interface RootLayoutProps {
 }
 
 export default async function Layout({ children, params }: RootLayoutProps) {
-    const { locale } = params;
+    const { locale } = await params;
     const payload = await getPayload({ config });
     const [HeaderProps, FooterProps] = await Promise.all([
         payload.findGlobal({

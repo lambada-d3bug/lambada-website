@@ -21,7 +21,7 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     const { slug = 'home', locale = 'fr' } = await paramsPromise;
 
     if (slug === 'home') {
-        redirect('/fr/');
+        redirect(`/${locale}`);
     }
 
     const payload = await getPayload({ config });
