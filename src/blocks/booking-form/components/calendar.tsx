@@ -2,7 +2,7 @@
 
 import { Calendar } from '@/components/ui/calendar';
 import { DateRange } from 'react-day-picker';
-import { addDays, startOfToday } from 'date-fns';
+import { startOfToday } from 'date-fns';
 import { formatDateLocalized } from '@/utilities/formatDateLocalized';
 import { usePathname } from 'next/navigation';
 import { useWindowWidth } from '@/utilities/useWindowWidth';
@@ -29,7 +29,7 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
     const locale = getLocaleFromPath(pathname);
     const { dynamicTitle, dateSuffix, deleteDateText } = calendarGroup;
     const today = startOfToday();
-    const tomorrow = addDays(today, 1);
+
     const width = useWindowWidth();
     const dateFnsLocale = { en: enUS, fr, it }[locale];
 
@@ -75,7 +75,7 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
                         }
                     };
 
-                    const isDateDisabled = (date: Date) => date < tomorrow;
+                    const isDateDisabled = (date: Date) => date < today;
 
                     return (
                         <>

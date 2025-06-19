@@ -81,8 +81,6 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
     };
 
     const onInvalid = (errors: typeof form.formState.errors) => {
-        console.log('❌ Validation errors:', errors);
-
         Object.entries(errors).forEach(([field, error]) => {
             if (error?.message) {
                 toast(error.message.toString());

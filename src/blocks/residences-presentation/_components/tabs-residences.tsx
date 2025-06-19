@@ -62,7 +62,7 @@ interface TabsResidencesProps {
 
 export function TabsResidences(props: TabsResidencesProps) {
     const { tabs } = props;
-    const { descriptionTab, localisationTab, equipementsTab, reviewsTab } = tabs;
+    const { descriptionTab, localisationTab, equipementsTab } = tabs;
 
     return (
         <div className={'flex w-full flex-col items-center'}>

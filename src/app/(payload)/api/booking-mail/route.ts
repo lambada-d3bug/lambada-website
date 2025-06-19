@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await resend.emails.send({
         from: 'Acme <onboarding@resend.dev>',
-        to: ['loiczeiss@gmail.com'],
+        to: ['restaurant.lambada.farinole@gmail.com'],
         subject: `Formulaire de réservation - ${body.name}`,
         react: BookingFormMail({ props: body }),
     });

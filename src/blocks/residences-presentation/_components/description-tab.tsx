@@ -11,7 +11,7 @@ import {
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 import { TabsContent } from '@/components/ui/tabs';
 import type { Media } from '@/payload-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 
@@ -44,25 +44,20 @@ export function DescriptionTab(props: DescriptionTabProps) {
     const { descriptionGroup, button, iconArray, expandToggleTexts } = descriptionTab;
     const [api, setApi] = useState<CarouselApi>();
     const [expanded, setExpanded] = useState(false);
-    useEffect(() => {
-        if (!api) return;
 
-        // Ensure we start at the first slide
-        api.scrollTo(0);
-    }, [api]);
     return (
         <TabsContent value="description" className="mt-6 flex flex-col justify-center lg:px-24">
             <div className="mx-auto w-full max-w-6xl flex-col p-4">
                 <Carousel
                     opts={{
-                        align: 'center',
+                        align: 'start',
                         loop: false,
                         skipSnaps: false,
                         dragFree: false,
                     }}
                     setApi={setApi}
                     className="w-full">
-                    <CarouselContent className="-ml-2 justify-center md:-ml-4">
+                    <CarouselContent className="ml-0 flex gap-2 md:gap-4">
                         {iconArray.map((iconGroup, i) => (
                             <CarouselItem
                                 key={i}
