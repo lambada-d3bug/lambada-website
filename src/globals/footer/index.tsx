@@ -52,7 +52,10 @@ export function FooterBlock(props: FooterBlockProps) {
             </Button>
             <div className={'flex flex-row space-x-4 text-xs sm:text-xl'}>
                 {navArray?.map((item, i) => (
-                    <Link key={i} href={item?.navItem?.url || ''} className={'inline'}>
+                    <Link
+                        key={i}
+                        href={`/${locale}/${item?.navItem?.url || ''}`}
+                        className={'inline'}>
                         <p className={'hover:underline'}> {item?.navItem?.label}</p>
                     </Link>
                 ))}
@@ -61,10 +64,18 @@ export function FooterBlock(props: FooterBlockProps) {
                 className={
                     'text-chart-5 flex flex-row justify-between space-x-4 text-xs sm:text-base'
                 }>
-                <Link href={terms?.url || ''} className={'flex items-center'}>
+                <Link
+                    href={terms?.url || ''}
+                    target={'_blank'}
+                    rel="noopener noreferrer"
+                    className={'flex items-center'}>
                     <p className={'hover:underline'}> {terms?.label}</p>
                 </Link>
-                <Link href={confidentiality?.url || ''} className={'flex items-center'}>
+                <Link
+                    href={confidentiality?.url || ''}
+                    target={'_blank'}
+                    rel="noopener noreferrer"
+                    className={'flex items-center'}>
                     <p className={'hover:underline'}> {confidentiality?.label}</p>
                 </Link>
                 {socials?.map((item, i) => (

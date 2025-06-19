@@ -140,6 +140,7 @@ export interface Page {
   layout?:
     | (
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: string | null;
             imagesArray?:
               | {
@@ -152,6 +153,7 @@ export interface Page {
             blockType: 'responsiveGallery';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             bgImage?: (string | null) | Media;
             heading?: string | null;
             button?: {
@@ -163,6 +165,7 @@ export interface Page {
             blockType: 'hero';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: {
               titlePart?: string | null;
               titlePart1?: string | null;
@@ -187,7 +190,7 @@ export interface Page {
             blockType: 'gridOrCarousel';
           }
         | {
-            hideBoolean?: boolean | null;
+            blockDisplayBoolean?: boolean | null;
             overallText?: string | null;
             starLogo?: (string | null) | Media;
             expandToggleTexts?: {
@@ -199,6 +202,7 @@ export interface Page {
             blockType: 'reviewCarousel';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: string | null;
             starEmptyLogo?: (string | null) | Media;
             id?: string | null;
@@ -206,6 +210,7 @@ export interface Page {
             blockType: 'overallRating';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             headingGroup?: {
               heading?: string | null;
               starLogo?: (string | null) | Media;
@@ -274,6 +279,7 @@ export interface Page {
             blockType: 'residencesPresentation';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             telGroup?: {
               label?: string | null;
               number?: string | null;
@@ -287,6 +293,7 @@ export interface Page {
             blockType: 'contactInformation';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: string | null;
             selectionArray?:
               | {
@@ -333,6 +340,7 @@ export interface Page {
             blockType: 'bookingForm';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             residencesArray?:
               | {
                   residenceGroup?: {
@@ -363,6 +371,7 @@ export interface Page {
             blockType: 'residenceGeneral';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: string | null;
             subheading?: string | null;
             description?: string | null;
@@ -385,6 +394,7 @@ export interface Page {
             blockType: 'restaurantCarousel';
           }
         | {
+            blockDisplayBoolean?: boolean | null;
             title?: string | null;
             images?:
               | {
@@ -603,6 +613,7 @@ export interface PagesSelect<T extends boolean = true> {
         responsiveGallery?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?: T;
               imagesArray?:
                 | T
@@ -616,6 +627,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
+              blockDisplayBoolean?: T;
               bgImage?: T;
               heading?: T;
               button?:
@@ -630,6 +642,7 @@ export interface PagesSelect<T extends boolean = true> {
         gridOrCarousel?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?:
                 | T
                 | {
@@ -661,7 +674,7 @@ export interface PagesSelect<T extends boolean = true> {
         reviewCarousel?:
           | T
           | {
-              hideBoolean?: T;
+              blockDisplayBoolean?: T;
               overallText?: T;
               starLogo?: T;
               expandToggleTexts?:
@@ -676,6 +689,7 @@ export interface PagesSelect<T extends boolean = true> {
         overallRating?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?: T;
               starEmptyLogo?: T;
               id?: T;
@@ -684,6 +698,7 @@ export interface PagesSelect<T extends boolean = true> {
         residencesPresentation?:
           | T
           | {
+              blockDisplayBoolean?: T;
               headingGroup?:
                 | T
                 | {
@@ -773,6 +788,7 @@ export interface PagesSelect<T extends boolean = true> {
         contactInformation?:
           | T
           | {
+              blockDisplayBoolean?: T;
               telGroup?:
                 | T
                 | {
@@ -791,6 +807,7 @@ export interface PagesSelect<T extends boolean = true> {
         bookingForm?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?: T;
               selectionArray?:
                 | T
@@ -856,6 +873,7 @@ export interface PagesSelect<T extends boolean = true> {
         residenceGeneral?:
           | T
           | {
+              blockDisplayBoolean?: T;
               residencesArray?:
                 | T
                 | {
@@ -891,6 +909,7 @@ export interface PagesSelect<T extends boolean = true> {
         restaurantCarousel?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?: T;
               subheading?: T;
               description?: T;
@@ -918,6 +937,7 @@ export interface PagesSelect<T extends boolean = true> {
         restaurantMenu?:
           | T
           | {
+              blockDisplayBoolean?: T;
               title?: T;
               images?:
                 | T
