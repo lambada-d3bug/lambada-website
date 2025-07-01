@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HeaderBlockProps } from './index';
-import { redirect, useParams, usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { isMedia } from '@/utilities/isMedia';
 import Link from 'next/link';
 import {
@@ -68,7 +68,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     className={
                         'bg-primary hover:bg-primary-foreground rounded-2xl text-lg text-white uppercase'
                     }
-                    onClick={() => redirect(`/${locale}/${navButton?.url || ''}`)}>
+                    onClick={() => router.push(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>

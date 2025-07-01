@@ -16,6 +16,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { AlignJustify } from 'lucide-react';
 
 export function HeaderMobile(props: HeaderBlockProps) {
     const [open, setOpen] = useState(false);
@@ -53,35 +54,8 @@ export function HeaderMobile(props: HeaderBlockProps) {
                         )}
                     </div>
 
-                    <Button variant="ghost" size="icon" className="hover:bg-[#0E7269] md:hidden">
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3 12H21"
-                                stroke="#1A1A1A"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path
-                                d="M3 6H21"
-                                stroke="#1A1A1A"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path
-                                d="M3 18H21"
-                                stroke="#1A1A1A"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                    <Button variant="ghost" className="bg-primary/15 hover:bg-[#0E7269] lg:hidden">
+                        <AlignJustify width={48} height={48} />
                         <span className="sr-only">Toggle menu</span>
                     </Button>
                 </div>

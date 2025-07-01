@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+'use client';
 
+import React, { Fragment, useEffect, useRef } from 'react';
 import type { Page } from '@/payload-types';
 import { ResponsiveGalleryBlock } from '@/blocks/responsive-gallery';
 import { HeroBlock } from '@/blocks/hero';
@@ -13,7 +14,17 @@ import { ResidenceGeneralBlock } from '@/blocks/residence-general';
 import { RestaurantCarouselBlock } from '@/blocks/restaurant-carousel';
 import { RestaurantMenuBlock } from '@/blocks/restaurant-menu';
 
-const blockComponents = {
+// Common interface for all block components
+interface BlockComponentProps {
+    scrollToNextBlock?: () => void;
+}
+
+// Define the type for blockComponents
+type BlockComponentsType = {
+    [key: string]: React.ComponentType<any & BlockComponentProps>;
+};
+
+const blockComponents: BlockComponentsType = {
     responsiveGallery: ResponsiveGalleryBlock,
     hero: HeroBlock,
     gridOrCarousel: GridOrCarouselBlock,
@@ -29,33 +40,37 @@ const blockComponents = {
 
 export const RenderBlocks: React.FC<{
     blocks: Page['layout'];
-}> = (props) => {
-    const { blocks } = props;
-
+}> = ({ blocks }) => {
     const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0;
+    const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+    useEffect(() => {
+        blockRefs.current = blockRefs.current.slice(0, blocks?.length || 0);
+    }, [blocks?.length]);
+    if (!hasBlocks) return null;
 
-    if (hasBlocks) {
-        return (
-            <Fragment>
-                {blocks.map((block, index) => {
-                    const { blockType } = block;
+    return (
+        <Fragment>
+            {blocks.map((block, index) => {
+                const { blockType } = block;
 
-                    if (blockType && blockType in blockComponents) {
-                        const Block = blockComponents[blockType];
+                if (!blockType || !(blockType in blockComponents)) return null;
 
-                        if (Block) {
-                            return (
-                                <div key={index}>
-                                    <Block {...(block as any)} />
-                                </div>
-                            );
-                        }
-                    }
-                    return null;
-                })}
-            </Fragment>
-        );
-    }
+                const Block = blockComponents[blockType];
+                const scrollToNextBlock = () => {
+                    const next = blockRefs.current[index + 1];
+                    if (next) next.scrollIntoView({ behavior: 'smooth' });
+                };
 
-    return null;
+                return (
+                    <div
+                        key={index}
+                        ref={(el: HTMLDivElement | null) => {
+                            blockRefs.current[index] = el;
+                        }}>
+                        <Block {...(block as any)} scrollToNextBlock={scrollToNextBlock} />
+                    </div>
+                );
+            })}
+        </Fragment>
+    );
 };

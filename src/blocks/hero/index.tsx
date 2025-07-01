@@ -2,7 +2,6 @@
 
 import { Media } from '@/payload-types';
 import { Button } from '@payloadcms/ui';
-import { redirect } from 'next/navigation';
 
 interface HeroBlockProps {
     blockDisplayBoolean?: boolean;
@@ -12,15 +11,17 @@ interface HeroBlockProps {
         label: string;
         url: string;
     };
+    scrollToNextBlock?: () => void; // 👈 add this
 }
 
 export function HeroBlock(props: HeroBlockProps) {
-    const { bgImage, button, heading, blockDisplayBoolean } = props;
+    const { bgImage, button, heading, blockDisplayBoolean, scrollToNextBlock } = props;
+
     return (
         <main
             className={`${blockDisplayBoolean ? 'hidden' : ''} flex h-screen w-full flex-col justify-center`}
             style={{
-                backgroundColor: '#668E2E',
+                backgroundColor: '#3a7a80',
                 ...(bgImage?.url && {
                     backgroundImage: `url(${bgImage.url})`,
                     backgroundSize: 'cover',
@@ -34,9 +35,10 @@ export function HeroBlock(props: HeroBlockProps) {
                 </p>
                 <Button
                     className={
-                        'bg-secondary hover:bg-secondary-foreground rounded-xl px-3 py-1 text-white md:text-xl'
+                        'bg-secondary hover:bg-secondary-foreground rounded-xl px-3 py-1 text-white md:text-xl lg:px-4 lg:py-2 lg:text-4xl'
                     }
-                    onClick={() => redirect(button.url)}>
+                    onClick={scrollToNextBlock} // 👈 use it here
+                >
                     {button.label}
                 </Button>
             </div>

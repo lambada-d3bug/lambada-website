@@ -4,8 +4,9 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { Media } from '@/payload-types';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { redirect } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/utilities/ui';
+import { useEffect, useState } from 'react';
 
 interface RestaurantCarouselBlockProps {
     blockDisplayBoolean?: boolean;
@@ -15,6 +16,7 @@ interface RestaurantCarouselBlockProps {
     imageSubheading: string;
     imagesArray: { images: { image: Media; label: string } }[];
     button: { label: string; url: string };
+    scrollToNextBlock?: () => void;
 }
 
 export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
@@ -26,8 +28,19 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
         button,
         imageSubheading,
         blockDisplayBoolean,
+        scrollToNextBlock,
     } = props;
+    const [isInRestaurant, setIsInRestaurant] = useState(false);
+    const params = useParams();
+    const pathname = usePathname();
+    const router = useRouter();
 
+    const rawLocale = params?.locale;
+    const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
+
+    useEffect(() => {
+        setIsInRestaurant(pathname.includes('restaurant'));
+    }, [pathname]);
     return (
         <div
             className={`${blockDisplayBoolean ? 'hidden' : ''} grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0`}>
@@ -80,9 +93,15 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
                 <div className={'border-t-primary h-0 w-8 border-t-2 lg:w-16'}></div>
             </div>
             <Button
-                onClick={() => redirect('restaurant')}
+                onClick={
+                    isInRestaurant
+                        ? scrollToNextBlock
+                        : () => {
+                              router.push(`/${locale}/restaurant`);
+                          }
+                }
                 className={
-                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-full px-4 py-4 text-lg text-white lg:py-6 lg:text-xl'
+                    'bg-secondary hover:bg-secondary-foreground order-4 mx-auto self-start rounded-full px-4 py-4 text-lg text-white lg:ml-44 lg:py-6 lg:text-xl'
                 }>
                 {button.label}
             </Button>
