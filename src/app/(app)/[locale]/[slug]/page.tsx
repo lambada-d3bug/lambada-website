@@ -6,7 +6,6 @@ import type { Page as PageType } from '../../../../payload-types';
 
 import config from '@payload-config';
 import classes from './index.module.scss';
-import { RefreshRouteOnSave } from './RefreshRouteOnSave';
 import { RenderBlocks } from '@/utilities/renderBlocks';
 
 interface PageParams {
@@ -45,7 +44,6 @@ export default async function Page({ params: paramsPromise }: PageParams) {
 
     return (
         <Fragment>
-            <RefreshRouteOnSave />
             <main className={classes.page}>
                 <RenderBlocks blocks={data.layout} />
             </main>

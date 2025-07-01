@@ -5,7 +5,6 @@ import { RenderBlocks } from '@/utilities/renderBlocks';
 import { notFound } from 'next/navigation';
 import type { Page as PageType } from '@/payload-types';
 import React, { Fragment } from 'react';
-import { RefreshRouteOnSave } from '@/app/(app)/[locale]/[slug]/RefreshRouteOnSave';
 import classes from '@/app/(app)/[locale]/[slug]/index.module.scss';
 
 interface PageParams {
@@ -37,7 +36,6 @@ export default async function Page({ params: paramsPromise }: PageParams) {
 
     return (
         <Fragment>
-            <RefreshRouteOnSave />
             <main className={classes.page}>
                 <RenderBlocks blocks={data.layout} />
             </main>
