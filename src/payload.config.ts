@@ -27,18 +27,7 @@ export default buildConfig({
         defaultFromName: 'Payload CMS',
         apiKey: process.env.RESEND_API_KEY || '',
     }),
-    admin: {
-        livePreview: {
-            breakpoints: [
-                {
-                    name: 'mobile',
-                    height: 667,
-                    label: 'Mobile',
-                    width: 375,
-                },
-            ],
-        },
-    },
+    admin: {},
     localization: {
         locales: [
             { label: 'English', code: 'en' },
