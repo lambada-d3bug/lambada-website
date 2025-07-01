@@ -1,7 +1,19 @@
 import { GlobalConfig } from 'payload';
+import { revalidateGlobalHook } from '@/hooks/revalidate-global-hooks';
 
 export const header: GlobalConfig = {
     slug: 'header',
+    hooks: {
+        afterChange: [
+            (args) => {
+                console.log('[Global.afterChange] Hook fired with args:', {
+                    args,
+                });
+
+                return revalidateGlobalHook({ ...args });
+            },
+        ],
+    },
     fields: [
         {
             name: 'navLogo',

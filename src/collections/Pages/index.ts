@@ -12,9 +12,22 @@ import { BookingForm } from '@/blocks/booking-form/config';
 import { ResidenceGeneral } from '@/blocks/residence-general/config';
 import { RestaurantCarousel } from '@/blocks/restaurant-carousel/config';
 import { RestaurantMenu } from '@/blocks/restaurant-menu/config';
+import { revalidatePageHook } from '@/hooks/revalidate-page-hook';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
+    hooks: {
+        afterChange: [
+            (args) => {
+                console.log('[Pages.afterChange] Hook fired with args:', {
+                    operation: args.operation,
+                    slug: args.doc?.slug,
+                });
+
+                return revalidatePageHook(args);
+            },
+        ],
+    },
     access: {
         create: loggedIn,
         delete: loggedIn,

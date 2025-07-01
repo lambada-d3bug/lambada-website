@@ -1,7 +1,19 @@
 import { GlobalConfig } from 'payload';
+import { revalidateGlobalHook } from '@/hooks/revalidate-global-hooks';
 
 export const Footer: GlobalConfig = {
     slug: 'footer',
+    hooks: {
+        afterChange: [
+            (args) => {
+                console.log('[Global.afterChange] Hook fired with args:', {
+                    args,
+                });
+
+                return revalidateGlobalHook({ ...args });
+            },
+        ],
+    },
     label: 'footer',
     fields: [
         { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
