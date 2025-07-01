@@ -4,7 +4,7 @@ export const BookingForm: Block = {
     slug: 'bookingForm',
     labels: { singular: 'Formulaire de réservation', plural: 'Formulaire de réservation' },
     fields: [
-        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
+        { name: 'blockDisplayBoolean', label: 'cacher le bloc', type: 'checkbox' },
         { name: 'title', label: 'titre', type: 'text', localized: true },
         {
             name: 'selectionArray',

@@ -7,7 +7,7 @@ export const OverallRating: Block = {
         plural: 'bloc de la note générale',
     },
     fields: [
-        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
+        { name: 'blockDisplayBoolean', label: 'cacher le bloc', type: 'checkbox' },
         { name: 'title', label: 'titre', type: 'text', localized: true },
         {
             name: 'starEmptyLogo',

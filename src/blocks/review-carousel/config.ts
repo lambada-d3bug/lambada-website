@@ -4,7 +4,7 @@ export const ReviewCarousel: Block = {
     slug: 'reviewCarousel',
     labels: { singular: 'Carousselle de review google', plural: 'Carousselle de review google' },
     fields: [
-        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
+        { name: 'blockDisplayBoolean', label: 'cacher le bloc', type: 'checkbox' },
         { name: 'overallText', label: 'Avis général', type: 'text', localized: true },
         {
             name: 'starLogo',

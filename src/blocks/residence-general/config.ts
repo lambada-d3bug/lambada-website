@@ -7,7 +7,7 @@ export const ResidenceGeneral: Block = {
         plural: 'Présentation générale de résidences',
     },
     fields: [
-        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
+        { name: 'blockDisplayBoolean', label: 'cacher le bloc', type: 'checkbox' },
         {
             name: 'residencesArray',
             label: 'tableau de résidences',

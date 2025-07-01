@@ -4,7 +4,7 @@ export const Hero: Block = {
     slug: 'hero',
     labels: { singular: 'hero', plural: 'hero' },
     fields: [
-        { name: 'blockDisplayBoolean', label: 'Cacher le footer?', type: 'checkbox' },
+        { name: 'blockDisplayBoolean', label: 'cacher le bloc', type: 'checkbox' },
         { name: 'bgImage', label: 'image de background', type: 'upload', relationTo: 'media' },
         { name: 'heading', label: 'titre', type: 'text', localized: true },
         {
