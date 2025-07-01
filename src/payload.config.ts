@@ -39,6 +39,10 @@ export default buildConfig({
     collections: [Pages, Users, Media, GoogleReviewsFr, GoogleReviewsIt, GoogleReviewsEn],
     db: mongooseAdapter({
         url: process.env.DATABASE_URI || '',
+        connectOptions: {
+            tls: true,
+            tlsAllowInvalidCertificates: false,
+        },
     }),
     editor: slateEditor({}),
     globals: [MainMenu, header, Footer],
