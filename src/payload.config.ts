@@ -18,7 +18,8 @@ import { GoogleReviewsIt } from '@/collections/google-reviews-it';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-
+console.log('next public', process.env.NEXT_PUBLIC_SERVER_URL);
+console.log('database url', process.env.DATABASE_URI);
 // eslint-disable-next-line no-restricted-exports
 export default buildConfig({
     email: resendAdapter({
@@ -53,7 +54,6 @@ export default buildConfig({
     editor: slateEditor({}),
     globals: [MainMenu, header, Footer],
     secret: process.env.PAYLOAD_SECRET || '',
-    serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
     typescript: {
         outputFile: path.resolve(dirname, 'payload-types.ts'),
     },

@@ -12,25 +12,25 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1(react-hook-form@7.57.0(react@19.2.0-canary-a00ca6f6-20250611))
       '@payloadcms/db-mongodb':
-        specifier: latest
+        specifier: 3.42.0
         version: 3.42.0(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))
       '@payloadcms/email-resend':
         specifier: 3.42.0
         version: 3.42.0(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))
       '@payloadcms/live-preview-react':
-        specifier: latest
+        specifier: 3.42.0
         version: 3.42.0(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
       '@payloadcms/next':
-        specifier: latest
+        specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(graphql@16.11.0)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@payloadcms/richtext-slate':
-        specifier: latest
+        specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@payloadcms/storage-vercel-blob':
-        specifier: ^3.44.0
-        version: 3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
+        specifier: 3.42.0
+        version: 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@payloadcms/ui':
-        specifier: latest
+        specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@radix-ui/react-accordion':
         specifier: ^1.2.11
@@ -1072,10 +1072,10 @@ packages:
       next: ^15.2.3
       payload: 3.42.0
 
-  '@payloadcms/plugin-cloud-storage@3.44.0':
-    resolution: {integrity: sha512-NsE4B4CyhaP5FG5Gn45I9JAWHB15RGgq+4QuL3cjsCk3tiWLNSb8RzHO0AyMqvA8PPWloO6Er1iAgHRtG55u5g==}
+  '@payloadcms/plugin-cloud-storage@3.42.0':
+    resolution: {integrity: sha512-qS+X8cW5LFxDp4hE9foug6wQjsKCOZKbPlxam8b2W5GsqtwV+IdLTiNxnE4Cu2hfMvl2k8Zr3LaaApYSn5aJrQ==}
     peerDependencies:
-      payload: 3.44.0
+      payload: 3.42.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
       react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
 
@@ -1086,17 +1086,14 @@ packages:
       payload: 3.42.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
 
-  '@payloadcms/storage-vercel-blob@3.44.0':
-    resolution: {integrity: sha512-NtZlU3/7ipg6BFCq2iIb8QiwXaRhnQW1yZ/UCVafVPFLieD2XzDFErw8GT8b5/oWihhFCpsFZLohd0b7iMbYwA==}
+  '@payloadcms/storage-vercel-blob@3.42.0':
+    resolution: {integrity: sha512-VQkaW/n2Fd/qng6sZyFyY5/qG9o5ChuhevHaudACWklPOTs4/yCh3+h0zIXdJin/wwt6rCfkX2TTntKHWZuBeQ==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
-      payload: 3.44.0
+      payload: 3.42.0
 
   '@payloadcms/translations@3.42.0':
     resolution: {integrity: sha512-L0ulc8Qhml+5ctpAHh25amRw5Nm1vyMgi6V6oVHd2hE6pDKZqDCMy9MaZfQOsP6fyDM8qxzxZcvtGMx/lfVNSQ==}
-
-  '@payloadcms/translations@3.44.0':
-    resolution: {integrity: sha512-V1eKnzPXeHgQAN5MdAMScrGbmksgLA/L0V2Jbs4oRcVIojxjCcBeifuXDvzphvwz3jx/Jr5d6MrFgSZK0D7ETA==}
 
   '@payloadcms/ui@3.42.0':
     resolution: {integrity: sha512-d/lOCTBBi3idljS4LS2yGyGKNV8z21utQAEhN3UYZwtasYcDXS9Qi+pxePm8P8OhOvK0pXdZz1BX6FyCCeKlDQ==}
@@ -1104,15 +1101,6 @@ packages:
     peerDependencies:
       next: ^15.2.3
       payload: 3.42.0
-      react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
-      react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
-
-  '@payloadcms/ui@3.44.0':
-    resolution: {integrity: sha512-+GYRr972ijagO2TEiAgwMvQohwO1OTmzQ8Fq01OjKm+HUD26lMqfkAJxc6jnTE1HNvfypv4Duojfx5FODhQeMg==}
-    engines: {node: ^18.20.2 || >=20.9.0}
-    peerDependencies:
-      next: ^15.2.3
-      payload: 3.44.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
       react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
 
@@ -5754,9 +5742,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@payloadcms/plugin-cloud-storage@3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
+  '@payloadcms/plugin-cloud-storage@3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
     dependencies:
-      '@payloadcms/ui': 3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
+      '@payloadcms/ui': 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       find-node-modules: 2.1.3
       payload: 3.42.0(graphql@16.11.0)(typescript@5.5.2)
       range-parser: 1.2.1
@@ -5788,9 +5776,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@payloadcms/storage-vercel-blob@3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
+  '@payloadcms/storage-vercel-blob@3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
     dependencies:
-      '@payloadcms/plugin-cloud-storage': 3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
+      '@payloadcms/plugin-cloud-storage': 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@vercel/blob': 0.22.3
       payload: 3.42.0(graphql@16.11.0)(typescript@5.5.2)
     transitivePeerDependencies:
@@ -5806,10 +5794,6 @@ snapshots:
     dependencies:
       date-fns: 4.1.0
 
-  '@payloadcms/translations@3.44.0':
-    dependencies:
-      date-fns: 4.1.0
-
   '@payloadcms/ui@3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
     dependencies:
       '@date-fns/tz': 1.2.0
@@ -5821,41 +5805,6 @@ snapshots:
       '@faceless-ui/window-info': 3.0.1(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
       '@monaco-editor/react': 4.7.0(monaco-editor@0.52.2)(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
       '@payloadcms/translations': 3.42.0
-      bson-objectid: 2.0.4
-      date-fns: 4.1.0
-      dequal: 2.0.3
-      md5: 2.3.0
-      next: 15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4)
-      object-to-formdata: 4.5.1
-      payload: 3.42.0(graphql@16.11.0)(typescript@5.5.2)
-      qs-esm: 7.0.2
-      react: 19.2.0-canary-a00ca6f6-20250611
-      react-datepicker: 7.6.0(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      react-dom: 19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611)
-      react-image-crop: 10.1.8(react@19.2.0-canary-a00ca6f6-20250611)
-      react-select: 5.9.0(@types/react@19.0.1)(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      scheduler: 0.25.0
-      sonner: 1.7.4(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      ts-essentials: 10.0.3(typescript@5.5.2)
-      use-context-selector: 2.0.0(react@19.2.0-canary-a00ca6f6-20250611)(scheduler@0.25.0)
-      uuid: 10.0.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - monaco-editor
-      - supports-color
-      - typescript
-
-  '@payloadcms/ui@3.44.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
-    dependencies:
-      '@date-fns/tz': 1.2.0
-      '@dnd-kit/core': 6.0.8(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.0.8(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@dnd-kit/utilities': 3.2.2(react@19.2.0-canary-a00ca6f6-20250611)
-      '@faceless-ui/modal': 3.0.0-beta.2(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@faceless-ui/scroll-info': 2.0.0(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@faceless-ui/window-info': 3.0.1(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@monaco-editor/react': 4.7.0(monaco-editor@0.52.2)(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
-      '@payloadcms/translations': 3.44.0
       bson-objectid: 2.0.4
       date-fns: 4.1.0
       dequal: 2.0.3
