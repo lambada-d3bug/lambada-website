@@ -46,7 +46,6 @@ export const RenderBlocks: React.FC<{
                         if (Block) {
                             return (
                                 <div key={index}>
-                                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                     <Block {...(block as any)} />
                                 </div>
                             );
