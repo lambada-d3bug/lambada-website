@@ -18,6 +18,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@react-email/components": "0.0.42",
     "@hookform/resolvers": "^5.1.1",
     "@payloadcms/db-mongodb": "latest",
     "@payloadcms/email-resend": "3.42.0",
@@ -88,6 +89,7 @@
     "zod": "^3.25.64"
   },
   "devDependencies": {
+    "react-email": "4.0.16",
     "@payloadcms/graphql": "latest",
     "@swc/core": "^1.12.1",
     "@swc/types": "^0.1.23",
