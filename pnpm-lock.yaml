@@ -17,9 +17,6 @@ importers:
       '@payloadcms/email-resend':
         specifier: 3.42.0
         version: 3.42.0(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))
-      '@payloadcms/live-preview-react':
-        specifier: 3.42.0
-        version: 3.42.0(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
       '@payloadcms/next':
         specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(graphql@16.11.0)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
@@ -1054,15 +1051,6 @@ packages:
     peerDependencies:
       graphql: ^16.8.1
       payload: 3.42.0
-
-  '@payloadcms/live-preview-react@3.42.0':
-    resolution: {integrity: sha512-u4DvEwp5lftcwjVRyRpXmapx/YDFoxegXNtkyCl5xuQ9WrZYXBa/NWZOkNQgk7mYRWKswyEZ3BL0LwegbL3+6g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
-
-  '@payloadcms/live-preview@3.42.0':
-    resolution: {integrity: sha512-fjZ0q94S3AoQTDeSlogKBeGEcnf6ygWRCK2aGX2MsIkDkYY66bXAMcYKWIy/v0nae8d1nKdq/tniIU2niGqoOg==}
 
   '@payloadcms/next@3.42.0':
     resolution: {integrity: sha512-6WQUyIDKvGEXMoOD6lhXqrxvOoNuQy1fWCIqL5RTNLHkH6xuTcP8G9XCb/j+kepA9tcPEfafaKQK9Vl4xPZXdA==}
@@ -5705,14 +5693,6 @@ snapshots:
       tsx: 4.19.2
     transitivePeerDependencies:
       - typescript
-
-  '@payloadcms/live-preview-react@3.42.0(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)':
-    dependencies:
-      '@payloadcms/live-preview': 3.42.0
-      react: 19.2.0-canary-a00ca6f6-20250611
-      react-dom: 19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611)
-
-  '@payloadcms/live-preview@3.42.0': {}
 
   '@payloadcms/next@3.42.0(@types/react@19.0.1)(graphql@16.11.0)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
     dependencies:
