@@ -11,7 +11,7 @@ export const revalidatePageHook = async (args: CollectionAfterChangeArgs) => {
     }
 
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/revalidate-page-globals`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/revalidate-page`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
