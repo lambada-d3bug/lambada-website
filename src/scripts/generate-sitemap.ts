@@ -67,10 +67,15 @@ async function generateSitemap() {
 // Run immediately if executed directly
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;
 if (isMainModule) {
-    generateSitemap().catch((err) => {
-        console.error(err);
-        process.exit(1);
-    });
+    generateSitemap()
+        .then(() => {
+            console.log('Sitemap generation complete.');
+            process.exit(0); // <--- Add this line here!
+        })
+        .catch((err) => {
+            console.error(err);
+            process.exit(1);
+        });
 }
 
 export default generateSitemap;
