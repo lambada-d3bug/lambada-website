@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { redirect, useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 import { isMedia } from '@/utilities/isMedia';
@@ -15,6 +15,7 @@ interface FooterBlockProps {
 export function FooterBlock(props: FooterBlockProps) {
     const { FooterProps } = props;
     const params = useParams();
+    const router = useRouter();
     const rawLocale = params?.locale;
     const locale = Array.isArray(rawLocale) ? rawLocale[0] : rawLocale;
     const {
@@ -32,7 +33,11 @@ export function FooterBlock(props: FooterBlockProps) {
     return (
         <div
             className={`border-t-primary flex flex-col items-center space-y-6 border px-6 py-18 sm:space-y-10 ${blockDisplayBoolean ? 'hidden' : ''}`}>
-            <div className={'relative h-20 w-20 sm:h-40 sm:w-40'}>
+            <Button
+                className={
+                    'relative h-20 w-20 bg-transparent hover:cursor-pointer hover:bg-transparent sm:h-40 sm:w-40'
+                }
+                onClick={() => router.push(`/${locale}/`)}>
                 {isMedia(logo) && (
                     <Image
                         src={(logo?.url as string) || ''}
@@ -41,10 +46,10 @@ export function FooterBlock(props: FooterBlockProps) {
                         className={'object-contain'}
                     />
                 )}
-            </div>
+            </Button>
             <p className={'text-chart-5 text-center text-xs sm:text-base'}>{description}</p>
             <Button
-                onClick={() => redirect(`${locale}/${button?.url}` || '')}
+                onClick={() => router.push(`${locale}/${button?.url}` || '')}
                 className={
                     'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base md:rounded-full md:py-4 md:text-xl'
                 }>

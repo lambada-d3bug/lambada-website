@@ -35,10 +35,11 @@ export function HeroBlock(props: HeroBlockProps) {
                 </p>
                 <Button
                     className={
-                        'bg-secondary hover:bg-secondary-foreground rounded-xl px-3 py-1 text-white md:text-xl lg:px-4 lg:py-2 lg:text-4xl'
+                        'bg-secondary hover:bg-secondary-foreground hover:ring-secondary transform rounded-xl px-4 ' +
+                        'py-2 font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5' +
+                        ' hover:scale-105 hover:shadow-xl hover:ring-2 md:px-6 md:py-3 md:text-xl lg:rounded-full lg:px-12 lg:py-4 lg:text-xl'
                     }
-                    onClick={scrollToNextBlock} // 👈 use it here
-                >
+                    onClick={scrollToNextBlock}>
                     {button.label}
                 </Button>
             </div>

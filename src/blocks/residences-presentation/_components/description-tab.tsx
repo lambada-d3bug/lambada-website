@@ -57,11 +57,11 @@ export function DescriptionTab(props: DescriptionTabProps) {
                     }}
                     setApi={setApi}
                     className="w-full">
-                    <CarouselContent className="ml-0 flex gap-2 md:gap-4">
+                    <CarouselContent className="ml-0 flex justify-center gap-2 md:gap-4">
                         {iconArray.map((iconGroup, i) => (
                             <CarouselItem
                                 key={i}
-                                className="basis-1/3 pl-2 md:basis-1/3 md:pl-4 lg:basis-1/6">
+                                className="flex-shrink-0 basis-1/3 pl-2 md:basis-1/3 md:pl-4 lg:basis-1/6">
                                 <div className="bg-ring/25 mx-0 flex h-full min-h-[120px] flex-col items-center justify-center space-y-2 rounded-lg p-2 text-center md:mx-2">
                                     <SvgFromUrl
                                         url={iconGroup.iconGroup.icon.url as string}
@@ -104,7 +104,7 @@ export function DescriptionTab(props: DescriptionTabProps) {
             </div>
             <Button
                 className={
-                    'bg-secondary hover:bg-secondary-foreground mt-4 rounded-2xl text-white md:w-1/2 lg:self-center'
+                    'bg-secondary hover:bg-secondary-foreground mt-4 rounded-2xl text-white hover:cursor-pointer md:w-1/2 lg:self-center'
                 }
                 onClick={() => redirect(button.url)}>
                 {button.label}

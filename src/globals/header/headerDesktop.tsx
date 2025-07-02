@@ -43,7 +43,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
             <div className={'flex flex-row'}>
                 <Button
                     variant={'ghost'}
-                    className="relative h-12 w-12 p-8 hover:bg-transparent"
+                    className="relative h-12 w-12 p-8 hover:cursor-pointer hover:bg-transparent"
                     onClick={() => router.push(`/${selectedLang || 'fr'}`)}>
                     {isMedia(navLogo) && navLogo.url && (
                         <Image

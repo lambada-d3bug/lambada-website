@@ -47,7 +47,9 @@ export function RestaurantMenuBlock(props: RestaurantMenuBlockProps) {
                         <div
                             key={i}
                             className="flex w-full flex-row justify-between text-xs sm:text-base lg:text-3xl">
-                            <p className="font-semibold">{schedulesGroup.schedulesGroup.day}</p>
+                            <p className="font-semibold capitalize">
+                                {schedulesGroup.schedulesGroup.day}
+                            </p>
                             <div className="flex flex-row space-x-6">
                                 <p>{schedulesGroup.schedulesGroup.timePM}</p>
                             </div>

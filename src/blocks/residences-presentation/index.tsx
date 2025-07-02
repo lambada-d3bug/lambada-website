@@ -115,7 +115,7 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
                         <SvgFromUrl
                             url={headingGroup.starLogo.url as string}
                             alt={headingGroup.starLogo.alt}
-                            className={'text-primary h-3 w-3'}
+                            className={'text-primary h-6 w-6'}
                         />
                         <p>{headingGroup.rating}</p>
 
@@ -127,7 +127,9 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
                 <div className={'flex flex-row'}>
                     <Button
                         onClick={sharePageUrl}
-                        className={'group flex flex-col items-center bg-transparent py-8'}>
+                        className={
+                            'group flex flex-col items-center bg-transparent py-8 hover:cursor-pointer'
+                        }>
                         <SvgFromUrl
                             url={headingGroup.shareGroup.logo.url as string}
                             alt={headingGroup.shareGroup.logo.alt || ''}

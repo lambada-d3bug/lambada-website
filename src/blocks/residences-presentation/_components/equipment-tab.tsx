@@ -14,7 +14,7 @@ export function EquipmentTab(props: EquipmentTabProps) {
         <TabsContent value="equipements" className="mt-6 space-y-4">
             <div className={'flex flex-row items-center justify-start space-x-4'}>
                 <div className={'border-t-primary h-0 w-8 border-t-4 lg:w-16'}></div>
-                <p className={'text-primary text-sm md:text-xl lg:text-3xl'}>
+                <p className={'text-primary text-sm capitalize md:text-xl lg:text-3xl'}>
                     {equipementsTab[0].equipement.tabTitle}
                 </p>
             </div>
