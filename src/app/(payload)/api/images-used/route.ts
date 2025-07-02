@@ -2,27 +2,33 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
-export async function GET(req: NextRequest) {
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
+
+export async function POST(req: NextRequest) {
+    // Check authorization header for admin token
+    if (!ADMIN_API_KEY) {
+        throw new Error('ADMIN_API_KEY is not set in environment variables.');
+    }
+    const authHeader = req.headers.get('authorization');
+    if (!authHeader || authHeader.trim() !== `Bearer ${ADMIN_API_KEY}`) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const payload = await getPayload({ config });
 
     try {
-        const pagesResponse = await payload.find({
-            collection: 'pages',
-            limit: 0,
-        });
-
-        const mediaResponse = await payload.find({
-            collection: 'media',
-            limit: 0,
-        });
+        // Fetch pages and media docs
+        const [pagesResponse, mediaResponse] = await Promise.all([
+            payload.find({ collection: 'pages', limit: 0 }),
+            payload.find({ collection: 'media', limit: 0 }),
+        ]);
 
         const pages = pagesResponse.docs;
 
-        // Recursively find all objects that look like images (have an id and url)
+        // Recursive function to find image IDs in page layouts
         function findImages(obj: any, result = new Set<string>()): Set<string> {
             if (typeof obj !== 'object' || obj === null) return result;
 
-            // Check if this object looks like an image with an id and url
             if (
                 'id' in obj &&
                 typeof obj.id === 'string' &&
@@ -32,7 +38,6 @@ export async function GET(req: NextRequest) {
                 result.add(obj.id);
             }
 
-            // Recurse into all object properties
             for (const key in obj) {
                 if (Object.prototype.hasOwnProperty.call(obj, key)) {
                     const val = obj[key];
@@ -46,8 +51,6 @@ export async function GET(req: NextRequest) {
         }
 
         const allImages = new Set<string>();
-        const imagesInMedia = new Set<string>();
-
         for (const page of pages) {
             if (Array.isArray(page.layout)) {
                 for (const block of page.layout) {
@@ -56,20 +59,41 @@ export async function GET(req: NextRequest) {
             }
         }
 
-        for (const media of mediaResponse.docs) {
-            if (media && media.id && media.url) {
-                imagesInMedia.add(media.id);
-            }
-        }
-        const unusedImages = new Set([...imagesInMedia].filter((id) => !allImages.has(id)));
+        const imagesInMedia = new Set<string>(
+            mediaResponse.docs.filter((m) => m?.id && m?.url).map((m) => m.id),
+        );
+
+        // Find unused images
+        const unusedImages = [...imagesInMedia].filter((id) => !allImages.has(id));
+
+        // Delete unused images concurrently, with error handling
+        const deletedIds: string[] = [];
+        const failedDeletes: { id: string; error: string }[] = [];
+
+        await Promise.all(
+            unusedImages.map(async (id) => {
+                try {
+                    await payload.delete({
+                        collection: 'media',
+                        id,
+                    });
+                    deletedIds.push(id);
+                } catch (err: any) {
+                    failedDeletes.push({
+                        id,
+                        error: err?.message || 'Unknown error',
+                    });
+                }
+            }),
+        );
 
         return NextResponse.json({
-            imagesUsed: Array.from(allImages),
-            imagesInMedia: Array.from(imagesInMedia),
-            unusedImages: Array.from(unusedImages),
+            message: `${deletedIds.length} unused images deleted.`,
+            deletedIds,
+            failedDeletes,
         });
     } catch (error) {
-        console.error('Error in /api/images-used:', error);
+        console.error('Error deleting unused images:', error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }
