@@ -48,7 +48,6 @@ export async function GET(req: NextRequest) {
         const allImages = new Set<string>();
         const imagesInMedia = new Set<string>();
 
-        const unusedImages = new Set([...allImages, ...imagesInMedia]);
         for (const page of pages) {
             if (Array.isArray(page.layout)) {
                 for (const block of page.layout) {
@@ -62,6 +61,7 @@ export async function GET(req: NextRequest) {
                 imagesInMedia.add(media.id);
             }
         }
+        const unusedImages = new Set([...imagesInMedia].filter((id) => !allImages.has(id)));
 
         return NextResponse.json({
             imagesUsed: Array.from(allImages),
