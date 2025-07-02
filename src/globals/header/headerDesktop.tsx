@@ -41,7 +41,10 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                 'absolute top-0 left-0 flex w-full flex-row justify-between px-12 py-10 lg:px-24'
             }>
             <div className={'flex flex-row'}>
-                <div className="relative h-12 w-12">
+                <Button
+                    variant={'ghost'}
+                    className="relative h-12 w-12 p-8 hover:bg-transparent"
+                    onClick={() => router.push(`/${selectedLang || 'fr'}`)}>
                     {isMedia(navLogo) && navLogo.url && (
                         <Image
                             src={navLogo.url}
@@ -50,7 +53,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                             className="object-contain"
                         />
                     )}
-                </div>
+                </Button>
                 <div
                     className={`ml-8 flex flex-row space-x-8 text-sm ${slug === 'booking' ? 'text-secondary' : 'text-white'} uppercase max-lg:leading-tight lg:text-lg`}>
                     {navItems?.map((item, i) => (

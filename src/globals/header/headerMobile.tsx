@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Image from 'next/image';
 import { useState } from 'react';
-import { redirect, useParams, usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
     Select,
@@ -43,13 +43,13 @@ export function HeaderMobile(props: HeaderBlockProps) {
                     className={
                         'absolute top-0 left-0 flex w-full flex-row items-center justify-between px-4 py-4'
                     }>
-                    <div className={'relative h-12 w-12'}>
+                    <div className="relative h-12 w-12 p-8 hover:bg-transparent">
                         {isMedia(navLogo) && navLogo.url && (
                             <Image
-                                src={navLogo.url as string}
-                                alt={navLogo.alt}
+                                src={navLogo.url}
+                                alt={navLogo.alt || 'Logo'}
                                 fill
-                                className={'object-contain'}
+                                className="object-contain"
                             />
                         )}
                     </div>
@@ -60,7 +60,7 @@ export function HeaderMobile(props: HeaderBlockProps) {
                     </Button>
                 </div>
             </SheetTrigger>
-            <SheetContent side="left" className="w-1/2 max-w-full border-none p-0">
+            <SheetContent side="left" className="w-2/3 max-w-full border-none p-0">
                 <div className="flex h-full flex-col rounded-lg bg-white">
                     <div className="flex items-center justify-center p-4">
                         <div className="mt-24 flex flex-1 justify-center">
@@ -80,9 +80,9 @@ export function HeaderMobile(props: HeaderBlockProps) {
                         {navItems?.map((item, i) => (
                             <div key={i} className="mx-4 hover:text-white">
                                 <Link
-                                    href={item.itemsGroup?.url as string}
+                                    href={`/${selectedLang}/${item?.itemsGroup?.url || ''}`}
                                     className={cn(
-                                        'flex items-center gap-4 rounded-md py-3 pl-4 text-sm font-medium hover:bg-[#FBC965]',
+                                        'flex items-center gap-4 rounded-md py-3 pl-4 text-sm font-semibold capitalize hover:bg-[#FBC965]',
                                     )}>
                                     <span>{item.itemsGroup?.label}</span>
                                 </Link>
@@ -90,8 +90,10 @@ export function HeaderMobile(props: HeaderBlockProps) {
                         ))}
                     </nav>
                     <Button
-                        className={'mx-4 rounded-2xl bg-[#FBC965] hover:bg-[#f2ba49]'}
-                        onClick={() => redirect(navButton?.url as string)}>
+                        className={
+                            'mx-4 rounded-2xl bg-[#FBC965] font-semibold text-white capitalize hover:bg-[#f2ba49]'
+                        }
+                        onClick={() => router.push(`/${selectedLang || 'fr'}/booking`)}>
                         {navButton?.labelMobile}
                     </Button>
                     <div className={'mt-12 flex justify-center'}>
