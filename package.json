@@ -6,8 +6,9 @@
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation && next dev",
+    "generate-sitemap": "tsx src/scripts/generate-sitemap.ts",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation tsx src/scripts/generate-sitemap.ts && next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:schema": "payload-graphql generate:schema",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
