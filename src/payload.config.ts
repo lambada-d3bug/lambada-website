@@ -15,6 +15,7 @@ import { Footer } from '@/globals/footer/config';
 import { GoogleReviewsFr } from 'src/collections/google-reviews-fr';
 import { GoogleReviewsEn } from '@/collections/google-reviews-en';
 import { GoogleReviewsIt } from '@/collections/google-reviews-it';
+import { plugins } from '@/plugins';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -50,6 +51,7 @@ export default buildConfig({
         outputFile: path.resolve(dirname, 'payload-types.ts'),
     },
     plugins: [
+        ...plugins,
         vercelBlobStorage({
             enabled: true, // Optional, defaults to true
             // Specify which collections should use Vercel Blob

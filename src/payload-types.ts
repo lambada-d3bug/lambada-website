@@ -135,6 +135,7 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: string;
+  name: string;
   title: string;
   slug?: string | null;
   layout?:
@@ -605,6 +606,7 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  name?: T;
   title?: T;
   slug?: T;
   layout?:
