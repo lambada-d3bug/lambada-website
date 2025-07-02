@@ -6,10 +6,15 @@ import { getPayload } from 'payload';
 import config from '@payload-config';
 
 async function generateSitemap() {
-    const SITE_URL =
+    let SITE_URL =
         process.env.NEXT_PUBLIC_SERVER_URL ||
         process.env.VERCEL_PROJECT_PRODUCTION_URL ||
         'https://example.com';
+
+    // Ensure SITE_URL includes protocol
+    if (!SITE_URL.startsWith('http://') && !SITE_URL.startsWith('https://')) {
+        SITE_URL = 'https://' + SITE_URL;
+    }
 
     const payload = await getPayload({ config });
 
@@ -30,7 +35,11 @@ async function generateSitemap() {
 
     const links = pages.flatMap((page) =>
         locales.map((locale) => ({
-            url: page.slug === 'home' ? `/${locale}` : `/${locale}/${page.slug}`,
+            // Make sure url is absolute
+            url:
+                page.slug === 'home'
+                    ? `${SITE_URL}/${locale}`
+                    : `${SITE_URL}/${locale}/${page.slug}`,
             lastmod: page.updatedAt || dateFallback,
             links: locales.map((alt) => ({
                 lang: alt,
@@ -53,8 +62,6 @@ async function generateSitemap() {
 }
 
 // Run immediately if executed directly
-// In ESM, there's no direct equivalent to require.main === module
-// Using import.meta.url to check if this is the main module
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;
 if (isMainModule) {
     generateSitemap().catch((err) => {
@@ -63,5 +70,4 @@ if (isMainModule) {
     });
 }
 
-// Export for programmatic use if needed
 export default generateSitemap;
