@@ -11,7 +11,6 @@ async function generateSitemap() {
         process.env.VERCEL_PROJECT_PRODUCTION_URL ||
         'https://example.com';
 
-    // Ensure SITE_URL includes protocol
     if (!SITE_URL.startsWith('http://') && !SITE_URL.startsWith('https://')) {
         SITE_URL = 'https://' + SITE_URL;
     }
@@ -35,7 +34,6 @@ async function generateSitemap() {
 
     const links = pages.flatMap((page) =>
         locales.map((locale) => ({
-            // Make sure url is absolute
             url:
                 page.slug === 'home'
                     ? `${SITE_URL}/${locale}`
@@ -54,8 +52,13 @@ async function generateSitemap() {
         data.toString(),
     );
 
-    // Write sitemap.xml to /public
-    const sitemapPath = path.resolve(process.cwd(), 'public', 'sitemap.xml');
+    // Ensure the /public directory exists
+    const publicDir = path.resolve(process.cwd(), 'public');
+    if (!fs.existsSync(publicDir)) {
+        fs.mkdirSync(publicDir, { recursive: true });
+    }
+
+    const sitemapPath = path.resolve(publicDir, 'sitemap.xml');
     fs.writeFileSync(sitemapPath, xml);
 
     console.log(`Sitemap generated at: ${sitemapPath}`);
