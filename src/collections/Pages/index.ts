@@ -13,10 +13,12 @@ import { ResidenceGeneral } from '@/blocks/residence-general/config';
 import { RestaurantCarousel } from '@/blocks/restaurant-carousel/config';
 import { RestaurantMenu } from '@/blocks/restaurant-menu/config';
 import { revalidatePageHook } from '@/hooks/revalidate-page-hook';
-import { OverviewField } from '@payloadcms/plugin-seo/dist/fields/Overview';
-import { MetaTitleField } from '@payloadcms/plugin-seo/dist/fields/MetaTitle';
-import { MetaImageField } from '@payloadcms/plugin-seo/dist/fields/MetaImage';
-import { MetaDescriptionField } from '@payloadcms/plugin-seo/dist/fields/MetaDescription';
+import {
+    MetaDescriptionField,
+    MetaImageField,
+    MetaTitleField,
+    OverviewField,
+} from '@payloadcms/plugin-seo/fields';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -94,6 +96,7 @@ export const Pages: CollectionConfig = {
             name: 'meta',
             label: 'SEO',
             type: 'group',
+            localized: true,
             fields: [
                 OverviewField({
                     titlePath: 'meta.name',

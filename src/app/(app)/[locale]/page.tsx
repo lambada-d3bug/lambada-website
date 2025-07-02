@@ -1,11 +1,13 @@
-import { getPayload } from 'payload';
+import { getPayload, RequiredDataFromCollectionSlug } from 'payload';
 import config from '@payload-config';
 import { RenderBlocks } from '@/utilities/renderBlocks';
 // import { generateMeta } from '@/utilities/generateMeta'
 import { notFound } from 'next/navigation';
 import type { Page as PageType } from '@/payload-types';
-import React, { Fragment } from 'react';
+import React, { cache, Fragment } from 'react';
 import classes from '@/app/(app)/[locale]/[slug]/index.module.scss';
+import { Metadata, ResolvingMetadata } from 'next';
+import { generateMeta } from '@/utilities/generateMeta';
 
 interface PageParams {
     params: Promise<{
@@ -42,8 +44,40 @@ export default async function Page({ params: paramsPromise }: PageParams) {
         </Fragment>
     );
 }
+type Args = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
 
-// export async function generateMetadata(): Promise<Metadata> {
-//     const page = await queryPageBySlug('home')
-//     return generateMeta({ doc: page })
-// }
+export async function generateMetadata(
+    { params }: Args,
+    _parent: ResolvingMetadata,
+): Promise<Metadata> {
+    // Await the params
+    const { slug } = await params;
+    const finalSlug = slug || 'home';
+
+    const page = await queryPageBySlug(finalSlug);
+    return generateMeta({ doc: page });
+}
+
+// Cached query for page by slug
+const queryPageBySlug = cache(
+    async (slug: string): Promise<RequiredDataFromCollectionSlug<'pages'> | null> => {
+        const payload = await getPayload({ config });
+
+        const result = await payload.find({
+            collection: 'pages',
+            limit: 1,
+            pagination: false,
+            where: {
+                slug: {
+                    equals: slug,
+                },
+            },
+        });
+
+        return result.docs?.[0] || null;
+    },
+);

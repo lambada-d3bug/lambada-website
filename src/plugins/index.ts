@@ -7,7 +7,7 @@ import type { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types';
 
 const generateTitle: GenerateTitle<Page> = ({ doc }) => {
     return doc?.name
-        ? `${doc.name} | REO-GROUPE | Rénovation Résidentielle avec Garantie`
+        ? `${doc.name} | L'ambada | Plage, Location & Restaurant en Corse`
         : 'REO-GROUPE | Experts en Rénovation Résidentielle avec Garantie';
 };
 
