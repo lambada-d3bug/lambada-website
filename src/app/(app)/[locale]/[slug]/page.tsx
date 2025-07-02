@@ -1,12 +1,14 @@
 import { notFound, redirect } from 'next/navigation';
-import { getPayload } from 'payload';
-import React, { Fragment } from 'react';
+import { getPayload, RequiredDataFromCollectionSlug } from 'payload';
+import React, { cache, Fragment } from 'react';
 
 import type { Page as PageType } from '../../../../payload-types';
 
 import config from '@payload-config';
 import classes from './index.module.scss';
 import { RenderBlocks } from '@/utilities/renderBlocks';
+import { Metadata, ResolvingMetadata } from 'next';
+import { generateMeta } from '@/utilities/generateMeta';
 
 interface PageParams {
     params: Promise<{
@@ -71,3 +73,41 @@ export async function generateStaticParams() {
             : {},
     );
 }
+
+type Args = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
+
+export async function generateMetadata(
+    { params }: Args,
+    _parent: ResolvingMetadata,
+): Promise<Metadata> {
+    // Await the params
+    const { slug } = await params;
+    const finalSlug = slug || 'home';
+
+    const page = await queryPageBySlug(finalSlug);
+    return generateMeta({ doc: page });
+}
+
+// Cached query for page by slug
+const queryPageBySlug = cache(
+    async (slug: string): Promise<RequiredDataFromCollectionSlug<'pages'> | null> => {
+        const payload = await getPayload({ config });
+
+        const result = await payload.find({
+            collection: 'pages',
+            limit: 1,
+            pagination: false,
+            where: {
+                slug: {
+                    equals: slug,
+                },
+            },
+        });
+
+        return result.docs?.[0] || null;
+    },
+);

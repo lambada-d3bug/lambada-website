@@ -13,6 +13,12 @@ import { ResidenceGeneral } from '@/blocks/residence-general/config';
 import { RestaurantCarousel } from '@/blocks/restaurant-carousel/config';
 import { RestaurantMenu } from '@/blocks/restaurant-menu/config';
 import { revalidatePageHook } from '@/hooks/revalidate-page-hook';
+import {
+    MetaDescriptionField,
+    MetaImageField,
+    MetaTitleField,
+    OverviewField,
+} from '@payloadcms/plugin-seo/fields';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -46,6 +52,12 @@ export const Pages: CollectionConfig = {
     },
     fields: [
         {
+            name: 'name',
+            label: 'Name',
+            type: 'text',
+            required: true,
+        },
+        {
             name: 'title',
             type: 'text',
             required: true,
@@ -78,6 +90,26 @@ export const Pages: CollectionConfig = {
                 ResidenceGeneral,
                 RestaurantCarousel,
                 RestaurantMenu,
+            ],
+        },
+        {
+            name: 'meta',
+            label: 'SEO',
+            type: 'group',
+            localized: true,
+            fields: [
+                OverviewField({
+                    titlePath: 'meta.name',
+                    descriptionPath: 'meta.description',
+                    imagePath: 'meta.image',
+                }),
+                MetaTitleField({
+                    hasGenerateFn: true,
+                }),
+                MetaImageField({
+                    relationTo: 'media',
+                }),
+                MetaDescriptionField({}),
             ],
         },
     ],

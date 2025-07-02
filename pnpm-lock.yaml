@@ -20,6 +20,9 @@ importers:
       '@payloadcms/next':
         specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(graphql@16.11.0)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
+      '@payloadcms/plugin-seo':
+        specifier: 3.42.0
+        version: 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
       '@payloadcms/richtext-slate':
         specifier: 3.42.0
         version: 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
@@ -194,6 +197,9 @@ importers:
       serpapi:
         specifier: ^2.1.0
         version: 2.1.0
+      sharp:
+        specifier: ^0.34.2
+        version: 0.34.2
       sonner:
         specifier: ^2.0.5
         version: 2.0.5(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)
@@ -1062,6 +1068,13 @@ packages:
 
   '@payloadcms/plugin-cloud-storage@3.42.0':
     resolution: {integrity: sha512-qS+X8cW5LFxDp4hE9foug6wQjsKCOZKbPlxam8b2W5GsqtwV+IdLTiNxnE4Cu2hfMvl2k8Zr3LaaApYSn5aJrQ==}
+    peerDependencies:
+      payload: 3.42.0
+      react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+      react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+
+  '@payloadcms/plugin-seo@3.42.0':
+    resolution: {integrity: sha512-VW7RDzGJYyI6RceikfpS4hteIpMpENFlkxMzWnJbqovU5/MYI3GUUMgEGCM3eycJEXOmIK+OLBHrHMkeT1xyMg==}
     peerDependencies:
       payload: 3.42.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
@@ -5737,6 +5750,20 @@ snapshots:
       - supports-color
       - typescript
 
+  '@payloadcms/plugin-seo@3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
+    dependencies:
+      '@payloadcms/translations': 3.42.0
+      '@payloadcms/ui': 3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)
+      payload: 3.42.0(graphql@16.11.0)(typescript@5.5.2)
+      react: 19.2.0-canary-a00ca6f6-20250611
+      react-dom: 19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611)
+    transitivePeerDependencies:
+      - '@types/react'
+      - monaco-editor
+      - next
+      - supports-color
+      - typescript
+
   '@payloadcms/richtext-slate@3.42.0(@types/react@19.0.1)(monaco-editor@0.52.2)(next@15.3.3(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(sass@1.77.4))(payload@3.42.0(graphql@16.11.0)(typescript@5.5.2))(react-dom@19.2.0-canary-a00ca6f6-20250611(react@19.2.0-canary-a00ca6f6-20250611))(react@19.2.0-canary-a00ca6f6-20250611)(typescript@5.5.2)':
     dependencies:
       '@payloadcms/translations': 3.42.0
@@ -7332,13 +7359,11 @@ snapshots:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    optional: true
 
   color@4.2.3:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    optional: true
 
   colorette@2.0.20: {}
 
@@ -8301,8 +8326,7 @@ snapshots:
 
   is-arrayish@0.2.1: {}
 
-  is-arrayish@0.3.2:
-    optional: true
+  is-arrayish@0.3.2: {}
 
   is-async-function@2.1.1:
     dependencies:
@@ -9403,7 +9427,6 @@ snapshots:
       '@img/sharp-win32-arm64': 0.34.2
       '@img/sharp-win32-ia32': 0.34.2
       '@img/sharp-win32-x64': 0.34.2
-    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -9446,7 +9469,6 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
-    optional: true
 
   simple-wcswidth@1.0.1: {}
 
