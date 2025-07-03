@@ -20,7 +20,10 @@ interface PageParams {
 // eslint-disable-next-line no-restricted-exports
 export default async function Page({ params: paramsPromise }: PageParams) {
     const { slug = 'home', locale = 'fr' } = await paramsPromise;
-
+    if (locale !== 'en' && locale !== 'fr' && locale !== 'it') {
+        // If the locale is not supported, return a 404
+        return notFound();
+    }
     if (slug === 'home') {
         redirect(`/${locale}`);
     }
@@ -108,7 +111,6 @@ const queryPageBySlug = cache(
             },
             locale,
         });
-
         return result.docs?.[0] || null;
     },
 );
