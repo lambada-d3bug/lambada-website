@@ -1,7 +1,7 @@
 'use client';
 
 import { Media } from '@/payload-types';
-import { Button } from '@payloadcms/ui';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/utilities/ui';
 
 interface HeroBlockProps {
