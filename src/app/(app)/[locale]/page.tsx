@@ -63,7 +63,7 @@ export async function generateMetadata(
     const finalSlug = slug || 'home';
 
     const page = await queryPageBySlug(finalSlug, locale);
-    return generateMeta({ doc: page, locale });
+    return generateMeta({ doc: page });
 }
 
 // Cached query for page by slug
