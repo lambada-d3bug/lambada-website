@@ -17,6 +17,10 @@ interface PageParams {
 
 export default async function Page({ params: paramsPromise }: PageParams) {
     const { locale = 'fr' } = await paramsPromise;
+    if (locale !== 'en' && locale !== 'fr' && locale !== 'it') {
+        // If the locale is not supported, return a 404
+        return notFound();
+    }
     const slug = 'home';
     const payload = await getPayload({ config });
     const pageRes = await payload.find({
