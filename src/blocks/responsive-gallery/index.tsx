@@ -9,6 +9,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import { cn } from '@/utilities/ui';
 
 interface ResponsiveGalleryProps {
     blockDisplayBoolean?: boolean;
@@ -21,7 +22,10 @@ export function ResponsiveGalleryBlock(props: ResponsiveGalleryProps) {
 
     return (
         <div
-            className={`${blockDisplayBoolean ? 'hidden' : ''} mx-auto flex w-full max-w-full flex-col px-4 py-8 lg:bg-[#fbc96526]`}>
+            className={cn(
+                blockDisplayBoolean && 'hidden',
+                'mx-auto flex w-full max-w-full flex-col px-4 py-8 lg:bg-[#fbc96526]',
+            )}>
             <h1 className="mb-6 text-lg font-bold lg:text-5xl">{title}</h1>
             <Carousel className="w-full max-w-full overflow-visible">
                 <CarouselContent className="-ml-2 h-82 md:-ml-4 lg:h-84">

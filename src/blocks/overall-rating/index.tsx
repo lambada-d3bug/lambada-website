@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Review } from '@/blocks/review-carousel';
 import { Media } from '@/payload-types';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
+import { cn } from '@/utilities/ui';
 
 interface OverallRatingBlockProps {
     blockDisplayBoolean?: boolean;
@@ -34,9 +35,12 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
 
     return (
         <div
-            className={`flex flex-row items-center justify-between px-8 py-8 font-semibold max-lg:space-x-4 md:px-20 lg:px-48 ${blockDisplayBoolean ? 'hidden' : ''}`}>
-            <p className={'text-lg md:text-3xl'}>{title}</p>
-            <div className={'border-t-primary h-1 w-10 border-t-4 md:w-28'}></div>
+            className={cn(
+                'flex flex-row items-center justify-between space-x-0 px-8 py-8 font-semibold md:space-x-4 md:px-20 lg:justify-center lg:space-x-8 lg:px-48',
+                blockDisplayBoolean && 'hidden',
+            )}>
+            <p className={'text-base md:text-3xl'}>{title}</p>
+            <div className={'border-t-primary h-1 w-8 border-t-4 md:w-28 lg:w-64'}></div>
             <p className={'text-primary text-lg md:text-3xl'}>{fetchedRating}/5</p>
             <div className={''}>
                 <SvgFromUrl

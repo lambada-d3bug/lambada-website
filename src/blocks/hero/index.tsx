@@ -2,6 +2,7 @@
 
 import { Media } from '@/payload-types';
 import { Button } from '@payloadcms/ui';
+import { cn } from '@/utilities/ui';
 
 interface HeroBlockProps {
     blockDisplayBoolean?: boolean;
@@ -19,7 +20,10 @@ export function HeroBlock(props: HeroBlockProps) {
 
     return (
         <main
-            className={`${blockDisplayBoolean ? 'hidden' : ''} flex h-screen w-full flex-col justify-center`}
+            className={cn(
+                blockDisplayBoolean && 'hidden',
+                'flex h-screen w-full flex-col justify-center',
+            )}
             style={{
                 backgroundColor: '#3a7a80',
                 ...(bgImage?.url && {

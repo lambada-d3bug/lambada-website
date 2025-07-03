@@ -3,11 +3,12 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 import { GridOrCarouselBlockProps } from '@/blocks/grid-or-carousel';
+import { cn } from '@/utilities/ui';
 
 export function DesktopGrid(props: GridOrCarouselBlockProps) {
     const { cardArray, title, blockDisplayBoolean } = props;
     return (
-        <div className={`${blockDisplayBoolean ? 'hidden' : ''} mx-48 mt-16 space-y-16`}>
+        <div className={cn(blockDisplayBoolean && 'hidden', 'mx-48 mt-16 space-y-16')}>
             <div className="flex flex-row justify-center">
                 <p className="text-center text-3xl font-semibold">
                     {title.titlePart} <span className="text-[#0E7269]">{title.titlePart1}</span>{' '}

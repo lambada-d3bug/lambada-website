@@ -8,6 +8,7 @@ import { Inputs } from '@/blocks/booking-form/components/inputs';
 import { Header } from '@/blocks/booking-form/components/header';
 import { formSchema } from '@/blocks/booking-form/bookingFormSchema';
 import { toast } from 'sonner';
+import { cn } from '@/utilities/ui';
 
 interface BookingFormBlockProps {
     blockDisplayBoolean?: boolean;
@@ -66,7 +67,6 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
     });
 
     const onValid: SubmitHandler<z.infer<typeof formSchema>> = async (values) => {
-        console.log('✅ Valid values:', values);
         const res = await fetch('/api/booking-mail', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -90,7 +90,10 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
 
     return (
         <form
-            className={`${blockDisplayBoolean ? 'hidden' : ''} flex flex-col space-y-4 px-10 py-26 sm:space-y-8`}
+            className={cn(
+                blockDisplayBoolean ? 'hidden' : '',
+                'flex flex-col space-y-4 px-10 py-26 sm:space-y-8',
+            )}
             onSubmit={form.handleSubmit(onValid, onInvalid)}>
             <Header HeaderProps={HeaderProps} form={form} />
             <div

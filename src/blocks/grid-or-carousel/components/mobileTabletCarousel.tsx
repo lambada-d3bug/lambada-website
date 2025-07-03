@@ -5,6 +5,7 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import { Card, CardContent } from '@/components/ui/card';
 import { SvgFromUrl } from '@/utilities/svgFromUrl';
 import { useEffect, useState } from 'react';
+import { cn } from '@/utilities/ui';
 
 export function MobileTabletCarousel(props: GridOrCarouselBlockProps) {
     const { title, cardArray, blockDisplayBoolean } = props;
@@ -26,7 +27,7 @@ export function MobileTabletCarousel(props: GridOrCarouselBlockProps) {
         });
     }, [api]);
     return (
-        <div className={`${blockDisplayBoolean ? 'hidden' : ''} w-full space-y-16 py-16`}>
+        <div className={cn(blockDisplayBoolean && 'hidden', 'w-full space-y-16 py-16')}>
             <div className="flex flex-row justify-center">
                 <p className="px-2 text-center text-3xl font-semibold">
                     {title.titlePart} <span className="text-[#0E7269]"> {title.titlePart1}</span>{' '}

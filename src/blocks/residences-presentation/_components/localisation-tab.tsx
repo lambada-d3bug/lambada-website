@@ -27,7 +27,6 @@ interface LocalisationTabProps {
 }
 
 export function LocalisationTab(props: LocalisationTabProps) {
-    console.log({ lat: props.localisationTab.latitude, lon: props.localisationTab.latitude });
     return (
         <TabsContent value="localisation" className="mt-6">
             <Map position={[props.localisationTab.latitude, props.localisationTab.longitude]} />

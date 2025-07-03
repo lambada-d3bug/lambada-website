@@ -75,14 +75,16 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                    <SelectTrigger
-                        className={`${slug === 'booking' ? 'text-primary' : 'text-white'}`}>
-                        <SelectValue>{selectedLang}</SelectValue>
+                    <SelectTrigger className="relative min-w-[60px] border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
+                        <SelectValue className="font-medium text-white">{selectedLang}</SelectValue>
                     </SelectTrigger>
-                    <SelectContent className={'text-primary'}>
+                    <SelectContent className="border-white/20 bg-white/10 shadow-xl backdrop-blur-md">
                         {language?.languageChoice &&
                             language.languageChoice.map((item, i) => (
-                                <SelectItem key={i} value={item.lang as string}>
+                                <SelectItem
+                                    key={i}
+                                    value={item.lang as string}
+                                    className="cursor-pointer text-white hover:bg-white/20 focus:bg-white/20 data-[highlighted]:bg-white/20">
                                     {item.lang}
                                 </SelectItem>
                             ))}

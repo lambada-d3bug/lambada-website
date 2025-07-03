@@ -23,7 +23,9 @@ export const generateMeta = async (args: { doc: Partial<Page> | null }): Promise
 
     const ogImage = getImageURL(doc?.meta?.image);
 
-    const title = doc?.meta?.title ? doc?.meta?.title : 'Payload Website Template';
+    const title = doc?.meta?.title
+        ? doc?.meta?.title
+        : "L'ambada | Restaurant & seaside apartments in Corsica";
 
     return {
         description: doc?.meta?.description,

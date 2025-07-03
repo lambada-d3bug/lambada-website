@@ -1,6 +1,8 @@
 'use client';
+
 import { Media } from '@/payload-types';
 import Image from 'next/image';
+import { cn } from '@/utilities/ui';
 
 interface RestaurantMenuBlockProps {
     blockDisplayBoolean?: boolean;
@@ -24,7 +26,10 @@ export function RestaurantMenuBlock(props: RestaurantMenuBlockProps) {
 
     return (
         <div
-            className={`${blockDisplayBoolean ? 'hidden' : ''} flex flex-col items-center space-y-4 py-32 lg:space-y-8`}>
+            className={cn(
+                blockDisplayBoolean && 'hidden',
+                'flex flex-col items-center space-y-4 py-32 lg:space-y-8',
+            )}>
             <p className="px-6 text-lg font-semibold sm:text-3xl">{title}</p>
 
             {images.map((image, i) => (

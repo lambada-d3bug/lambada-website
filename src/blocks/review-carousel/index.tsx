@@ -12,6 +12,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import { cn } from '@/utilities/ui';
 
 export type Review = {
     overallRating?: number;
@@ -95,7 +96,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
     }
     return (
         <>
-            <Carousel className={`${blockDisplayBoolean ? 'hidden' : 'block'}`}>
+            <Carousel className={cn(blockDisplayBoolean && 'hidden')}>
                 <CarouselContent className={'ml-1 w-full max-w-full overflow-visible py-8 md:ml-8'}>
                     {fetchedReviews.map((review, i) => (
                         <CarouselItem

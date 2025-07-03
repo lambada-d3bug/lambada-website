@@ -59,7 +59,10 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
     if (!width) return null;
     return (
         <div
-            className={`flex w-full flex-col items-center space-y-6 py-16 lg:px-40 ${blockDisplayBoolean ? 'hidden' : ''}`}>
+            className={cn(
+                'flex w-full flex-col items-center space-y-6 py-16 lg:px-40',
+                blockDisplayBoolean && 'hidden',
+            )}>
             <Carousel setApi={setApi} className="w-full max-w-full">
                 <CarouselContent className="ml-0 w-full">
                     {residencesArray.map((residence, index) => {

@@ -8,6 +8,7 @@ import { getClientSideURL } from '@/utilities/getUrl';
 import { toast } from 'sonner';
 import { useEffect, useState } from 'react';
 import { TabsResidences } from '@/blocks/residences-presentation/_components/tabs-residences';
+import { cn } from '@/utilities/ui';
 
 interface ResidencesPresentationBlockProps {
     blockDisplayBoolean?: boolean;
@@ -105,7 +106,10 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
 
     return (
         <div
-            className={`flex flex-col space-y-4 px-5 py-12 md:px-7 lg:px-24 ${blockDisplayBoolean ? 'hidden' : ''}`}>
+            className={cn(
+                'flex flex-col space-y-4 px-5 py-12 md:px-7 lg:px-24',
+                blockDisplayBoolean && 'hidden',
+            )}>
             <div className={'flex flex-row justify-between'}>
                 <div className={'flex flex-col space-y-2 text-xs md:text-base lg:text-xl'}>
                     <p className={'text-lg font-semibold md:text-3xl lg:text-5xl'}>
