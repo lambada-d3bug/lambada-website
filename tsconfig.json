@@ -36,6 +36,9 @@
       "@/*": [
         "./src/*"
       ],
+      "public/*": [
+        "./public/*"
+      ]
     }
   },
   "include": [
@@ -49,4 +52,3 @@
     "node_modules"
   ]
 }
-
