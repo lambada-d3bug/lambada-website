@@ -18,11 +18,14 @@ export const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null
     return serverUrl + path;
 };
 
-export const generateMeta = async (args: { doc: Partial<Page> | null }): Promise<Metadata> => {
-    const { doc } = args;
+export const generateMeta = async (args: {
+    doc: Partial<Page> | null;
+    locale: string;
+}): Promise<Metadata> => {
+    const { doc, locale } = args;
 
     const ogImage = getImageURL(doc?.meta?.image);
-
+    console.log(doc);
     const title = doc?.meta?.title
         ? doc?.meta?.title
         : "L'ambada | Restaurant & seaside apartments in Corsica";

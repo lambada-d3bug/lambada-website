@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { HeaderBlockProps } from './index';
+import type { HeaderBlockProps } from './index';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { isMedia } from '@/utilities/isMedia';
 import Link from 'next/link';
@@ -47,36 +47,38 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                     onClick={() => router.push(`/${selectedLang || 'fr'}`)}>
                     {isMedia(navLogo) && navLogo.url && (
                         <Image
-                            src={navLogo.url}
+                            src={navLogo.url || '/placeholder.svg'}
                             alt={navLogo.alt || 'Logo'}
                             fill
                             className="object-contain"
                         />
                     )}
                 </Button>
-                <div
-                    className={`ml-8 flex flex-row space-x-8 text-sm ${slug === 'booking' ? 'text-secondary' : 'text-white'} uppercase max-lg:leading-tight lg:text-lg`}>
-                    {navItems?.map((item, i) => (
-                        <Link
-                            key={i}
-                            href={`/${locale}/${item?.itemsGroup?.url || ''}`}
-                            className={'flex items-center'}>
-                            <p className={'hover:underline'}> {item?.itemsGroup?.label}</p>
-                        </Link>
-                    ))}
+                <div className="ml-8 flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 shadow-lg backdrop-blur-md">
+                    <div className="flex flex-row space-x-6 text-sm uppercase max-lg:leading-tight lg:text-lg">
+                        {navItems?.map((item, i) => (
+                            <Link
+                                key={i}
+                                href={`/${locale}/${item?.itemsGroup?.url || ''}`}
+                                className="group flex items-center">
+                                <p className="relative font-medium text-white transition-all duration-200 hover:scale-105 hover:text-white/80">
+                                    {item?.itemsGroup?.label}
+                                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-white/60 transition-all duration-300 group-hover:w-full"></span>
+                                </p>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div className={'flex flex-row space-x-2'}>
+            <div className={'flex flex-row items-center space-x-2'}>
                 <Button
-                    className={
-                        'bg-primary hover:bg-primary-foreground rounded-2xl text-lg text-white uppercase'
-                    }
+                    className="bg-primary hover:bg-primary-foreground h-auto rounded-full px-8 py-3 text-lg text-white uppercase"
                     onClick={() => router.push(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className="relative min-w-[60px] border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
-                        <SelectValue className="font-medium text-white">{selectedLang}</SelectValue>
+                    <SelectTrigger className="!h-auto min-w-[60px] rounded-full border-white/20 bg-white/10 px-8 py-3 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
+                        <SelectValue>{selectedLang}</SelectValue>
                     </SelectTrigger>
                     <SelectContent className="border-white/20 bg-white/10 shadow-xl backdrop-blur-md">
                         {language?.languageChoice &&
