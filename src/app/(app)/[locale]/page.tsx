@@ -49,26 +49,26 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     );
 }
 type Args = {
-    params: Promise<{
-        slug: string;
-    }>;
+    params: Promise<{ slug: string; locale?: 'en' | 'fr' | 'it' }>;
 };
 
 export async function generateMetadata(
     { params }: Args,
     _parent: ResolvingMetadata,
 ): Promise<Metadata> {
-    // Await the params
-    const { slug } = await params;
+    const { slug, locale = 'fr' } = await params;
     const finalSlug = slug || 'home';
 
-    const page = await queryPageBySlug(finalSlug);
+    const page = await queryPageBySlug(finalSlug, locale);
     return generateMeta({ doc: page });
 }
 
 // Cached query for page by slug
 const queryPageBySlug = cache(
-    async (slug: string): Promise<RequiredDataFromCollectionSlug<'pages'> | null> => {
+    async (
+        slug: string,
+        locale: 'all' | 'en' | 'fr' | 'it' | undefined,
+    ): Promise<RequiredDataFromCollectionSlug<'pages'> | null> => {
         const payload = await getPayload({ config });
 
         const result = await payload.find({
@@ -80,6 +80,7 @@ const queryPageBySlug = cache(
                     equals: slug,
                 },
             },
+            locale,
         });
 
         return result.docs?.[0] || null;
