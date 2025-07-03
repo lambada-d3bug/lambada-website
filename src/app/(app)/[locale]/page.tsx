@@ -49,17 +49,14 @@ export default async function Page({ params: paramsPromise }: PageParams) {
     );
 }
 type Args = {
-    params: {
-        slug: string;
-        locale?: 'en' | 'fr' | 'it';
-    };
+    params: Promise<{ slug: string; locale?: 'en' | 'fr' | 'it' }>;
 };
 
 export async function generateMetadata(
     { params }: Args,
     _parent: ResolvingMetadata,
 ): Promise<Metadata> {
-    const { slug, locale = 'fr' } = params;
+    const { slug, locale = 'fr' } = await params;
     const finalSlug = slug || 'home';
 
     const page = await queryPageBySlug(finalSlug, locale);
