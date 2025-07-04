@@ -120,7 +120,7 @@ export function HeaderMobile(props: HeaderBlockProps) {
                             </SelectContent>
                         </Select>
                         <ThemeSelector
-                            className={'text-primary dark:bg-secondary dark:text-white'}
+                            className={'text-primary dark:bg-secondary dark:text-white min-w-[60px] border-white/20 bg-white/10 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20'}
                         />
                     </div>
                 </div>
