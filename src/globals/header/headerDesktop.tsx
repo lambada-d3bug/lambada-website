@@ -75,12 +75,12 @@ export function HeaderDesktop(props: HeaderBlockProps) {
             </div>
             <div className={'flex flex-row items-center space-x-2'}>
                 <Button
-                    className="bg-primary hover:bg-primary-foreground dark:text-foreground dark:bg-secondary dark:hover:bg-secondary-foreground h-auto rounded-full px-8 py-3 text-lg text-white uppercase"
+                    className="bg-primary hover:bg-primary-foreground dark:text-foreground dark:bg-secondary dark:hover:bg-secondary-foreground h-full rounded-full px-8 py-3 text-lg text-white uppercase shadow-lg backdrop-blur-md"
                     onClick={() => router.push(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className="!h-auto min-w-[60px] rounded-full border-white/20 bg-white/10 px-8 py-3 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
+                    <SelectTrigger className="!h-full min-w-[80px] rounded-full border-white/20 bg-white/10 px-6 py-3 text-base font-semibold text-white capitalize shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
                         <SelectValue>{selectedLang}</SelectValue>
                     </SelectTrigger>
                     <SelectContent className="border-white/20 bg-white/20 shadow-xl backdrop-blur-md">
@@ -89,13 +89,13 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                                 <SelectItem
                                     key={i}
                                     value={item.lang as string}
-                                    className="cursor-pointer text-white hover:bg-white/20 focus:bg-white/20 data-[highlighted]:bg-white/20 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus:bg-gray-800 dark:data-[highlighted]:bg-gray-800">
+                                    className="cursor-pointer text-white capitalize hover:bg-white/20 focus:bg-white/20 data-[highlighted]:bg-white/20 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus:bg-gray-800 dark:data-[highlighted]:bg-gray-800">
                                     {item.lang}
                                 </SelectItem>
                             ))}
                     </SelectContent>
                 </Select>
-                <ThemeSelector className="!h-auto min-w-[60px] rounded-full border-white/20 bg-white/10 px-8 py-3 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20" />
+                <ThemeSelector className="!h-full min-w-[60px] border-white/20 bg-white/10 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20" />
             </div>
         </div>
     );

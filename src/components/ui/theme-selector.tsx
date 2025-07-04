@@ -26,26 +26,12 @@ export function ThemeSelector({ className }: { className?: string }) {
 
     return (
         <Select value={theme} onValueChange={setTheme}>
-            <SelectTrigger className={className}>
-                <SelectValue>
-                    {theme === 'light' && (
-                        <div className="flex items-center gap-2">
-                            <Sun className="h-4 w-4" />
-                            <span>Light</span>
-                        </div>
-                    )}
-                    {theme === 'dark' && (
-                        <div className="flex items-center gap-2">
-                            <Moon className="h-4 w-4" />
-                            <span>Dark</span>
-                        </div>
-                    )}
-                    {theme === 'system' && (
-                        <div className="flex items-center gap-2">
-                            <Monitor className="h-4 w-4" />
-                            <span>System</span>
-                        </div>
-                    )}
+            <SelectTrigger
+                className={`${className} aspect-ratio flex justify-center rounded-full px-6 [&>svg]:hidden`}>
+                <SelectValue className={'flex justify-center'}>
+                    {theme === 'light' && <Sun className="!h-12 !w-12" />}
+                    {theme === 'dark' && <Moon className="!h-12 !w-12" />}
+                    {theme === 'system' && <Monitor className="!h-12 !w-12" />}
                 </SelectValue>
             </SelectTrigger>
             <SelectContent className="border-white/20 bg-white/10 shadow-xl backdrop-blur-md">
