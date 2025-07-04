@@ -32,7 +32,9 @@ export function HeaderDesktop(props: HeaderBlockProps) {
         const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
         const newPath = `/${newLocale}${pathWithoutLocale}`;
         localStorage.setItem('locale', newLocale);
-        router.push(newPath);
+
+        // Use window.location.href instead of router.push to preserve theme state during navigation
+        window.location.href = newPath;
         setSelectedLang(newLocale);
     };
 

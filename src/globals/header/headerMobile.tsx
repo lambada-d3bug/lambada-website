@@ -33,7 +33,10 @@ export function HeaderMobile(props: HeaderBlockProps) {
     const handleLanguageChange = (newLocale: string) => {
         const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
         const newPath = `/${newLocale}${pathWithoutLocale}`;
-        router.push(newPath);
+        localStorage.setItem('locale', newLocale);
+
+        // Use window.location.href instead of router.push to preserve theme state during navigation
+        window.location.href = newPath;
         setSelectedLang(newLocale);
     };
 

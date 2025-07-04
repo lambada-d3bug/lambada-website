@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body>
-                <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+                <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="theme">
                     {children}
                 </ThemeProvider>
             </body>
