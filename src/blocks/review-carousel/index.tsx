@@ -58,7 +58,7 @@ function ReviewText({ review, expandToggleTexts }) {
             {isOverflowing && (
                 <p
                     onClick={() => setExpanded((prev) => !prev)}
-                    className="text-chart-5 mt-1 cursor-pointer pl-2 text-xs hover:underline sm:text-sm">
+                    className="text-chart-5 dark:text-primary mt-1 cursor-pointer pl-2 text-xs hover:underline sm:text-sm">
                     {expanded ? expandToggleTexts.collapseLabel : expandToggleTexts.expandLabel}
                 </p>
             )}
@@ -104,10 +104,10 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                             className={
                                 'basis-full p-8 last:mr-12 sm:basis-2/3 lg:basis-1/3 lg:p-4'
                             }>
-                            <Card>
+                            <Card className={'dark:bg-secondary'}>
                                 <CardContent
                                     className={
-                                        'flex min-h-48 flex-col items-center justify-between space-y-2 lg:min-h-52'
+                                        'dark:bg-secondary flex min-h-48 flex-col items-center justify-between space-y-2 lg:min-h-52'
                                     }>
                                     <div
                                         className={
@@ -120,7 +120,10 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                                             className={
                                                 'flex flex-row items-center space-x-2 self-start'
                                             }>
-                                            <p className={'text-chart-5 text-xs sm:text-sm'}>
+                                            <p
+                                                className={
+                                                    'text-chart-5 dark:text-primary text-xs sm:text-sm'
+                                                }>
                                                 {review.rating}/5
                                             </p>
                                             <SvgFromUrl
@@ -161,7 +164,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                                                     }`}>
                                                     <p
                                                         className={
-                                                            'text-chart-5 text-xs sm:text-sm'
+                                                            'text-chart-5 dark:text-primary text-xs sm:text-sm'
                                                         }>
                                                         {item.rating}/5
                                                     </p>
@@ -174,7 +177,7 @@ export function ReviewCarouselBlock(props: ReviewCarouselBlockProps) {
                                                     />
                                                     <p
                                                         className={
-                                                            'text-chart-5 text-xs sm:text-sm'
+                                                            'text-chart-5 dark:text-primary text-xs sm:text-sm'
                                                         }>
                                                         {item.category}
                                                     </p>

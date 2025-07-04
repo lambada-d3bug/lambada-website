@@ -14,7 +14,9 @@ export function Header(props: HeaderProps) {
 
     return (
         <div className="flex flex-col space-y-2 sm:order-1 sm:space-y-4 lg:order-1">
-            <p className="text-secondary text-lg font-semibold sm:text-3xl">{title}</p>
+            <p className="text-secondary dark:text-primary/80 text-lg font-semibold sm:text-3xl">
+                {title}
+            </p>
             <div className="flex w-full flex-row space-x-4 rounded-xl">
                 <Controller
                     control={props.form.control}

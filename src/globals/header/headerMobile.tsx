@@ -17,6 +17,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { AlignJustify } from 'lucide-react';
+import { ThemeSelector } from '@/components/ui/theme-selector';
 
 export function HeaderMobile(props: HeaderBlockProps) {
     const [open, setOpen] = useState(false);
@@ -32,7 +33,10 @@ export function HeaderMobile(props: HeaderBlockProps) {
     const handleLanguageChange = (newLocale: string) => {
         const pathWithoutLocale = pathname.replace(/^\/(en|fr|it)/, '');
         const newPath = `/${newLocale}${pathWithoutLocale}`;
-        router.push(newPath);
+        localStorage.setItem('locale', newLocale);
+
+        // Use window.location.href instead of router.push to preserve theme state during navigation
+        window.location.href = newPath;
         setSelectedLang(newLocale);
     };
 
@@ -61,7 +65,7 @@ export function HeaderMobile(props: HeaderBlockProps) {
                 </div>
             </SheetTrigger>
             <SheetContent side="left" className="w-2/3 max-w-full border-none p-0">
-                <div className="flex h-full flex-col rounded-lg bg-white">
+                <div className="dark:bg-card flex h-full flex-col rounded-lg bg-white">
                     <div className="flex items-center justify-center p-4">
                         <div className="mt-24 flex flex-1 justify-center">
                             {isMedia(navLogo) && navLogo.url && (
@@ -82,7 +86,7 @@ export function HeaderMobile(props: HeaderBlockProps) {
                                 <Link
                                     href={`/${selectedLang}/${item?.itemsGroup?.url || ''}`}
                                     className={cn(
-                                        'flex items-center gap-4 rounded-md py-3 pl-4 text-sm font-semibold capitalize hover:bg-[#FBC965]',
+                                        'dark:hover:bg-primary flex items-center gap-4 rounded-md py-3 pl-4 text-sm font-semibold capitalize hover:bg-[#FBC965] dark:text-white',
                                     )}>
                                     <span>{item.itemsGroup?.label}</span>
                                 </Link>
@@ -91,25 +95,33 @@ export function HeaderMobile(props: HeaderBlockProps) {
                     </nav>
                     <Button
                         className={
-                            'mx-4 rounded-2xl bg-[#FBC965] font-semibold text-white capitalize hover:bg-[#f2ba49]'
+                            'dark:bg-secondary dark:hover:bg-secondary-foreground mx-4 rounded-2xl bg-[#FBC965] font-semibold text-white capitalize hover:bg-[#f2ba49]'
                         }
                         onClick={() => router.push(`/${selectedLang || 'fr'}/booking`)}>
                         {navButton?.labelMobile}
                     </Button>
-                    <div className={'mt-12 flex justify-center'}>
+                    <div className={'mt-12 flex flex-col items-center space-y-4'}>
                         <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                            <SelectTrigger className={'text-primary'}>
+                            <SelectTrigger
+                                className={'text-primary dark:bg-secondary dark:text-white'}>
                                 <SelectValue>{selectedLang}</SelectValue>
                             </SelectTrigger>
-                            <SelectContent className={'text-primary'}>
+                            <SelectContent
+                                className={'text-primary dark:bg-secondary dark:text-white'}>
                                 {HeaderProps.language?.languageChoice &&
                                     HeaderProps.language.languageChoice.map((item, i) => (
-                                        <SelectItem key={i} value={item.lang as string}>
+                                        <SelectItem
+                                            key={i}
+                                            value={item.lang as string}
+                                            className="dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                             {item.lang}
                                         </SelectItem>
                                     ))}
                             </SelectContent>
                         </Select>
+                        <ThemeSelector
+                            className={'text-primary dark:bg-secondary dark:text-white'}
+                        />
                     </div>
                 </div>
             </SheetContent>

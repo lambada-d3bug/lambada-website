@@ -89,20 +89,25 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
     };
 
     return (
-        <form
-            className={cn(
-                blockDisplayBoolean ? 'hidden' : '',
-                'flex flex-col space-y-4 px-10 py-26 sm:space-y-8',
-            )}
-            onSubmit={form.handleSubmit(onValid, onInvalid)}>
-            <Header HeaderProps={HeaderProps} form={form} />
-            <div
-                className={
-                    'flex flex-col space-y-4 sm:order-4 sm:space-y-8 lg:order-2 lg:flex-row lg:justify-center'
-                }>
-                <CalendarComponent calendarGroup={calendarGroup} form={form} />
-                <Inputs InputsProps={InputsProps} form={form} />
-            </div>
-        </form>
+        <div
+            className={
+                'bg-muted-foreground dark:bg-primary/50 flex flex-col items-center justify-center p-0 lg:pt-36'
+            }>
+            <form
+                className={cn(
+                    blockDisplayBoolean ? 'hidden' : '',
+                    'dark:bg-background flex w-full flex-col space-y-4 bg-white px-10 py-26 sm:space-y-8',
+                )}
+                onSubmit={form.handleSubmit(onValid, onInvalid)}>
+                <Header HeaderProps={HeaderProps} form={form} />
+                <div
+                    className={
+                        'flex flex-col space-y-4 sm:order-4 sm:space-y-8 lg:order-2 lg:flex-row lg:justify-center'
+                    }>
+                    <CalendarComponent calendarGroup={calendarGroup} form={form} />
+                    <Inputs InputsProps={InputsProps} form={form} />
+                </div>
+            </form>
+        </div>
     );
 }

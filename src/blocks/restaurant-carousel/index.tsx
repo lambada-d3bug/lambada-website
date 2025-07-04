@@ -45,7 +45,7 @@ export function RestaurantCarouselBlock(props: RestaurantCarouselBlockProps) {
         <div
             className={cn(
                 blockDisplayBoolean && 'hidden',
-                'grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0',
+                'dark:bg-background grid grid-cols-1 gap-4 py-8 sm:grid-cols-3 sm:px-0',
             )}>
             <div
                 className={

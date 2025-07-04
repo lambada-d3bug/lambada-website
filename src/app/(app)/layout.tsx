@@ -3,6 +3,7 @@ import React from 'react';
 import '@/styles/globals.css'; // global styles first
 import 'leaflet/dist/leaflet.css';
 import favicon from '@/app/favicon.ico';
+import { ThemeProvider } from 'next-themes';
 
 export const metadata = {
     description:
@@ -19,8 +20,12 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="en">
-            <body>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="theme">
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }

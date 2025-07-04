@@ -36,17 +36,24 @@ export function OverallRatingBlock(props: OverallRatingBlockProps) {
     return (
         <div
             className={cn(
-                'flex flex-row items-center justify-between space-x-0 px-8 py-8 font-semibold md:space-x-4 md:px-20 lg:justify-center lg:space-x-8 lg:px-48',
+                'dark:bg-primary flex flex-row items-center justify-between space-x-4 px-8 py-8 font-semibold md:space-x-4 md:px-20 lg:justify-center lg:space-x-8 lg:px-48',
                 blockDisplayBoolean && 'hidden',
             )}>
-            <p className={'text-base md:text-3xl'}>{title}</p>
-            <div className={'border-t-primary h-1 w-8 border-t-4 md:w-28 lg:w-64'}></div>
-            <p className={'text-primary text-lg md:text-3xl'}>{fetchedRating}/5</p>
+            <p className={'dark:text-secondary-foreground text-base md:text-3xl'}>{title}</p>
+            <div
+                className={
+                    'border-t-primary dark:border-t-secondary-foreground h-1 w-8 border-t-4 md:w-28 lg:w-64'
+                }></div>
+            <p className={'text-primary dark:text-secondary-foreground text-lg md:text-3xl'}>
+                {fetchedRating}/5
+            </p>
             <div className={''}>
                 <SvgFromUrl
                     url={starEmptyLogo.url as string}
                     alt={starEmptyLogo.alt}
-                    className={'text-primary h-6 w-6 md:h-12 md:w-12'}
+                    className={
+                        'text-primary dark:text-secondary-foreground h-6 w-6 md:h-12 md:w-12'
+                    }
                 />
             </div>
         </div>
