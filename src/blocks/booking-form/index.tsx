@@ -91,7 +91,7 @@ export function BookingFormBlock(props: BookingFormBlockProps) {
     return (
         <div
             className={
-                'bg-muted-foreground dark:bg-primary/50 flex flex-col items-center justify-center p-0 lg:pt-36'
+                'bg-accent-foreground/50 dark:bg-primary/80 flex flex-col items-center justify-center p-0 lg:pt-36'
             }>
             <form
                 className={cn(
