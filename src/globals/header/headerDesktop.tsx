@@ -55,7 +55,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                         />
                     )}
                 </Button>
-                <div className="ml-8 flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 shadow-lg backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/70">
+                <div className="dark:border-secondary dark:bg-card/50 ml-8 flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 shadow-lg backdrop-blur-md">
                     <div className="flex flex-row space-x-6 text-sm uppercase max-lg:leading-tight lg:text-lg">
                         {navItems?.map((item, i) => (
                             <Link
@@ -73,15 +73,15 @@ export function HeaderDesktop(props: HeaderBlockProps) {
             </div>
             <div className={'flex flex-row items-center space-x-2'}>
                 <Button
-                    className="bg-primary hover:bg-primary-foreground h-auto rounded-full px-8 py-3 text-lg text-white uppercase dark:bg-white dark:text-primary dark:hover:bg-white/90"
+                    className="bg-primary hover:bg-primary-foreground dark:text-foreground dark:bg-secondary dark:hover:bg-secondary-foreground h-auto rounded-full px-8 py-3 text-lg text-white uppercase"
                     onClick={() => router.push(`/${locale}/${navButton?.url || ''}`)}>
                     {navButton?.labelMobile}
                 </Button>
                 <Select value={selectedLang} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className="!h-auto min-w-[60px] rounded-full border-white/20 bg-white/10 px-8 py-3 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:border-gray-800 dark:bg-gray-900/70">
+                    <SelectTrigger className="!h-auto min-w-[60px] rounded-full border-white/20 bg-white/10 px-8 py-3 text-lg font-semibold text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20">
                         <SelectValue>{selectedLang}</SelectValue>
                     </SelectTrigger>
-                    <SelectContent className="border-white/20 bg-white/10 shadow-xl backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90">
+                    <SelectContent className="border-white/20 bg-white/20 shadow-xl backdrop-blur-md">
                         {language?.languageChoice &&
                             language.languageChoice.map((item, i) => (
                                 <SelectItem

@@ -47,11 +47,13 @@ export function FooterBlock(props: FooterBlockProps) {
                     />
                 )}
             </Button>
-            <p className={'text-chart-5 text-center text-xs sm:text-base'}>{description}</p>
+            <p className={'text-chart-5 dark:text-primary text-center text-xs sm:text-base'}>
+                {description}
+            </p>
             <Button
                 onClick={() => router.push(`${locale}/${button?.url}` || '')}
                 className={
-                    'bg-primary hover:bg-primary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base md:rounded-full md:py-4 md:text-xl'
+                    'bg-primary hover:bg-primary-foreground dark:bg-secondary dark:hover:bg-secondary-foreground h-6 rounded-xl px-4 py-1 text-xs text-white hover:cursor-pointer sm:text-base md:rounded-full md:py-4 md:text-xl'
                 }>
                 {button?.label}
             </Button>
@@ -67,7 +69,7 @@ export function FooterBlock(props: FooterBlockProps) {
             </div>
             <div
                 className={
-                    'text-chart-5 flex flex-row justify-between space-x-4 text-xs sm:text-base'
+                    'text-chart-5 dark:text-primary flex flex-row justify-between space-x-4 text-xs sm:text-base'
                 }>
                 <Link
                     href={terms?.url || ''}
@@ -99,7 +101,7 @@ export function FooterBlock(props: FooterBlockProps) {
                     </Link>
                 ))}
             </div>
-            <div className={'text-chart-5 flex flex-row text-xs sm:text-base'}>
+            <div className={'text-chart-5 dark:text-primary flex flex-row text-xs sm:text-base'}>
                 {copyright?.map((item, i) => <p key={i}>{item.text}</p>)}
             </div>
         </div>

@@ -62,7 +62,7 @@ export function DescriptionTab(props: DescriptionTabProps) {
                         <CarouselItem
                             key={i}
                             className="flex h-full basis-[calc(50%-8px)] items-center pl-2 sm:basis-[calc(33.333%-12px)] md:basis-[calc(25%-16px)] md:pl-4 lg:basis-[calc(16.666%-20px)]">
-                            <div className="group relative h-[85%] w-full overflow-hidden rounded-xl border border-gray-200/50 bg-gray-50/80 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md">
+                            <div className="group dark:bg-primary relative h-[85%] w-full overflow-hidden rounded-xl border border-gray-200/50 bg-gray-50/80 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md">
                                 {/* Content */}
                                 <div className="flex h-full flex-col items-center justify-center space-y-3 p-4 text-center">
                                     <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
@@ -72,7 +72,7 @@ export function DescriptionTab(props: DescriptionTabProps) {
                                             className="text-secondary h-8 w-8 drop-shadow-sm lg:h-10 lg:w-10"
                                         />
                                     </div>
-                                    <p className="text-foreground/90 text-xs leading-tight font-medium lg:text-sm xl:text-base">
+                                    <p className="text-foreground/90 dark:text-secondary text-xs leading-tight font-medium lg:text-sm xl:text-base">
                                         {iconGroup.iconGroup.label}
                                     </p>
                                 </div>

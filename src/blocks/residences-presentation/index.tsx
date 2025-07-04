@@ -119,27 +119,31 @@ export function ResidencesPresentationBlock(props: ResidencesPresentationBlockPr
                         <SvgFromUrl
                             url={headingGroup.starLogo.url as string}
                             alt={headingGroup.starLogo.alt}
-                            className={'text-primary h-6 w-6'}
+                            className={'text-primary dark:text-chart-4 h-6 w-6'}
                         />
-                        <p>{headingGroup.rating}</p>
+                        <p className={'dark:text-primary'}>{headingGroup.rating}</p>
 
-                        <p> - </p>
-                        <p className={'text-chart-5'}>{headingGroup.location}</p>
+                        <p className={'dark:text-primary'}> - </p>
+                        <p className={'text-chart-5 dark:text-primary'}>{headingGroup.location}</p>
                     </div>
-                    <p className={'text-chart-5'}>{headingGroup.description}</p>
+                    <p className={'text-chart-5 dark:text-white'}>{headingGroup.description}</p>
                 </div>
                 <div className={'flex flex-row'}>
                     <Button
                         onClick={sharePageUrl}
                         className={
-                            'group flex flex-col items-center bg-transparent py-8 hover:cursor-pointer'
+                            'group dark:bg-primary dark:hover:bg-primary/80 flex flex-col items-center bg-transparent py-8 hover:cursor-pointer'
                         }>
                         <SvgFromUrl
                             url={headingGroup.shareGroup.logo.url as string}
                             alt={headingGroup.shareGroup.logo.alt || ''}
-                            className={'h-5 w-5 group-hover:text-white'}
+                            className={
+                                'dark:group-hover:text-secondary h-5 w-5 group-hover:text-white'
+                            }
                         />
-                        <p className={'group-hover:text-white'}>{headingGroup.shareGroup.label}</p>
+                        <p className={'dark:group-hover:text-secondary group-hover:text-white'}>
+                            {headingGroup.shareGroup.label}
+                        </p>
                     </Button>
                 </div>
             </div>

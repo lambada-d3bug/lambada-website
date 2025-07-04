@@ -60,7 +60,7 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
     return (
         <div
             className={cn(
-                'flex w-full flex-col items-center space-y-6 py-16 lg:px-40',
+                'dark:bg-background flex w-full flex-col items-center space-y-6 py-16 lg:px-40',
                 blockDisplayBoolean && 'hidden',
             )}>
             <Carousel setApi={setApi} className="w-full max-w-full">
@@ -74,10 +74,10 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
                                 {/* Title & Description */}
                                 <div className="flex w-full flex-col justify-between space-y-2 sm:flex-row sm:space-y-0 md:space-x-4">
                                     <div className="flex flex-col space-y-2">
-                                        <p className="text-lg sm:text-2xl md:text-3xl">
+                                        <p className="dark:text-primary text-lg sm:text-2xl md:text-3xl">
                                             {residence.residenceGroup.title}
                                         </p>
-                                        <p className="text-chart-5 text-xs sm:text-sm md:text-base">
+                                        <p className="text-chart-5 text-xs sm:text-sm md:text-base dark:text-white">
                                             {residence.residenceGroup.subheading}
                                         </p>
                                     </div>
@@ -174,13 +174,13 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
                                             <CarouselItem
                                                 key={i}
                                                 className="mx-0 basis-1/3 sm:basis-1/4 sm:px-2 md:basis-1/6">
-                                                <div className="bg-ring/25 flex h-full min-h-[100px] flex-col items-center justify-center space-y-2 rounded-lg p-2 text-center">
+                                                <div className="bg-ring/25 dark:bg-primary flex h-full min-h-[100px] flex-col items-center justify-center space-y-2 rounded-lg p-2 text-center">
                                                     <SvgFromUrl
                                                         url={icon.card.icon.url as string}
                                                         alt={icon.card.icon.alt}
                                                         className="text-secondary h-6 w-6 flex-shrink-0 lg:h-8 lg:w-8"
                                                     />
-                                                    <p className="text-xs leading-tight font-medium sm:text-sm lg:text-base">
+                                                    <p className="dark:text-secondary text-xs leading-tight font-medium sm:text-sm lg:text-base">
                                                         {icon.card.label}
                                                     </p>
                                                 </div>
@@ -203,7 +203,9 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
                         key={index}
                         className={cn(
                             'h-2 w-2 rounded-full transition-all',
-                            current === index ? 'bg-secondary w-4' : 'bg-secondary/30',
+                            current === index
+                                ? 'bg-secondary dark:bg-primary/70 w-4'
+                                : 'bg-secondary/30 dark:bg-primary',
                         )}
                         onClick={() => handleDotClick(index)}
                         aria-label={`Go to slide ${index + 1}`}

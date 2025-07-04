@@ -109,7 +109,7 @@ export function CalendarComponent({ calendarGroup, form }: CalendarComponentProp
                                 disabled={isDateDisabled}
                             />
                             <p
-                                className="underline hover:cursor-pointer"
+                                className="dark:text-primary underline hover:cursor-pointer"
                                 onClick={() => onChange({ from: undefined, to: undefined })}>
                                 {deleteDateText}
                             </p>
