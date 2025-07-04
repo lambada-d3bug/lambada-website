@@ -29,9 +29,9 @@ export function ThemeSelector({ className }: { className?: string }) {
             <SelectTrigger
                 className={`${className} aspect-ratio flex justify-center rounded-full px-6 [&>svg]:hidden`}>
                 <SelectValue className={'flex justify-center'}>
-                    {theme === 'light' && <Sun className="!h-8 !w-8" />}
-                    {theme === 'dark' && <Moon className="!h-8 !w-8" />}
-                    {theme === 'system' && <Monitor className="!h-8 !w-8" />}
+                    {theme === 'light' && <Sun className="!h-5 !w-5" />}
+                    {theme === 'dark' && <Moon className="!h-5 !w-5" />}
+                    {theme === 'system' && <Monitor className="!h-5 !w-5" />}
                 </SelectValue>
             </SelectTrigger>
             <SelectContent className="border-white/20 bg-white/10 shadow-xl backdrop-blur-md">
