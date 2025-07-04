@@ -103,7 +103,9 @@ export function HeaderMobile(props: HeaderBlockProps) {
                     <div className={'mt-12 flex flex-col items-center space-y-4'}>
                         <Select value={selectedLang} onValueChange={handleLanguageChange}>
                             <SelectTrigger
-                                className={'text-primary dark:bg-secondary dark:text-white'}>
+                                className={
+                                    'text-primary dark:bg-secondary rounded-full border-none shadow-lg backdrop-blur-md dark:text-white'
+                                }>
                                 <SelectValue>{selectedLang}</SelectValue>
                             </SelectTrigger>
                             <SelectContent
@@ -120,7 +122,9 @@ export function HeaderMobile(props: HeaderBlockProps) {
                             </SelectContent>
                         </Select>
                         <ThemeSelector
-                            className={'text-primary dark:bg-secondary dark:text-white min-w-[60px] border-white/20 bg-white/10 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20'}
+                            className={
+                                'text-primary dark:bg-secondary min-w-[60px] border-white/20 bg-white/10 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:text-white'
+                            }
                         />
                     </div>
                 </div>
