@@ -169,7 +169,7 @@ export function ResidenceGeneralBlock(props: ResidenceGeneralBlockProps) {
 
                                 {/* Icons Carousel */}
                                 <Carousel className="w-full">
-                                    <CarouselContent className="w-full max-sm:-ml-4 lg:justify-center">
+                                    <CarouselContent className="w-full max-sm:-ml-4 md:justify-center">
                                         {residence.residenceGroup.iconArray.map((icon, i) => (
                                             <CarouselItem
                                                 key={i}
