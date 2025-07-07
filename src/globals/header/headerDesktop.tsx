@@ -89,7 +89,7 @@ export function HeaderDesktop(props: HeaderBlockProps) {
                                 <SelectItem
                                     key={i}
                                     value={item.lang as string}
-                                    className="cursor-pointer text-white capitalize hover:bg-white/20 focus:bg-white/20 data-[highlighted]:bg-white/20 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus:bg-gray-800 dark:data-[highlighted]:bg-gray-800">
+                                    className="text-primary cursor-pointer capitalize hover:bg-white/20 focus:bg-white/20 data-[highlighted]:bg-white/20 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus:bg-gray-800 dark:data-[highlighted]:bg-gray-800">
                                     {item.lang}
                                 </SelectItem>
                             ))}
