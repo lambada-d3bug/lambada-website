@@ -4,6 +4,7 @@ import '@/styles/globals.css'; // global styles first
 import 'leaflet/dist/leaflet.css';
 import favicon from '@/app/favicon.ico';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
     description:
@@ -22,9 +23,14 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body>
-                <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="theme">
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="light"
+                    enableSystem
+                    storageKey="theme">
                     {children}
                 </ThemeProvider>
+                <Analytics />
             </body>
         </html>
     );

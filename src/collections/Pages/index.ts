@@ -19,6 +19,7 @@ import {
     MetaTitleField,
     OverviewField,
 } from '@payloadcms/plugin-seo/fields';
+import { TermsAndConditions } from '@/blocks/terms-and-conditions/config';
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -90,6 +91,7 @@ export const Pages: CollectionConfig = {
                 ResidenceGeneral,
                 RestaurantCarousel,
                 RestaurantMenu,
+                TermsAndConditions,
             ],
         },
         {

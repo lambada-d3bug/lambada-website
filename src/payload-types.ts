@@ -420,6 +420,20 @@ export interface Page {
             blockName?: string | null;
             blockType: 'restaurantMenu';
           }
+        | {
+            blockDisplayBoolean?: boolean | null;
+            title?: string | null;
+            content?:
+              | {
+                  subtitle?: string | null;
+                  paragraph?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'termsAndConditions';
+          }
       )[]
     | null;
   meta?: {
@@ -972,6 +986,21 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                   };
               image?: T;
+              id?: T;
+              blockName?: T;
+            };
+        termsAndConditions?:
+          | T
+          | {
+              blockDisplayBoolean?: T;
+              title?: T;
+              content?:
+                | T
+                | {
+                    subtitle?: T;
+                    paragraph?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

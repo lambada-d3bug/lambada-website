@@ -72,14 +72,14 @@ export function FooterBlock(props: FooterBlockProps) {
                     'text-chart-5 dark:text-primary flex flex-row justify-between space-x-4 text-xs sm:text-base'
                 }>
                 <Link
-                    href={terms?.url || ''}
+                    href={`/${locale}/${terms?.url}` || ''}
                     target={'_blank'}
                     rel="noopener noreferrer"
                     className={'flex items-center'}>
                     <p className={'hover:underline'}> {terms?.label}</p>
                 </Link>
                 <Link
-                    href={confidentiality?.url || ''}
+                    href={`/${locale}/${confidentiality?.url}` || ''}
                     target={'_blank'}
                     rel="noopener noreferrer"
                     className={'flex items-center'}>

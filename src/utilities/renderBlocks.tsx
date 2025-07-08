@@ -13,6 +13,7 @@ import { BookingFormBlock } from '@/blocks/booking-form';
 import { ResidenceGeneralBlock } from '@/blocks/residence-general';
 import { RestaurantCarouselBlock } from '@/blocks/restaurant-carousel';
 import { RestaurantMenuBlock } from '@/blocks/restaurant-menu';
+import { TermsAndConditionsBlock } from '@/blocks/terms-and-conditions';
 
 // Common interface for all block components
 interface BlockComponentProps {
@@ -36,6 +37,7 @@ const blockComponents: BlockComponentsType = {
     residenceGeneral: ResidenceGeneralBlock,
     restaurantCarousel: RestaurantCarouselBlock,
     restaurantMenu: RestaurantMenuBlock,
+    termsAndConditions: TermsAndConditionsBlock,
 };
 
 export const RenderBlocks: React.FC<{
