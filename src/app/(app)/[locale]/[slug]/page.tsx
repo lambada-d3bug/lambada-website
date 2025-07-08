@@ -42,6 +42,7 @@ export default async function Page({ params: paramsPromise }: PageParams) {
         locale,
     });
     const data = pageRes?.docs?.[0] as null | PageType;
+    console.log(data);
 
     if (data === null) {
         return notFound();
